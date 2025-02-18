@@ -109,3 +109,9 @@ footer section{
     margin-top: 10px;
     text-align: center;
 }
+
+#agrupacion{
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
