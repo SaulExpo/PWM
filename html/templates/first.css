@@ -2,7 +2,19 @@
     margin: 0;
     padding: 0;
 }
+
+main{
+    background-color: #121212;
+    height: 100%;
+    padding: 0;
+    color: #E7BB0D;
+}
+
 #header{
+    position: sticky;
+    height: 80px;
+    top: 0;
+    z-index: 10;
     background-color: #FFFFFF;
     display: grid;
     grid-template-columns: 1fr 3fr 0.5fr 0.5fr; /* Tres columnas con la central más ancha */
@@ -22,19 +34,8 @@ header h1{
     width: 64px;
 }
 
-main{
-    background-color: #121212;
-    height: 1000px;
-    padding: 0;
-    color: #E7BB0D;
-}
-
-main section{
-    color: white;
-}
-
-
 footer{
+    height: 150px;
     background-color: #FFFFFF;
 }
 
@@ -50,17 +51,20 @@ footer section{
 #Separacion{
     background-color: #E7BB0D;
     height: 20px;
+    margin-bottom: 30px;
 }
 
-/* Contenedor que usa grid */
 .container {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
     background-color: #E7BB0D;
     align-items: center;
     height: 50px;
     color: #000000;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* Tres columnas con la central más ancha */
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
 }
@@ -86,24 +90,20 @@ footer section{
     height: 5px;
 }
 
-/* Espacio vacío alineado a la derecha */
-.right-text {
-    /* Este espacio queda vacío a la derecha */
-}
-
-#film{
+.film{
     width: 150px;
     height: 200px;
 }
 
-#reseña{
-    padding: 30px;
+.reseña{
+    color: white;
+    padding: 5%;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 160px 1fr;
 }
 
-#titulo{
+.titulo{
     font-weight: bold;
     width: 150px;
     margin-top: 10px;
@@ -115,6 +115,7 @@ footer section{
     display: flex;
     justify-content: space-between;
 }
+
 #Categoria{
     display: flex;
     align-items: center;
@@ -132,8 +133,8 @@ footer section{
     margin-bottom: 30px;
     margin-left: 70px;
 }
-
-.Categoria-figure {
+/*editar figure?*/
+figure {
     text-align: center;
 }
 
@@ -141,24 +142,126 @@ footer section{
     background-color: #E7BB0D;
     cursor: pointer;
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
 }
 
-#Triangular-button-right:hover {
+#Triangular-button:hover {
     background-color: #d1a309;
 }
 
-#Triangular-button-left{
-    background-color: #E7BB0D;
-    cursor: pointer;
-    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
-    height: 50px;
-    width: 50px;
+.notificacion_contededor{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 90%;
+    color: black;
+    height: 1000px;
 }
 
-#Triangular-button-left:hover {
-    background-color: #d1a309;
+.notificacion{
+    display: flex;
+    margin-bottom: -2px;
+    flex-direction: column;
+    border-top: 2px black solid;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.notificacion p{
+    margin: 5px;
+}
+
+.notificacion_aviso{
+    background-color: #504D4D;
+    height: 10px;
+    width: 10px;
+    margin: 0 10px 10px auto;
+}
+
+#parte-arriba{
+    color: black;
+    background-color: #FFDE5B;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#parte-arriba img{
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+#notificacion_usuario{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#left-screen{
+    background-color: #FFDE5B;
+}
+
+#right-screen{
+    padding: 10px;
+    background-color: white;
+}
+
+#film_title{
+    display: flex;
+    padding: 5%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#film_title div{
+    margin-right: 20px;
+}
+
+#film_title img{
+    width: 1em;
+    margin-left: 20px;
+}
+
+#film_container{
+    color: white;
+    margin-left: 5%;
+    display: flex;
+}
+
+#film_container div{
+    margin: 0 5%;
+}
+
+#film_container img{
+    width: 10em;
+}
+
+.opciones{
+    margin-left: 5%;
+    display: flex;
+}
+
+.opciones img{
+    margin-top: 20px;
+    margin-left: 5%;
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+}
+
+.about_us{
+    color: white;
+    display: flex;
+}
+
+.about_us *{
+    padding: 5%;
+}
+
+#about_us_h1{
+    padding: 5% 0 0 5%;
 }
 
 #Oval-Button{
@@ -175,6 +278,7 @@ footer section{
 }
 
 .Reseña-Personal{
+    color: white;
     display: flex;
     align-items: center;
     margin-right: 15%;

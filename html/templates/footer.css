@@ -1,0 +1,19 @@
+footer{
+    height: 150px;
+    background-color: #FFFFFF;
+}
+
+footer section{
+    margin-top: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center;
+}
+
+#Separacion{
+    background-color: #E7BB0D;
+    height: 20px;
+    margin-bottom: 30px;
+}

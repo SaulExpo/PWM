@@ -1,0 +1,57 @@
+.notificacion_contededor{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 90%;
+    color: black;
+    height: 1000px;
+}
+
+.notificacion{
+    display: flex;
+    margin-bottom: -2px;
+    flex-direction: column;
+    border-top: 2px black solid;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.notificacion p{
+    margin: 5px;
+}
+
+.notificacion_aviso{
+    background-color: #504D4D;
+    height: 10px;
+    width: 10px;
+    margin: 0 10px 10px auto;
+}
+
+#parte-arriba{
+    color: black;
+    background-color: #FFDE5B;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#parte-arriba img{
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+#notificacion_usuario{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#left-screen{
+    background-color: #FFDE5B;
+}
+
+#right-screen{
+    padding: 10px;
+    background-color: white;
+}
