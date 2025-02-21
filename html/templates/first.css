@@ -173,3 +173,17 @@ footer section{
 #Oval-Button:hover {
     background-color: #d1a309;
 }
+
+.Reseña-Personal{
+    display: flex;
+    align-items: center;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.foto-perfil{
+    clip-path: circle(35%);
+    height: 75px;
+    width: 75px;
+    margin-right: 30px;
+}
