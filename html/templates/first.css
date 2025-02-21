@@ -115,7 +115,6 @@ footer section{
     display: flex;
     justify-content: space-between;
 }
-
 #Categoria{
     display: flex;
     align-items: center;
@@ -133,8 +132,8 @@ footer section{
     margin-bottom: 30px;
     margin-left: 70px;
 }
-/*editar figure?*/
-figure {
+
+.Categoria-figure {
     text-align: center;
 }
 
@@ -142,10 +141,35 @@ figure {
     background-color: #E7BB0D;
     cursor: pointer;
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
 }
 
-#Triangular-button:hover {
+#Triangular-button-right:hover {
+    background-color: #d1a309;
+}
+
+#Triangular-button-left{
+    background-color: #E7BB0D;
+    cursor: pointer;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+    height: 50px;
+    width: 50px;
+}
+
+#Triangular-button-left:hover {
+    background-color: #d1a309;
+}
+
+#Oval-Button{
+    background-color: #E7BB0D;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+#Oval-Button:hover {
     background-color: #d1a309;
 }
