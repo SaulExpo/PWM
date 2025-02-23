@@ -1,6 +1,7 @@
 #ImageAndTextTemplate{
     background-color: #000000;
-    text-align: center;
     color: #E7BB0D;
-    padding: 10px;
+    text-align: center;
+    padding: 1%;
+    display: inline-block;
 }
