@@ -1,0 +1,62 @@
+#logo_form{
+    width:100px;
+    height:100px;
+    float: right;
+    border-radius: 50%;
+    padding: 5%;
+}
+#background{
+    background-color: #121212;
+    padding:10px;
+    align-content: center;
+}
+
+#form_div_style{
+    margin: 5% 25%;
+    background-color: #c9c9c9;
+    padding: 5%;
+    text-align: center;
+}
+
+#form_style{
+    margin: 0% 25%;
+}
+
+#Oval_Button_form{
+    background-color: #E7BB0D;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+
+#Oval_Button_form:hover {
+    background-color: #d1a309;
+}
+
+#Oval_Button_white_form{
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 30px;
+    margin: auto;
+}
+
+#Oval-Button-white:hover {
+    background-color: #d9d9d9;
+}
+
+.ButtonRegistryOrLog{
+    text-align: center;
+    display: flex;
+    width: 75%;
+    align-content: center;
+    padding: 5px 20px;
+    margin: auto;
+}
