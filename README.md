@@ -4,11 +4,11 @@ Integrantes del grupo:
   Saúl Expósito Morales
 
 Indice del contenido:
-  Descripción del proyecto ----------------------------------------------------------   3
-  Funcionalidades del proyecto ------------------------------------------------------   4
-  Mockups ---------------------------------------------------------------------------   5
-  Storyboard-------------------------------------------------------------------------   6
-  Templates -------------------------------------------------------------------------   7
+  Descripción del proyecto -----------------------------   3
+  Funcionalidades del proyecto -------------------------   4
+  Mockups ----------------------------------------------   5
+  Storyboard--------------------------------------------   6
+  Templates --------------------------------------------   7
 
 Descipción del proyecto:
   Se trata de una web para realizar reseñas sobre películas y series. El usuario tendrá que crear una cuenta o iniciar sesión para poder escribir su propia reseña. Se podrá puntuar la película/serie con un valor del 0 al 10. 
