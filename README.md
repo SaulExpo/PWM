@@ -3,7 +3,8 @@ Integrantes del grupo:
   Pedro Pablo Díaz López
   Saúl Expósito Morales
 
-Indice del contenido:
+Indice del contenido:  
+
   Descripción del proyecto -----------------------------   3
   Funcionalidades del proyecto -------------------------   4
   Mockups ----------------------------------------------   5
