@@ -5,7 +5,8 @@ Integrantes del grupo:
 
 Indice del contenido:  
 
-  Descripción del proyecto -----------------------------   3
+  Descripción del proyecto -----------------------------   3  
+  
   Funcionalidades del proyecto -------------------------   4
   Mockups ----------------------------------------------   5
   Storyboard--------------------------------------------   6
