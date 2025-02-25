@@ -116,39 +116,12 @@ footer section{
     justify-content: space-between;
 }
 
-#Categoria{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
 
-.Categoria-film{
-    width: 250px;
-    height: 300px;
-}
-
-#Categoria-title{
-    color: #E7BB0D;
-    font-size: 30px;
-    margin-bottom: 30px;
-    margin-left: 70px;
-}
 /*editar figure?*/
 figure {
     text-align: center;
 }
 
-#Triangular-button-right{
-    background-color: #E7BB0D;
-    cursor: pointer;
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    height: 100px;
-    width: 100px;
-}
-
-#Triangular-button:hover {
-    background-color: #d1a309;
-}
 
 .notificacion_contededor{
     display: grid;
@@ -262,19 +235,6 @@ figure {
 
 #about_us_h1{
     padding: 5% 0 0 5%;
-}
-
-#Oval-Button{
-    background-color: #E7BB0D;
-    cursor: pointer;
-    border-color: black;
-    padding: 5px 20px;
-    text-align: center;
-    border-radius: 30px;
-}
-
-#Oval-Button:hover {
-    background-color: #d1a309;
 }
 
 .Reseña-Personal{
