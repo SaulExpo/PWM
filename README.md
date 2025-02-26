@@ -7,10 +7,11 @@
 
 ## Índice del contenido:
 1. [Descripción del proyecto](#1-descripción-del-proyecto)
-2. [Funcionalidades del proyecto](#2-funcionalidades-del-proyecto)
-3. [Mockups](#mockups)
-4. [Storyboard](#storyboard)  
-5. [Templates](#templates)
+2. [Funcionalidades del proyecto](#2-listado-de-requisitos-funcionales-del-proyecto)
+3. [Mockups y Storyboard](#3-archivo-pdf-con-mockups-y-storyboard)
+4. [Templates](#4-templates-identificados)
+5. [páginas HTML](#5-páginas-html)
+6. [Figma y Trello](#6-enlace-a-figma-y-trello)
 
 ## 1. Descripción del proyecto:
 Se trata de una web para realizar reseñas sobre películas y series.  
@@ -24,7 +25,7 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - Nuevas películas añadidas a la página.
   - Estrenos próximos.  
 
-## Listado de requisitos funcionales del proyecto:
+## 2. Listado de requisitos funcionales del proyecto:
 - Poder **crear una cuenta**.  
 - **Editar** información personal del usuario.  
 - **Escribir reseñas** sobre las películas.  
@@ -32,14 +33,13 @@ Se trata de una web para realizar reseñas sobre películas y series.
 - **Explorar películas** catalogadas por categorías.  
 - **Recibir notificaciones** a través de la página web.  
 
-## Archivo PDF con mockups y storyboard:
-*[Enlace al archivo PDF]*  
+## 3. Archivo PDF con mockups y storyboard:
+  Google Drive:  https://docs.google.com/document/d/1bntql76FH07yPHsE0nYKnX1_lF6g5VYnUDAWIPwrF_w/edit?usp=sharing  
 
-## Listado de archivos templates identificados:
-*[Aquí se listarán los archivos templates utilizados en el proyecto]*
+## 4. Templates identificados:
 
-Listado de páginas HTML:  
+## 5. Páginas HTML: 
 
-Enlace a Figma y trello:  
-  Figma: https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
-  Trello:https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
+## 6. Enlace a Figma y trello:  
+  Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
+  Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
