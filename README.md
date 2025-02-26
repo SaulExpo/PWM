@@ -23,7 +23,6 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - El fin de una suscripción.
   - Anuncios.
   - Nuevas películas añadidas a la página.
-  - Estrenos próximos.  
 
 ## 2. Listado de requisitos funcionales del proyecto:
 - Poder **crear una cuenta**.  
