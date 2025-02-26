@@ -1,51 +1,61 @@
-#logo_form{
-    width:100px;
-    height:100px;
+main{
+    background-color: #121212;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input{
+    margin: 10px;
+}
+
+.form-container{
+    background-color: #c9c9c9;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 45%;
+    margin: 20px;
+}
+
+.text-and-logo{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.title-in-page{
+    font-size: 30px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+#logo-form{
+    width: 100px;
+    height: 100px;
     float: right;
     border-radius: 50%;
-    padding: 5%;
-}
-#background{
-    background-color: #121212;
-    padding:10px;
-    align-content: center;
+    margin-left: 200px;
+    padding-top: 5px;
 }
 
-#form_div_style{
-    margin: 5% 25%;
-    background-color: #c9c9c9;
-    padding: 5%;
-    text-align: center;
+#form-style{
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
-#form_style{
-    margin: 0% 25%;
-}
-
-#Oval_Button_form{
-    background-color: #E7BB0D;
-    cursor: pointer;
-    border-color: black;
-    padding: 5px 20px;
-    border-radius: 30px;
-    text-align: center;
-    display: flex;
-    margin: auto;
-}
-
-#Oval_Button_form:hover {
-    background-color: #d1a309;
-}
-
-#Oval_Button_white_form{
+#Oval-Button-white-form{
     background-color: #ffffff;
     cursor: pointer;
     display: flex;
     border-color: black;
     padding: 5px;
     text-align: center;
-    border-radius: 30px;
-    margin: auto;
+    border-radius: 20px;
+    margin: 5% auto;
 }
 
 #Oval-Button-white:hover {
@@ -53,10 +63,18 @@
 }
 
 .ButtonRegistryOrLog{
-    text-align: center;
+    background-color: #ffffff;
+    cursor: pointer;
     display: flex;
-    width: 75%;
+    padding: 10px 70px;
+    text-align: center;
+    margin: 1% auto;
+}
+
+.buttons-type-login{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     align-content: center;
-    padding: 5px 20px;
-    margin: auto;
+    padding: 15px;
 }
