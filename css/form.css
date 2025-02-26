@@ -78,3 +78,9 @@ main{
     align-content: center;
     padding: 15px;
 }
+
+#forgot-password{
+    text-align: center;
+    margin-left: 60px;
+
+}
