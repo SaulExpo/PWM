@@ -1,0 +1,34 @@
+#top-zone{
+    color: black;
+    background-color: #FFDE5B;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+
+#profile-picture{
+    position: relative;
+    top: 50px;
+    width: 50%;
+    text-align: center;
+}
+
+#profile-picture img{
+    width: 70px;
+    border-radius: 30px;
+}
+
+.profile-space{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: end;
+}
+
+#profile-options{
+    display: flex;
+    justify-content: space-around;
+    color: #E7BB0D;
+}
