@@ -1,9 +1,9 @@
 # QueTeParece | Reseñas de Películas y Series
 
 ## Integrantes del grupo:
-- **Eduardo Arbelo Rua-Figueroa**
-- **Pedro Pablo Díaz López**
-- **Saúl Expósito Morales**
+- Eduardo Arbelo Rua-Figueroa
+- Pedro Pablo Díaz López
+- Saúl Expósito Morales
 
 ## Índice del contenido:
 1. [Descripción del proyecto](#1-descripción-del-proyecto)
@@ -69,7 +69,13 @@ Se trata de una web para realizar reseñas sobre películas y series.
 - **Template de form:**
   - form.html
 ## 5. Páginas HTML: 
-
+- **Index(página de inicio)** -> IndexMockup
+- **About-us** -> AboutUsMockup
+- **Categories** -> GenresFilmsMockup
+- **Film-info** -> FilmMockup
+- **Films** -> FilmsMockup
+- **Notification** -> NotificationMockup
+- **Review** -> ReviewMockup
 ## 6. Enlace a Figma y trello:  
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
