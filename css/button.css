@@ -34,3 +34,16 @@
 #oval-button:hover {
     background-color: #d1a309;
 }
+
+#oval-button-white{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+#oval-button-white:hover {
+    background-color: #d9d9d9;
+}
