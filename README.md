@@ -1,4 +1,4 @@
-# Proyecto de Reseñas de Películas y Series
+# QueTeParece | Reseñas de Películas y Series
 
 ## Integrantes del grupo:
 - **Eduardo Arbelo Rua-Figueroa**
@@ -37,7 +37,37 @@ Se trata de una web para realizar reseñas sobre películas y series.
   Google Drive:  https://docs.google.com/document/d/1bntql76FH07yPHsE0nYKnX1_lF6g5VYnUDAWIPwrF_w/edit?usp=sharing  
 
 ## 4. Templates identificados:
+- **Templates de botones:**
+  - triangular-button-left.html
+  - triangular-button-right.html
+  - oval-button.html
+- **Templates de categoria de peliculas:**
+  - category.html
+  - category-right-arrow.html
+  - category-right-left-arrow.html
+- **Templates para peliculas:**
+  - film.html
+  - film_association.html
+  - film_title.html
+- **Templates para el header:**
+  - nav.html
+  - header.html
+- **Templates de imagenes con texto:**
+  - image-and-text-left.html
+  - image-and-text-right.html
+  - image-and-text-under.html
 
+- **Templates para notificaciones:**
+  - individual-notification.html
+  - notification-message.html
+- **Templates para reviews:**
+  - personal-review-read.html
+  - personal-review-write.html
+  - review.html
+- **Templates para el footer:**
+  - footer.html
+- **Template de form:**
+  - form.html
 ## 5. Páginas HTML: 
 
 ## 6. Enlace a Figma y trello:  
