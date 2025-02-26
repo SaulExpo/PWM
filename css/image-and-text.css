@@ -17,3 +17,9 @@
 .image-and-text-h1{
     padding: 5% 0 0 5%;
 }
+
+#slideshow{
+    padding: 5%;
+    width: 90%;
+    height: 250px;
+}

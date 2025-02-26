@@ -29,7 +29,7 @@
 #top-zone{
     color: black;
     background-color: #FFDE5B;
-    height: 10%;
+    height: 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
