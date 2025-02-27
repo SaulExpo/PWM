@@ -44,14 +44,12 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - category.html
   - category-right-arrow.html
   - category-right-left-arrow.html
-- **Templates para peliculas:**
+- **Template para peliculas:**
   - film.html
-  - film_association.html
-  - film_title.html
 - **Templates para el header:**
   - nav.html
   - header.html
-- **Templates de imagenes con texto:**
+- **Templates para imagenes con texto:**
   - image-and-text-left.html
   - image-and-text-right.html
   - image-and-text-under.html
@@ -63,10 +61,12 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - personal-review-read.html
   - personal-review-write.html
   - review.html
+  - text-and-image-logo.html
 - **Templates para el footer:**
   - footer.html
-- **Template de form:**
+- **Template para forms:**
   - form.html
+  
 ## 5. Páginas HTML: 
 - **Index(página de inicio)** -> IndexMockup
 - **About-us** -> AboutUsMockup
@@ -75,6 +75,12 @@ Se trata de una web para realizar reseñas sobre películas y series.
 - **Films** -> FilmsMockup
 - **Notification** -> NotificationMockup
 - **Review** -> ReviewMockup
+- **Actor** -> ActorMockup
+- **Edit-Profile** -> EditProfileMockup
+- **Login** -> LoginMockup
+- **Register** -> RegisterMockup
+- **Profile** -> ProfileMockup
+
 ## 6. Enlace a Figma y trello:  
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
