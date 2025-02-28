@@ -33,8 +33,8 @@ Se trata de una web para realizar reseñas sobre películas y series.
 - **Recibir notificaciones** a través de la página web.  
 
 ## 3. Archivo PDF con mockups y storyboard:
-  Google Drive:  https://docs.google.com/document/d/1bntql76FH07yPHsE0nYKnX1_lF6g5VYnUDAWIPwrF_w/edit?usp=sharing  
-
+  PMW/Mockups
+  
 ## 4. Templates identificados:
 - **Templates de botones:**
   - triangular-button-left.html
