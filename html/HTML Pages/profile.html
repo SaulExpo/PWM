@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/image-and-text.css">
+    <link rel="stylesheet" href="../../css/category.css">
+    <link rel="stylesheet" href="../../css/profile.css">
+    <script src="../../js/templates.js"></script>
+</head>
+<body>
+<header id="header"></header>
+<nav id="nav" class="container"></nav>
+
+<main>
+    <section id="top-zone">
+        <div class="profile-space">
+            <div id="profile-picture">
+                <img src="../img/film.png" alt="">
+                <div id="profile-options">
+                    <a href="edit-profile.html"><span>Lorem Ipsum</span></a>
+                    <a href="index.html"><span>Lorem Ipsum</span></a>
+                </div>
+            </div>
+
+            <div>LOREM IPSUM</div>
+        </div>
+        <div class="profile-space">
+            <a href="notification.html"><span>Lorem Ipsum</span></a>
+            <span>Lorem Ipsum</span>
+        </div>
+    </section>
+    <article class ="category" xlu-include-file="../templates/category.html"></article>
+    <article class ="category" xlu-include-file="../templates/category.html"></article>
+</main>
+
+<footer id="footer"></footer>
+</body>
+</html>
+
+<script>
+    xLuIncludeFile();
+</script>

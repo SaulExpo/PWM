@@ -1,0 +1,42 @@
+#film_title{
+    display: flex;
+    padding: 5%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#film_title div{
+    margin-right: 20px;
+}
+
+#film_title img{
+    width: 1em;
+    margin-left: 20px;
+}
+
+#film_container{
+    color: white;
+    margin-left: 5%;
+    display: flex;
+}
+
+#film_container div{
+    margin: 0 5%;
+}
+
+#film_container img{
+    width: 10em;
+}
+
+.opciones{
+    margin-left: 5%;
+    display: flex;
+}
+
+.opciones img{
+    margin-top: 20px;
+    margin-left: 5%;
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+}
