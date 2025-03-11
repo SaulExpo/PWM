@@ -47,5 +47,8 @@ async function init() {
     await loadTemplate_class("../templates/personal-review-write.html", 'write');
     await loadTemplate_class("../templates/individual-notification.html", 'notification');
     await loadTemplate_class("../templates/notification-message.html", 'notificacion_mensaje');
+    await loadTemplate_class("../templates/review.html", 'review');
+    await loadTemplate_class("../templates/label-and-input-text.html", 'text-input');
+    await loadTemplate_class("../templates/text-and-image-logo.html", 'text-and-logo');
 }
 
