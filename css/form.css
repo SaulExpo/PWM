@@ -1,0 +1,88 @@
+main{
+    background-color: #121212;
+    height: 897px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input{
+    margin: 10px;
+}
+
+.form-container{
+    color: black;
+    background-color: #c9c9c9;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 45%;
+    margin: 20px;
+}
+
+.text-and-logo{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.title-in-page{
+    font-size: 30px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+#logo-form{
+    width: 100px;
+    height: 100px;
+    float: right;
+    border-radius: 50%;
+    margin-left: 200px;
+    padding-top: 5px;
+}
+
+#form-style{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#Oval-Button-white-form{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 5% auto;
+}
+
+#Oval-Button-white:hover {
+    background-color: #d9d9d9;
+}
+
+.ButtonRegistryOrLog{
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 70px;
+    text-align: center;
+    margin: 1% auto;
+}
+
+.buttons-type-login{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+}
+
+#forgot-password{
+    text-align: center;
+    margin-left: 60px;
+
+}
