@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "films",
+  "info": {
+    "singularName": "film",
+    "pluralName": "films",
+    "displayName": "Film",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "CoverUrl": {
+      "type": "string"
+    },
+    "Valoration": {
+      "type": "integer"
+    }
+  }
+}
