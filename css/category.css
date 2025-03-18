@@ -12,6 +12,12 @@
     justify-content: space-between;
 }
 
+.images{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .category-film{
     width: 250px;
     height: 300px;
