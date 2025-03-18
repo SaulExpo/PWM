@@ -36,6 +36,12 @@ main{
     color: #E7BB0D;
 }
 
+@media screen and (max-width: 750px) {
+    .category{
+        display:block;
+    }
+}
+
 .title{
     font-weight: bold;
     width: 150px;
