@@ -1,0 +1,38 @@
+.category{
+    padding: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-right-arrow{
+    padding: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-film{
+    width: 250px;
+    height: 300px;
+}
+
+#category-title{
+    color: #E7BB0D;
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 70px;
+}
+main{
+    background-color: #121212;
+    height: 100%;
+    padding: 0;
+    color: #E7BB0D;
+}
+
+.title{
+    font-weight: bold;
+    width: 150px;
+    margin-top: 10px;
+    text-align: center;
+}
