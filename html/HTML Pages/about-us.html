@@ -7,19 +7,26 @@
     <title>Mi Página Web</title>
     <link rel="stylesheet" href="../../css/general.css">
     <link rel="stylesheet" href="../../css/image-and-text.css">
-    <script src="../../js/templates.js"></script>
+    <script src="../../js/xlu-include-file.js"></script>
 </head>
 <body>
-<header id="header"></header>
-<nav id="nav" class="container"></nav>
+<header id="header" xlu-include-file="../templates/header.html"></header>
+<nav class="container" xlu-include-file="../templates/nav.html"></nav>
 
 <main>
     <h1 class="image-and-text-h1">Sobre Nosotros | About Us</h1>
-    <section class="image-and-text" id="image-and-text-right"></section>
-    <section class="image-and-text" id="image-and-text-left"></section>
+    <section class="image-and-text-right" xlu-include-file="../templates/image-and-text-right.html"></section>
+    <section class="image-and-text-left" xlu-include-file="../templates/image-and-text-left.html"></section>
 </main>
 
-<footer id="footer"></footer>
+<footer xlu-include-file="../templates/footer.html"></footer>
 </body>
 </html>
+
+<script>
+
+    xLuIncludeFile();
+
+</script>
+
 
