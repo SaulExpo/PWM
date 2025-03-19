@@ -1,23 +1,66 @@
 #main-container{
-    display: grid;
-    grid-template-columns: 35% 65%;
-}
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
 
-#aside-text{
-    padding: 100px 200px;
 }
 
 #main-section{
-    padding: 160px 0 50px 0;
-    justify-content: left;
+    padding-top:100px;
+    padding-bottom:100px;
+    margin-left:5%;
+
 }
 
 .text-input{
     padding: 10px 160px;
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #buttons-section{
     display: flex;
     gap: 270px;
+}
+
+@media screen and (max-width: 500px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+
+    .text-input{
+        padding: 10px 100px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #buttons-section{
+        gap: 40%;
+    }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+    .text-input{
+        padding: 10px 140px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #buttons-section{
+        gap: 40%;
+    }
 }
