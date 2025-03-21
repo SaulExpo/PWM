@@ -369,6 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAppUserAppUser extends Struct.CollectionTypeSchema {
+  collectionName: 'app_users';
+  info: {
+    description: '';
+    displayName: 'App-user';
+    pluralName: 'app-users';
+    singularName: 'app-user';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::app-user.app-user'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    password: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Surname: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
   collectionName: 'films';
   info: {
@@ -381,6 +413,7 @@ export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Category: Schema.Attribute.Enumeration<['Animation', 'Live-Action']>;
     CoverUrl: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -907,6 +940,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::app-user.app-user': ApiAppUserAppUser;
       'api::film.film': ApiFilmFilm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
