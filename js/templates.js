@@ -50,6 +50,11 @@ async function init() {
     await loadTemplate("../templates/header.html", 'header');
     await loadTemplate("../templates/nav.html", 'nav');
     await loadTemplate("../templates/footer.html", 'footer');
+    let LOGGED = localStorage.getItem('LOGGED') === 'true';
+    if (LOGGED == true){
+        document.getElementById("LoginText").textContent = "Cerrar Sesión"
+    }
+
 
 }
 

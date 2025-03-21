@@ -1,4 +1,5 @@
 function loadFilms(films){
+    console.log(films);
     const pElements = document.querySelectorAll('.image-title p'); // Selecciona todos los <p> dentro de #X
     const imgElements = document.querySelectorAll('.image-title img'); // Selecciona todos los <p> dentro de #X
     films.forEach((film, index) => {

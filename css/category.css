@@ -5,6 +5,26 @@
     align-items: center;
 }
 
+.images section:nth-child(n+5) {
+    display: none;
+}
+
+.images{
+    width: 100%;
+}
+
+.c-right-arrow{
+    display: flex;
+    align-items: center;
+}
+
+#category{
+    padding: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .category-film{
     width: 250px;

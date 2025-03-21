@@ -39,7 +39,7 @@ function LoadFilm_categories(films) {
 
         // Agregar la categoría y las imágenes a la sección HTML
         sectionsHTML += `
-            <a href="films.html"><h1 class="image-and-text-h1">${category}</h1></a>
+            <a class="category-button" href="films.html"><h1 class="image-and-text-h1">${category}</h1></a>
             <article class="c-right-arrow">
                 <div class="images">
                     ${imagesHTML}
@@ -56,7 +56,7 @@ function LoadFilm_categories(films) {
     console.log(result);
 
     let containers = document.querySelectorAll(".c-right-arrow");
-    console.log(containers);
+    console.log("CONTAINERS", containers);
     let i = 0
     Promise.all([,
         loadTemplate_class("../templates/image-and-text-under.html", 'image-title'),
@@ -68,20 +68,19 @@ function LoadFilm_categories(films) {
         const pElements = container.querySelectorAll('.image-title p'); // Selecciona todos los <p> dentro de #X
         const imgElements = container.querySelectorAll('.image-title img'); // Selecciona todos los <p> dentro de #X
         console.log(imgElements);
-        films.forEach((film, index) => {
-            console.log(film.Category)
-            console.log(categories[i])
+        let j= 0
+        films.forEach((film) => {
             if (film.Category == categories[i]){
-                console.log(imgElements[index]);
                 // Verificamos si hay un <p> para reemplazar
-                if (pElements[index]) {
+                if (pElements[j]) {
                     // Cambiamos el contenido de cada <p> por la descripción de la película
-                    pElements[index].textContent = film.Title;
+                    pElements[j].textContent = film.Title;
                 }
-                if (imgElements[index]) {
+                if (imgElements[j]) {
                     // Cambiamos el contenido de cada <p> por la descripción de la película
-                    imgElements[index].src = film.CoverUrl;
+                    imgElements[j].src = film.CoverUrl;
                 }
+                j++
             }
         });
         i +=1
@@ -94,6 +93,17 @@ function LoadFilm_categories(films) {
                 const imgname = encodeURIComponent(film_name); // Codificar URL para evitar problemas
                 // Redirigir a la página de detalles con el src como parámetro
                 window.location.href = `../HTML Pages/film-info.html?name=${imgname}`;
+            });
+        });
+        const Categories = document.querySelectorAll('.category-button'); // Selecciona todos los <p> dentro de #X
+        Categories.forEach(category => {
+            category.addEventListener('click', function(event) {
+                let cat_name = category.textContent;
+                console.log(cat_name);
+                event.preventDefault();
+
+                // Redirigir a la página de detalles con el src como parámetro
+                window.location.href = `../HTML Pages/films.html?category=${cat_name}`;
             });
         });
     })
