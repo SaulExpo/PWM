@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "noEmitOnError": true,
     "noImplicitThis": true,
-    "outDir": "../../../../Desktop/Cosas de Saúl/Universidad/3Año/PWM/PWM-Sprint2_Grupo44.5/Strapi/my-project/dist",
+    "outDir": "C:/Users/Entrar/WebstormProjects/PWM/Strapi/my-project/dist",
     "rootDir": "."
   },
   "include": [
