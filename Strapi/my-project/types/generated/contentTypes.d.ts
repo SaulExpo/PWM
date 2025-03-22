@@ -393,6 +393,8 @@ export interface ApiAppUserAppUser extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
     password: Schema.Attribute.String;
+    ProfilePicture: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQrF3t4HTqY8rjh54a9PrakBAZsJ5gPFv2CQ&s'>;
     publishedAt: Schema.Attribute.DateTime;
     Surname: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -428,6 +430,36 @@ export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Valoration: Schema.Attribute.Integer;
+  };
+}
+
+export interface ApiReviewReview extends Struct.CollectionTypeSchema {
+  collectionName: 'reviews';
+  info: {
+    displayName: 'Review';
+    pluralName: 'reviews';
+    singularName: 'review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    app_user: Schema.Attribute.Relation<'oneToOne', 'api::app-user.app-user'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    film: Schema.Attribute.Relation<'oneToOne', 'api::film.film'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::review.review'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -942,6 +974,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::app-user.app-user': ApiAppUserAppUser;
       'api::film.film': ApiFilmFilm;
+      'api::review.review': ApiReviewReview;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
