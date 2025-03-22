@@ -52,8 +52,18 @@ async function init() {
     await loadTemplate("../templates/footer.html", 'footer');
     let LOGGED = localStorage.getItem('LOGGED') === 'true';
     if (LOGGED == true){
-        document.getElementById("LoginText").textContent = "Cerrar Sesión"
+        document.getElementById("LoginText").style.display = 'none';
     }
+    if (LOGGED == false){
+        document.getElementById("LoginText").style.display = 'inline-block';
+    }
+
+    document.getElementById("Profile").addEventListener('click', function(e){
+        if (LOGGED === false){
+            e.preventDefault();
+            window.location.href = '../HTML Pages/login.html';
+        }
+    })
 
 
 }

@@ -38,8 +38,7 @@ Promise.all([
             if (response.ok) {
                 // Procesar la respuesta de Strapi
                 alert('Formulario enviado correctamente');
-                console.log(result); // Ver la respuesta de Strapi
-                window.location.href = `../HTML Pages/profile.html`;
+                getUser(email, password).then(user => {login(user)});
             } else {
                 alert('Hubo un error al enviar el formulario');
                 console.error('Error de respuesta:', result);
