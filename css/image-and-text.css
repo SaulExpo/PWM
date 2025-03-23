@@ -20,6 +20,15 @@
     padding: 5%;
 }
 
+.image-and-text-left img{
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+.image-and-text-right img{
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
 .image-and-text *{
     padding: 5%;
 }
@@ -36,14 +45,6 @@
 
 
 @media screen and (max-width: 500px) {
-    .image-and-text-h1 {
-        padding: 5% 0 0 5%;
-        font-size: 1.5em;
-    }
-}
-
-/*Responsive tamaño Móvil*/
-@media screen and (max-width: 500px) {
 
     .image-and-text{
         display:block;
@@ -58,42 +59,45 @@
         display: flex;
         flex-direction: column-reverse;
     }
-
-
-    .image-and-text img,
-    .image-and-text-left img,
-    .image-and-text-right img{
+    .image-and-text-left img{
+        width: 100%;
         height: auto;
         max-height: 300px;
-        object-fit: cover;
-        margin-bottom: 30px;
+        object-fit: contain;
+        margin-left:0;
+
+    }
+
+    .image-and-text img,
+    .image-and-text-right img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
     }
 
 }
 
-/*Responsive tamaño Tablet*/
 @media screen and (min-width: 500px) and (max-width: 800px) {
     .image-and-text-left img{
-        height: auto;
+        height: 300px;
         max-height: 300px;
         object-fit: cover;
-        margin-bottom: 30px;
-        margin-left: 20px;
+
     }
 
     .image-and-text img{
-        height: auto;
+        height: 300px;
         max-height: 300px;
         object-fit: cover;
         margin-bottom: 30px;
     }
 
     .image-and-text-right img{
-        height: auto;
+        height: 300px;
         max-height: 300px;
         object-fit: cover;
-        margin-bottom: 30px;
-        margin-right: 20px;
+
     }
 
 }
