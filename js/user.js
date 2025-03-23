@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let EMAIL = localStorage.getItem('EMAIL')
     let PASSWORD = localStorage.getItem('PASSWORD')
     let PPICTURE = localStorage.getItem('PPICTURE')
+    console.log(NAME);
 
     document.getElementById("UserName").textContent = NAME + " " + SURNAME
     document.querySelector("#profile-picture img").setAttribute('src', PPICTURE);

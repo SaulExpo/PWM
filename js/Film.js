@@ -45,7 +45,7 @@ obtenerFilms().then(films => {
             document.getElementById("review-container").innerHTML = articleHTML;
         })
         document.getElementById('oval-button').addEventListener('click', async function(e) {
-            e.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
+            e.preventDefault();
             getUser(EMAIL, PASSWORD).then(user => {
                 pushReview(user, selectedFilm);
             })
