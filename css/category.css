@@ -28,8 +28,9 @@
 }
 
 .category-film{
-    width: 250px;
-    height: 300px;
+    width: 150px;
+    height: 200px;
+    margin-bottom: 20px;
 }
 
 #category-title{
@@ -74,6 +75,15 @@ main{
         width: 260px;
         height: 300px;
     }
+    .category{
+        flex-wrap: wrap;
+    }
+    .category-film{
+        width: 150px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
 
 }
 
@@ -82,5 +92,15 @@ main{
         width: 160px;
         height: 200px;
     }
+    .category{
+        flex-wrap: wrap;
+    }
+
+    .category-film{
+        width: 150px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
 
 }
