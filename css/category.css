@@ -16,6 +16,7 @@
 .c-right-arrow{
     display: flex;
     align-items: center;
+    padding-right: 10%;
 }
 
 #category{
@@ -50,6 +51,12 @@ main{
     margin-top: 10px;
     text-align: center;
 }
+
+.image-title {
+    width: 410px;
+    height: 450px;
+}
+
 
 
 @media screen and (max-width: 500px)  {
