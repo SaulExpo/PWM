@@ -28,8 +28,8 @@
 }
 
 .category-film{
-    width: 150px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
     margin-bottom: 20px;
 }
 
@@ -63,7 +63,7 @@ main{
 
 
 
-@media screen and (min-width: 500px) and (max-width: 900px) {
+@media screen and (min-width: 500px) and (max-width: 1000px) {
     .category{
         flex-wrap: wrap;
     }
