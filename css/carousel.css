@@ -43,3 +43,25 @@ button {
 button:hover {
     background: rgba(0, 0, 0, 0.8);
 }
+
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+    .carousel {
+        padding: 0;
+        width:  400px;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    .carousel {
+        padding: 0;
+        width:  300px;
+    }
+}
+
+@media screen and (max-width: 415px)  {
+    .carousel {
+        padding: 0;
+        width:  200px;
+    }
+}
