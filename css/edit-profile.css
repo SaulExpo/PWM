@@ -23,7 +23,27 @@
     gap: 270px;
 }
 
-@media screen and (max-width: 500px)  {
+@media screen and (min-width: 500px) and (max-width: 900px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+    .text-input{
+        padding: 10px 140px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #buttons-section{
+        gap: 40%;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
     #main-container{
         display: block;
         justify-items: center;
@@ -42,10 +62,9 @@
     #buttons-section{
         gap: 40%;
     }
-
 }
 
-@media screen and (min-width: 500px) and (max-width: 800px)  {
+@media screen and (max-width: 415px)  {
     #main-container{
         display: block;
         justify-items: center;
@@ -55,12 +74,14 @@
         padding-bottom:100px;
         justify-content: left;
     }
+
     .text-input{
-        padding: 10px 140px;
+        padding: 10px 40px;
         margin-top: 15px;
         margin-bottom: 15px;
     }
     #buttons-section{
         gap: 40%;
     }
+
 }
