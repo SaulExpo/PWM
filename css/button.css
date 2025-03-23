@@ -49,4 +49,23 @@
 }
 
 
+@media screen and (min-width: 500px) and (max-width: 900px) {
+
+
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    #triangular-button-right{
+        height: 40px;
+        width: 40px;
+    }
+
+}
+
+@media screen and (max-width: 415px)  {
+    #triangular-button-right{
+        height: 30px;
+        width: 30px;
+    }
+}
 

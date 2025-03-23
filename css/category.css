@@ -59,14 +59,28 @@ main{
 
 
 
-@media screen and (max-width: 500px)  {
+
+
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
     .category{
         flex-wrap: wrap;
     }
+
 }
 
-@media screen and (min-width: 500px) and (max-width: 800px)  {
-    .category{
-        flex-wrap: wrap;
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    .image-title {
+        width: 260px;
+        height: 300px;
     }
+
+}
+
+@media screen and (max-width: 415px)  {
+    .image-title {
+        width: 160px;
+        height: 200px;
+    }
+
 }
