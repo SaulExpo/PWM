@@ -1,16 +1,10 @@
 #main-container{
-    padding-top: 100px;
+
     display: flex;
     justify-content: center;
 
 }
 
-#main-section{
-    padding-top:100px;
-    padding-bottom:100px;
-    margin-left:5%;
-
-}
 
 .text-input{
     padding: 10px 160px;
@@ -18,10 +12,23 @@
     margin-bottom: 15px;
 }
 
+
+#password,
+#email,
+#surname,
+#name {
+    padding: 8px 80px;
+}
+
 #buttons-section{
     display: flex;
     gap: 270px;
 }
+
+#grey-button{
+    color: #d1a309;
+}
+
 
 @media screen and (min-width: 500px) and (max-width: 900px)  {
     #main-container{
@@ -34,12 +41,9 @@
         justify-content: left;
     }
     .text-input{
-        padding: 10px 140px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    #buttons-section{
-        gap: 40%;
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
     }
 }
 
@@ -54,13 +58,20 @@
         justify-content: left;
     }
 
-    .text-input{
-        padding: 10px 100px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
     #buttons-section{
         gap: 40%;
+    }
+    #password,
+    #email,
+    #surname,
+    #name {
+        padding: 8px 80px;
+    }
+
+    .text-input{
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
     }
 }
 
@@ -75,13 +86,20 @@
         justify-content: left;
     }
 
-    .text-input{
-        padding: 10px 40px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
     #buttons-section{
         gap: 40%;
+    }
+    #password,
+    #email,
+    #surname,
+    #name {
+        padding: 8px 40px;
+    }
+
+    .text-input{
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
     }
 
 }

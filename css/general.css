@@ -102,6 +102,17 @@ footer section{
     .container{
         grid-template-columns: 2fr 4fr 1fr;
     }
+
+
+    footer section{
+        margin-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
 }
 
 @media screen and (min-width: 415px) and (max-width: 500px)  {
@@ -114,6 +125,11 @@ footer section{
     .left-text{
         width: 80%
     }
+    footer section{
+        display: block;
+        gap: 20px;
+    }
+
 }
 
 @media screen and (max-width: 415px)  {
@@ -132,6 +148,10 @@ footer section{
         margin-bottom: 100px;
         align-items: center;
         text-align: center;
+    }
+    footer section{
+        display: block;
+        gap: 20px;
     }
 
 }
