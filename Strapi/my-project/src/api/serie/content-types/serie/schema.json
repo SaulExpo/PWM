@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "films",
+  "collectionName": "series",
   "info": {
-    "singularName": "film",
-    "pluralName": "films",
-    "displayName": "Film",
-    "description": ""
+    "singularName": "serie",
+    "pluralName": "series",
+    "displayName": "Serie"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +14,7 @@
       "type": "string"
     },
     "Description": {
-      "type": "text"
+      "type": "string"
     },
     "CoverUrl": {
       "type": "string"
@@ -29,12 +28,6 @@
         "Animation",
         "Live-Action"
       ]
-    },
-    "favourite_films": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::favourite-film.favourite-film",
-      "mappedBy": "films"
     }
   }
 }

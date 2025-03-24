@@ -26,6 +26,12 @@
     "ProfilePicture": {
       "type": "string",
       "default": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQrF3t4HTqY8rjh54a9PrakBAZsJ5gPFv2CQ&s"
+    },
+    "favourite_films": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::favourite-film.favourite-film",
+      "mappedBy": "app_user"
     }
   }
 }
