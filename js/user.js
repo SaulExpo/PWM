@@ -13,6 +13,19 @@ document.addEventListener("DOMContentLoaded", function() {
         LogOut(NAME, EMAIL)
     })
 
+    getFavourites().then(favourites => {
+        const n_films = favourites.films.length;
+        let section = `<section class="image-title"></section>`;
+        for (let i = 0; i < n_films; i++) {
+            document.getElementById("category").innerHTML += section
+        }
+        Promise.all([
+            loadTemplate_class("../templates/image-and-text-under.html", 'image-title'),
+        ]).then(() => {
+            loadFilms(favourites.films);
+        })
+    })
+
 });
 
 

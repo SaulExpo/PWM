@@ -57,6 +57,30 @@ obtenerFilms().then(films => {
                 })
 
             });
+            document.getElementById("Favoritos").addEventListener('click', function(){
+                if (document.getElementById("Añadido").textContent == "No añadido"){
+                    getUser(EMAIL, PASSWORD).then(user => {
+                        addFavourites(user, selectedFilm)
+                    })
+                }
+                else{
+                    getUser(EMAIL, PASSWORD).then(user => {
+                        removeFavourite(user, selectedFilm)
+                    })
+                }
+            })
+            getFavourites().then(favourites => {
+                let añadido = 0
+                favourites.films.forEach((film, index) => {
+                    if(film.Title === selectedFilm.Title) {
+                        document.getElementById('Añadido').textContent = "AÑADIDO"
+                        añadido =1
+                    }
+                })
+                if (añadido == 0){
+                    document.getElementById('Añadido').textContent = "No añadido"
+                }
+            })
             prepararRotacion()
 
         });

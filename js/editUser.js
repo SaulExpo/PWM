@@ -1,8 +1,5 @@
 async function actualizarElemento(id) {
     try {
-        // Obtener datos actuales
-        let respuesta = await fetch(`http://localhost:1337/api/app-users/${id}`);
-
         const name = document.getElementById('name').value;
         const surname = document.getElementById('surname').value;
         const email = document.getElementById('email').value;

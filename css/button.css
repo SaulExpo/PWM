@@ -23,7 +23,7 @@
     background-color: #d1a309;
 }
 
-#oval-button{
+#oval-button, #Favoritos{
     background-color: #E7BB0D;
     cursor: pointer;
     border-color: black;
@@ -32,7 +32,7 @@
     border-radius: 30px;
 }
 
-#oval-button:hover {
+#oval-button:hover , #Favoritos :hover{
     background-color: #d1a309;
 }
 
