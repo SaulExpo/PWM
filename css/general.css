@@ -117,6 +117,10 @@ footer section{
         align-items: center;
 
     }
+
+    .left-text{
+        margin:0;
+    }
 }
 
 @media screen and (min-width: 415px) and (max-width: 500px)  {
@@ -127,12 +131,14 @@ footer section{
     }
 
     .left-text{
-        width: 80%
+        width: 80%;
+        margin:0;
     }
     footer section{
         display: block;
         gap: 20px;
     }
+
 
 }
 
@@ -144,7 +150,8 @@ footer section{
     }
 
     .left-text{
-        width: 80%
+        width: 80%;
+        margin:0;
     }
 
     #header{
