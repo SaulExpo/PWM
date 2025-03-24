@@ -61,6 +61,15 @@
         display: inline-block;
     }
 
+    #film_container div{
+        margin: 0 5%;
+        padding-bottom: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
     #film_container img{
         width: 10em;
     }
