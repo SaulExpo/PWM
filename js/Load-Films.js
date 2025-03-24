@@ -1,9 +1,8 @@
 function loadFilms(films){
-    console.log(films);
     const pElements = document.querySelectorAll('.image-title p'); // Selecciona todos los <p> dentro de #X
     const imgElements = document.querySelectorAll('.image-title img'); // Selecciona todos los <p> dentro de #X
     films.forEach((film, index) => {
-        console.log(imgElements[index]);
+        console.log(film);
         // Verificamos si hay un <p> para reemplazar
         if (pElements[index]) {
             // Cambiamos el contenido de cada <p> por la descripción de la película

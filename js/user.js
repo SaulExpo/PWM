@@ -14,15 +14,16 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     getFavourites().then(favourites => {
-        const n_films = favourites.films.length;
+        const total = favourites.films.length+favourites.series.length;
         let section = `<section class="image-title"></section>`;
-        for (let i = 0; i < n_films; i++) {
+        for (let i = 0; i < total; i++) {
             document.getElementById("category").innerHTML += section
         }
         Promise.all([
             loadTemplate_class("../templates/image-and-text-under.html", 'image-title'),
         ]).then(() => {
-            loadFilms(favourites.films);
+            let general = favourites.films.concat(favourites.series);
+            loadFilms(general);
         })
     })
 

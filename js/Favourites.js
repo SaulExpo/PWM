@@ -26,7 +26,7 @@ async function getFavourites() {
     }
 }
 
-async function addFavourites(user, film) {
+async function addFavourites(user, film, serie) {
     try {
         // Obtener la lista de favoritos actual del usuario
         const favourites = await getFavourites(user);
@@ -40,21 +40,43 @@ async function addFavourites(user, film) {
         const existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
 
         // Verificar si la película ya está en favoritos
-        if (existingFilms.some(f => f.id === film.id)) {
-            console.log("La película ya está en favoritos.");
-            return;
+        let formData ={}
+        if (serie == null){
+            console.log("peli")
+            if (existingFilms.some(f => f.id === film.id)) {
+                console.log("La película ya está en favoritos.");
+                return;
+            }
+
+            // Agregar la nueva película a la lista
+            const updatedFilms = [...existingFilms, { id: film.id }];
+
+            console.log(updatedFilms);
+
+            formData = {
+                data: {
+                    films: { connect: updatedFilms }
+                }
+            };
+        } else {
+            console.log("serie")
+            if (existingFilms.some(f => f.id === serie.id)) {
+                console.log("La película ya está en favoritos.");
+                return;
+            }
+
+            // Agregar la nueva película a la lista
+            const updatedFilms = [...existingFilms, { id: serie.id }];
+
+            console.log(updatedFilms);
+
+            formData = {
+                data: {
+                    series: { connect: updatedFilms }
+                }
+            };
         }
 
-        // Agregar la nueva película a la lista
-        const updatedFilms = [...existingFilms, { id: film.id }];
-
-        console.log(updatedFilms);
-
-        const formData = {
-            data: {
-                films: { connect: updatedFilms }
-            }
-        };
 
         // Enviar la actualización a Strapi
         const response = await fetch(`http://localhost:1337/api/favourite-films/${favouriteId}`, {
@@ -79,7 +101,7 @@ async function addFavourites(user, film) {
     }
 }
 
-async function removeFavourite(user, film) {
+async function removeFavourite(user, film, serie) {
     try {
         // Obtener la lista de favoritos actual del usuario
         const favourites = await getFavourites(user);
@@ -90,22 +112,43 @@ async function removeFavourite(user, film) {
         }
 
         const favouriteId = favourites.documentId; // ID del registro en la tabla intermedia
-        const existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
+        let formData = {}
+        if(serie == null){
+            const existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
 
-        // Verificar si la película está en favoritos
-        if (!existingFilms.some(f => f.id === film.id)) {
-            console.log("La película no está en favoritos.");
-            return;
+            // Verificar si la película está en favoritos
+            if (!existingFilms.some(f => f.id === film.id)) {
+                console.log("La película no está en favoritos.");
+                return;
+            }
+
+            // Nueva lista de películas sin la que queremos eliminar
+            const updatedFilms = existingFilms.filter(f => f.id !== film.id);
+
+            formData = {
+                data: {
+                    films: { set: updatedFilms } // Actualizamos la lista eliminando la película
+                }
+            };
+        } else {
+            const existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
+
+            // Verificar si la película está en favoritos
+            if (!existingFilms.some(f => f.id === serie.id)) {
+                console.log("La película no está en favoritos.");
+                return;
+            }
+
+            // Nueva lista de películas sin la que queremos eliminar
+            const updatedFilms = existingFilms.filter(f => f.id !== serie.id);
+
+            formData = {
+                data: {
+                    series: { set: updatedFilms } // Actualizamos la lista eliminando la película
+                }
+            };
         }
 
-        // Nueva lista de películas sin la que queremos eliminar
-        const updatedFilms = existingFilms.filter(f => f.id !== film.id);
-
-        const formData = {
-            data: {
-                films: { set: updatedFilms } // Actualizamos la lista eliminando la película
-            }
-        };
 
         // Enviar la actualización a Strapi
         const response = await fetch(`http://localhost:1337/api/favourite-films/${favouriteId}`, {

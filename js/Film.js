@@ -1,17 +1,18 @@
 const urlParams = new URLSearchParams(window.location.search);
 const imageName = urlParams.get('name');
+const category = urlParams.get('category');
 
 obtenerFilms().then(films => {
     obtenerSeries().then(series => {
-        let selectedFilm;
+        let selected;
         films.forEach((film, index) => {
             if (film.Title === imageName) {
-                selectedFilm = film;
+                selected = film;
             }
         });
         series.forEach((serie, index) => {
             if (serie.Title === imageName) {
-                selectedFilm = serie;
+                selected = serie;
             }
         });
         Promise.all([
@@ -22,17 +23,17 @@ obtenerFilms().then(films => {
             loadTemplate_class("../templates/personal-review-write.html", 'write'),
             loadTemplate_class("../templates/image-and-text-under.html", 'image-title')
         ]).then(() => {
-            document.querySelector('#film_container div img').setAttribute('src', selectedFilm.CoverUrl);
-            document.getElementById('film_container').lastElementChild.innerHTML = selectedFilm.Description;
+            document.querySelector('#film_container div img').setAttribute('src', selected.CoverUrl);
+            document.getElementById('film_container').lastElementChild.innerHTML = selected.Description;
             console.log(document.getElementById('film_title').children[0]);
-            document.getElementById('film_title').children[0].innerHTML = selectedFilm.Title;
-            for (let i = 0; i < selectedFilm.Valoration; i++) {
+            document.getElementById('film_title').children[0].innerHTML = selected.Title;
+            for (let i = 0; i < selected.Valoration; i++) {
                 let starImg = document.createElement('img');
                 starImg.setAttribute('src', "../img/star.png");
                 document.getElementById('film_title').appendChild(starImg);
             }
             let articleHTML = "";
-            getReviews(selectedFilm).then(reviews => {
+            getReviews(selected).then(reviews => {
                 reviews.forEach(review => {
                     articleHTML += `
                     <article>
@@ -53,26 +54,36 @@ obtenerFilms().then(films => {
             document.getElementById('oval-button').addEventListener('click', async function(e) {
                 e.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
                 getUser(EMAIL, PASSWORD).then(user => {
-                    pushReview(user, selectedFilm);
+                    pushReview(user, selected);
                 })
 
             });
             document.getElementById("Favoritos").addEventListener('click', function(){
                 if (document.getElementById("Añadido").textContent == "No añadido"){
                     getUser(EMAIL, PASSWORD).then(user => {
-                        addFavourites(user, selectedFilm)
+                        if(category == "series"){
+                            addFavourites(user, null, selected)
+                        }else{
+                            addFavourites(user, selected)
+                        }
+
                     })
                 }
                 else{
                     getUser(EMAIL, PASSWORD).then(user => {
-                        removeFavourite(user, selectedFilm)
+                        if(category == "series"){
+                            removeFavourite(user, null, selected)
+                        }else{
+                            removeFavourite(user, selected)
+                        }
                     })
                 }
             })
             getFavourites().then(favourites => {
                 let añadido = 0
-                favourites.films.forEach((film, index) => {
-                    if(film.Title === selectedFilm.Title) {
+                let general = favourites.films.concat(favourites.series)
+                general.forEach((film, index) => {
+                    if(film.Title === selected.Title) {
                         document.getElementById('Añadido').textContent = "AÑADIDO"
                         añadido =1
                     }

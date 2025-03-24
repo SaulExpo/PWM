@@ -1,4 +1,4 @@
-function LoadFilm_categories(films) {
+function LoadFilm_categories(films, categoryType) {
     // Obtener las categorías únicas
     const uniqueEnumerates = new Set(films.map(item => item.Category));
     const uniqueArray = [...uniqueEnumerates];
@@ -92,7 +92,7 @@ function LoadFilm_categories(films) {
                 // Obtener el src de la imagen
                 const imgname = encodeURIComponent(film_name); // Codificar URL para evitar problemas
                 // Redirigir a la página de detalles con el src como parámetro
-                window.location.href = `../HTML Pages/film-info.html?name=${imgname}`;
+                window.location.href = `../HTML Pages/film-info.html?name=${imgname}&category=${categoryType}`;
             });
         });
         const Categories = document.querySelectorAll('.category-button'); // Selecciona todos los <p> dentro de #X
