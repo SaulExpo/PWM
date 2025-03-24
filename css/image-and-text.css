@@ -2,7 +2,7 @@
     width: 24%;
     text-align: center;
     display: inline-block;
-
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
 }
 
 .image-title img{
@@ -17,6 +17,7 @@
     color: white;
     display: flex;
     padding: 5%;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
 }
 
 .image-and-text-left img{
@@ -34,6 +35,8 @@
 
 .image-and-text-h1{
     padding: 5% 0 0 5%;
+    font-family: 'ArcadeClassic', sans-serif;
+    margin-bottom: 20px;
 }
 
 #slideshow{
