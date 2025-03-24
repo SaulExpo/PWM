@@ -42,7 +42,7 @@
     height: 60px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
     #film_title{
         display: inline-block;
         padding: 5% 3%;
@@ -65,9 +65,12 @@
         width: 10em;
     }
 
-    .personal-review{
+    #Description{
+        width: 14em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
     }
-
-
-
 }
