@@ -385,6 +385,10 @@ export interface ApiAppUserAppUser extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.Email;
+    favourite_films: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::favourite-film.favourite-film'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -397,6 +401,37 @@ export interface ApiAppUserAppUser extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQrF3t4HTqY8rjh54a9PrakBAZsJ5gPFv2CQ&s'>;
     publishedAt: Schema.Attribute.DateTime;
     Surname: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFavouriteFilmFavouriteFilm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'favourite_films';
+  info: {
+    description: '';
+    displayName: 'FavouriteFilm';
+    pluralName: 'favourite-films';
+    singularName: 'favourite-film';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    app_user: Schema.Attribute.Relation<'manyToOne', 'api::app-user.app-user'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    films: Schema.Attribute.Relation<'manyToMany', 'api::film.film'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::favourite-film.favourite-film'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -421,6 +456,10 @@ export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
+    favourite_films: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::favourite-film.favourite-film'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::film.film'> &
       Schema.Attribute.Private;
@@ -460,6 +499,35 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSerieSerie extends Struct.CollectionTypeSchema {
+  collectionName: 'series';
+  info: {
+    displayName: 'Serie';
+    pluralName: 'series';
+    singularName: 'serie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Schema.Attribute.Enumeration<['Animation', 'Live-Action']>;
+    CoverUrl: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::serie.serie'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Valoration: Schema.Attribute.Integer;
   };
 }
 
@@ -973,8 +1041,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::app-user.app-user': ApiAppUserAppUser;
+      'api::favourite-film.favourite-film': ApiFavouriteFilmFavouriteFilm;
       'api::film.film': ApiFilmFilm;
       'api::review.review': ApiReviewReview;
+      'api::serie.serie': ApiSerieSerie;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
