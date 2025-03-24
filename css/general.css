@@ -60,6 +60,7 @@ header h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 50px;
 }
 
 /* Barra de búsqueda centrada en la columna central */
