@@ -89,7 +89,27 @@ main{
 #forgot-password{
     text-align: center;
     margin-left: 60px;
+    font-size: 11px;
 
+}
+
+#title-login-register{
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 40px;
+}
+
+.form-container-login-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    color:black;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
 }
 
 #form-style{
