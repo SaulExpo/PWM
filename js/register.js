@@ -36,7 +36,17 @@ Promise.all([
             return;
         }
 
+        if(/[A-Z]/.test(formData.data.password) === false){
+            alert('La contraseña no tiene ninguna mayúscula.');
+            return;
+        }
 
+        if(/[0-9]/.test(formData.data.password) === false){
+            alert('La contraseña no tiene ningún número.');
+            return;
+        }
+
+        
         try {
             // Enviar los datos a Strapi usando fetch (puedes usar axios también)
             const response = await fetch('http://localhost:1337/api/app-users', {
