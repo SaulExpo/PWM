@@ -21,7 +21,7 @@ Promise.all([
             }
         };
         console.log(formData)
-        if(formData.data.Name.length <= 3){
+        if(formData.data.Name.length < 3){
             alert('El nombre debe ser de al menos 3 caracteres');
             return;
         }
