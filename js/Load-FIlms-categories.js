@@ -1,4 +1,4 @@
-function LoadFilm_categories(films, categoryType) {
+function LoadFilm_categories(films, categoryType, type) {
     // Obtener las categorías únicas
     const uniqueEnumerates = new Set(films.map(item => item.Category));
     const uniqueArray = [...uniqueEnumerates];
@@ -103,7 +103,7 @@ function LoadFilm_categories(films, categoryType) {
                 event.preventDefault();
 
                 // Redirigir a la página de detalles con el src como parámetro
-                window.location.href = `../HTML Pages/films.html?category=${cat_name}`;
+                window.location.href = `../HTML Pages/films.html?category=${cat_name}&type=${type}`;
             });
         });
     })

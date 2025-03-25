@@ -80,16 +80,18 @@ obtenerFilms().then(films => {
                 }
             })
             getFavourites().then(favourites => {
-                let añadido = 0
-                let general = favourites.films.concat(favourites.series)
-                general.forEach((film, index) => {
-                    if(film.Title === selected.Title) {
-                        document.getElementById('Añadido').textContent = "AÑADIDO"
-                        añadido =1
+                if(favourites != null) {
+                    let añadido = 0
+                    let general = favourites.films.concat(favourites.series)
+                    general.forEach((film, index) => {
+                        if (film.Title === selected.Title) {
+                            document.getElementById('Añadido').textContent = "AÑADIDO"
+                            añadido = 1
+                        }
+                    })
+                    if (añadido == 0) {
+                        document.getElementById('Añadido').textContent = "No añadido"
                     }
-                })
-                if (añadido == 0){
-                    document.getElementById('Añadido').textContent = "No añadido"
                 }
             })
             prepararRotacion()
