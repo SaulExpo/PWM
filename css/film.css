@@ -7,6 +7,8 @@
 
 #film_title div{
     margin-right: 20px;
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 38px;
 }
 
 #film_title img{
@@ -32,6 +34,11 @@
 .opciones{
     margin-left: 5%;
     display: flex;
+    margin-top: 30px;
+    align-items: center;
+    width: 23%;
+    justify-content: space-evenly ;
+
 }
 
 .opciones img{

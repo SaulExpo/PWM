@@ -41,6 +41,14 @@ textarea {
     align-items: center; /* Centra los elementos verticalmente */
 }
 
+#review-container{
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 .circle-picture{
     clip-path: circle(35%);
