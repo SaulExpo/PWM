@@ -29,6 +29,19 @@
                 "Animation",
                 "Live-Action"
             ]
+        },
+        "favourite_films": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::favourite-film.favourite-film",
+            "mappedBy": "films"
+        },
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "film",
+                "serie"
+            ]
         }
     }
 }

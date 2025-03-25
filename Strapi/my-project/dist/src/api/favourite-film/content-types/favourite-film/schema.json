@@ -1,0 +1,27 @@
+{
+    "kind": "collectionType",
+    "collectionName": "favourite_films",
+    "info": {
+        "singularName": "favourite-film",
+        "pluralName": "favourite-films",
+        "displayName": "FavouriteFilm",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "films": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::film.film",
+            "inversedBy": "favourite_films"
+        },
+        "app_user": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::app-user.app-user",
+            "inversedBy": "favourite_films"
+        }
+    }
+}
