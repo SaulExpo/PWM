@@ -12,7 +12,6 @@ Promise.all([
 
         console.log(name, surname, email, password);
 
-        // Crear el objeto que se enviará a Strapi
         const formData = {
             data: {
                 Name: name,
@@ -22,6 +21,21 @@ Promise.all([
             }
         };
         console.log(formData)
+        if(formData.data.Name.length < 3){
+            alert('El nombre debe ser de al menos 3 caracteres');
+            return;
+        }
+
+        if(formData.data.Surname.length === 0){
+            alert('Ingrese un apellido');
+            return;
+        }
+
+        if(formData.data.password.length <= 6){
+            alert('El tamaño de la contraseña debe de ser de al menos 6 caracteres');
+            return;
+        }
+
 
         try {
             // Enviar los datos a Strapi usando fetch (puedes usar axios también)
@@ -40,6 +54,7 @@ Promise.all([
                 alert('Formulario enviado correctamente');
                 getUser(email, password).then(user => {login(user)});
             } else {
+
                 alert('Hubo un error al enviar el formulario');
                 console.error('Error de respuesta:', result);
             }
