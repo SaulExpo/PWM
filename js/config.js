@@ -1,6 +1,0 @@
-let NAME = localStorage.getItem('NAME')
-let SURNAME = localStorage.getItem('SURNAME')
-let EMAIL = localStorage.getItem('EMAIL')
-let PASSWORD = localStorage.getItem('PASSWORD')
-let PPICTURE = localStorage.getItem('PPICTURE')
-let LOGGED = localStorage.getItem('LOGGED')
