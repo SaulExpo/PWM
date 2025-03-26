@@ -32,34 +32,39 @@ async function getFavourites() {
 async function addFavourites(user, film) {
     try {
         // Obtener la lista de favoritos actual del usuario
-        const favourites = await getFavourites(user);
-        if (favourites == null){
-            createFavourites(user);
-        }
-
-        const favouriteId = favourites.documentId; // ID del registro en la tabla intermedia
-
-
-        // Verificar si la película ya está en favoritos
+        console.log(user, film);
+        let favourites = await getFavourites(user);
         let formData ={}
-        let existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
-        if (existingFilms.some(f => f.id === film.id)) {
-            console.log("La película ya está en favoritos.");
-            return;
+        let favouriteId
+        let updatedFilms = [];
+        if (favourites == null){
+            createFavourites(user)
+            favourites = await getFavourites(user)
+            favouriteId = favourites.documentId; // ID del registro en la tabla intermedia
+            updatedFilms = [{ id: film.id }];
+        } else{
+            favouriteId = favourites.documentId; // ID del registro en la tabla intermedia
+
+
+            // Verificar si la película ya está en favoritos
+
+            let existingFilms = favourites.films.map(f => ({ id: f.id })); // Películas ya en favoritos
+            if (existingFilms.some(f => f.id === film.id)) {
+                console.log("La película ya está en favoritos.");
+                return;
+            }
+
+            // Agregar la nueva película a la lista
+            updatedFilms = [...existingFilms, { id: film.id }];
+
         }
-
-        // Agregar la nueva película a la lista
-        const updatedFilms = [...existingFilms, { id: film.id }];
-
 
         formData = {
             data: {
                 films: { connect: updatedFilms }
             }
         };
-
-
-
+        console.log(favouriteId);
         // Enviar la actualización a Strapi
         const response = await fetch(`http://localhost:1337/api/favourite-films/${favouriteId}`, {
             method: 'PUT',
@@ -162,7 +167,6 @@ async function createFavourites(user) {
 
         if (response.ok) {
             console.log("Elemento creado con éxito:", result);
-            location.reload();  // Recargar la página si la solicitud es exitosa
         } else {
             alert("Hubo un error al enviar el formulario");
             console.error("Error de respuesta:", result);
