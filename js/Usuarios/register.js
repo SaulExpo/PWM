@@ -27,6 +27,11 @@ Promise.all([
             return;
         }
 
+        if(/^[A-Z]/.test(formData.data.Name) === false){
+            alert('El nombre no empieza por mayúscula.');
+            return;
+        }
+
         if(formData.data.Surname.length === 0){
             alert('Ingrese un apellido');
             return;
