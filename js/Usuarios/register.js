@@ -22,7 +22,31 @@ Promise.all([
             }
         };
         console.log(formData)
+        if(formData.data.Name.length < 3){
+            alert('El nombre debe ser de al menos 3 caracteres');
+            return;
+        }
 
+        if(formData.data.Surname.length === 0){
+            alert('Ingrese un apellido');
+            return;
+        }
+
+        if(formData.data.password.length <= 6){
+            alert('El tamaño de la contraseña debe de ser de al menos 6 caracteres');
+            return;
+        }
+
+        if(/[A-Z]/.test(formData.data.password) === false){
+            alert('La contraseña no tiene ninguna mayúscula.');
+            return;
+        }
+
+        if(/[0-9]/.test(formData.data.password) === false){
+            alert('La contraseña no tiene ningún número.');
+            return;
+        }
+        
         try {
             // Enviar los datos a Strapi usando fetch (puedes usar axios también)
             const response = await fetch('http://localhost:1337/api/app-users', {
