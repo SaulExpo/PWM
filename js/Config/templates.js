@@ -64,6 +64,54 @@ async function init() {
             window.location.href = '../HTML Pages/login.html';
         }
     })
+    obtenerFilms().then(items => {
+        // Referencias a elementos del DOM
+        const searchInput = document.getElementById("search");
+        const suggestionsDiv = document.getElementById("suggestions");
+        const suggestionsImg = document.getElementById("suggestionsImg");
+
+// Función para filtrar los elementos del array y mostrar los resultados
+        function filterSuggestions(query) {
+            const filteredItems = items.filter(item => item.Title.toLowerCase().includes(query.toLowerCase()));
+            displaySuggestions(filteredItems);
+        }
+
+// Función para mostrar las sugerencias
+        function displaySuggestions(suggestions) {
+            suggestionsDiv.innerHTML = ""; // Limpiar resultados anteriores
+            suggestionsImg.innerHTML = ""; // Limpiar resultados anteriores
+            if (suggestions.length > 0) {
+                suggestions.forEach(item => {
+                    const suggestionItem = document.createElement("div");
+                    const suggestionTitle = document.createElement("div");
+                    const suggestionImg = document.createElement("img");
+                    suggestionItem.classList.add("suggestion-item");
+                    suggestionImg.src = item.CoverUrl
+                    suggestionTitle.textContent = item.Title
+                    suggestionItem.onclick = () => {
+                        window.location.href = `../HTML Pages/film-info.html?name=${item.Title}`
+                    };
+                    suggestionsDiv.appendChild(suggestionItem);
+                    suggestionItem.appendChild(suggestionImg);
+                    suggestionItem.appendChild(suggestionTitle);
+                });
+            } else {
+                suggestionsDiv.innerHTML = "<div class='suggestion-item'>No se encontraron resultados</div>";
+            }
+        }
+
+// Evento que detecta cuando el usuario escribe en el campo de búsqueda
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                filterSuggestions(query);
+            } else {
+                suggestionsDiv.innerHTML = ""; // Limpiar cuando el campo de búsqueda esté vacío
+            }
+        });
+
+
+    })
 
 
 }

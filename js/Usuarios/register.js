@@ -21,7 +21,6 @@ Promise.all([
                 password: password
             }
         };
-        console.log(formData)
         if(formData.data.Name.length < 3){
             alert('El nombre debe ser de al menos 3 caracteres');
             return;
@@ -51,7 +50,8 @@ Promise.all([
             alert('La contraseña no tiene ningún número.');
             return;
         }
-        
+        console.log(formData)
+
         try {
             // Enviar los datos a Strapi usando fetch (puedes usar axios también)
             const response = await fetch('http://localhost:1337/api/app-users', {
@@ -76,5 +76,6 @@ Promise.all([
             console.error('Error al enviar los datos a Strapi:', error);
         }
     });
+
 
 })

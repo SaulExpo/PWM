@@ -53,6 +53,10 @@ obtenerFilms().then(films => {
 
         });
         document.getElementById("Favoritos").addEventListener('click', function(){
+            if(LOGGED === "false"){
+                window.location.href = `../HTML Pages/login.html`;
+                return
+            }
             if (document.getElementById("Añadido").textContent == "No añadido"){
                 getUser(EMAIL, PASSWORD).then(user => {
                         addFavourites(user, selected)
@@ -70,11 +74,13 @@ obtenerFilms().then(films => {
                 favourites.films.forEach((film, index) => {
                     if (film.Title === selected.Title) {
                         document.getElementById('Añadido').textContent = "AÑADIDO"
+                        document.getElementById('Favoritos').value = "Quitar de Favoritos"
                         añadido = 1
                     }
                 })
                 if (añadido == 0) {
                     document.getElementById('Añadido').textContent = "No añadido"
+                    document.getElementById('Favoritos').value = "Añadir a Favoritos"
                 }
             }
         })
