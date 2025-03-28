@@ -11,7 +11,8 @@
 3. [Mockups y Storyboard](#3-archivo-pdf-con-mockups-y-storyboard)
 4. [Templates](#4-templates-identificados)
 5. [páginas HTML](#5-páginas-html)
-6. [Figma y Trello](#6-enlace-a-figma-y-trello)
+6. [Pasos para usar el proyecto](#6-Cómo-usar-el-proyecto)
+7. [Figma y Trello](#6-enlace-a-figma-y-trello)
 
 ## 1. Descripción del proyecto:
 Se trata de una web para realizar reseñas sobre películas y series.  
@@ -81,6 +82,12 @@ Se trata de una web para realizar reseñas sobre películas y series.
 - **Register** -> RegisterMockup
 - **Profile** -> ProfileMockup
 
-## 6. Enlace a Figma y trello:  
+## 6. Cómo usar el proyecto:  
+1. Tener instalado NodeJS.
+2. Después de abrir el proyecto con WebStorm, ir a la consola de comandos y escribir: cd .\Strapi\my-project
+3. Luego, escibir npm install
+4. Escribir npm run develop 
+
+## 7. Enlace a Figma y trello:  
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
