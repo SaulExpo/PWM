@@ -1,10 +1,8 @@
-const url = 'http://localhost:1337/api/films';
+const url = 'http://localhost:1337/api/films?populate=*&pagination[page]=1&pagination[pageSize]=100';
 
 // Función para obtener los films filtrados por la categoría "Animation"
 async function obtenerFilms(Category, type) {
     try {
-        console.log(Category)
-        console.log(type)
         // Hacemos una solicitud GET a la API
         const response = await fetch(url);
 
@@ -24,6 +22,10 @@ async function obtenerFilms(Category, type) {
             );
             return filmsCategory;
         } else if (Category == null && type != null){
+            console.log(Category)
+            films.data.forEach(film => {
+                console.log(film.Title)
+            })
             // Filtramos los films para que solo contengan la categoría "Animation"
             const filmsCategory = films.data.filter(film =>
                 film.type === type

@@ -38,6 +38,9 @@ async function actualizarElemento(id) {
 }
 document.addEventListener("DOMContentLoaded", function() {
     getUser(EMAIL, PASSWORD).then(user =>{
+        document.getElementById('name').value = user.Name;
+        document.getElementById('surname').value = user.Surname;
+        document.getElementById('email').value = user.email;
         document.getElementById('form-style').addEventListener('submit', async function(e){
            e.preventDefault();
            actualizarElemento(user.documentId);

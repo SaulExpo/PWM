@@ -84,6 +84,52 @@ obtenerFilms().then(films => {
                 }
             }
         })
+        getActor(selected).then(actors => {
+            if(actors.length > 0) {
+                let imagesHTML = "";
+                for (let j = 0; j < actors.length; j++) {
+                    imagesHTML += `<section class="image-title actor"></section>`; // Cambia el path de las imágenes según tu necesidad
+                }
+
+                // Agregar la categoría y las imágenes a la sección HTML
+                let sectionsHTML = `
+                <a class="category-button"><h1 class="image-and-text-h1">Actores</h1></a>
+                <article class="c-right-arrow">
+                    <div class="images">
+                        ${imagesHTML}
+                    </div>
+                </article>`;
+                document.getElementById("Actores").innerHTML = sectionsHTML;
+                console.log(actors);
+                let i = 0
+                Promise.all([,
+                    loadTemplate_class("../templates/actor.html", 'actor'),
+                    loadTemplate_class("../templates/triangular-button-right.html", 't-button-right'),
+                ]).then(() => {
+                    const pElements = document.querySelectorAll('.image-title p'); // Selecciona todos los <p> dentro de #X
+                    const imgElements = document.querySelectorAll('.image-title img'); // Selecciona todos los <p> dentro de #X
+                    console.log(imgElements);
+                    actors.forEach((actor) => {
+                        const img = new Image();  // Crea un nuevo objeto Image
+                        img.src = actor.pictureUrl;  // Asigna la URL de la imagen al objeto Image
+
+                        img.onload = () => {  // Solo cuando la imagen se haya cargado correctamente
+                            // Asigna el nombre y la imagen a los elementos correspondientes
+                            pElements[i].textContent = actor.name;
+                            imgElements[i].src = img.src;  // Establece el src de la imagen en imgElements
+                            i++;  // Incrementa el índice después de asignar la imagen
+                        };
+
+                        img.onerror = () => {  // Maneja el caso en el que la imagen no pueda cargarse
+                            console.error('Error al cargar la imagen:', actor.pictureUrl);
+                            // Puedes colocar una imagen por defecto o un mensaje de error
+                            imgElements[i].src = 'ruta/a/imagen/por/defecto.jpg';
+                        };
+                    });
+                });
+            }
+
+        })
         prepararRotacion()
 
     });
