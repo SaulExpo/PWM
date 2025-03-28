@@ -99,6 +99,9 @@ header h1{
     border: 1px solid #ccc;
     max-height: 200px;
     overflow-y: auto;
+    position: absolute;
+    align-items: center;
+    left: 40%;
 }
 .suggestion-item {
     display: flex;
@@ -141,6 +144,8 @@ footer section{
         grid-template-columns: 2fr 4fr 1fr;
     }
 
+
+
 }
 
 @media screen and (min-width: 500px) and (max-width: 900px)  {
@@ -162,6 +167,10 @@ footer section{
     .left-text{
         margin:0;
     }
+    #suggestions {
+
+        left: 30%;
+    }
 }
 
 @media screen and (min-width: 415px) and (max-width: 500px)  {
@@ -178,6 +187,10 @@ footer section{
     footer section{
         display: block;
         gap: 20px;
+    }
+    #suggestions {
+
+        left: 20%;
     }
 
 
@@ -204,6 +217,11 @@ footer section{
     footer section{
         display: block;
         gap: 20px;
+    }
+
+    #suggestions {
+
+        left: 10%;
     }
 
 }
