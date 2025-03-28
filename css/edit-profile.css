@@ -2,6 +2,11 @@
     display: flex;
     justify-content: center;
     font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    background-color: #c8c7c7;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-radius:20px;
+    color: black;
 }
 
 
@@ -16,7 +21,8 @@
 #email,
 #surname,
 #name {
-    padding: 8px 80px;
+    padding: 8px 140px 8px 4px;
+    text-align: left;
 }
 
 #buttons-section{
@@ -25,7 +31,7 @@
 }
 
 #grey-button{
-    color: #d1a309;
+    color: black;
 }
 
 
@@ -33,6 +39,7 @@
     #main-container{
         display: block;
         justify-items: center;
+
     }
     #main-section{
         padding-top:0;
