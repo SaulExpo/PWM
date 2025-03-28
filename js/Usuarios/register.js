@@ -1,7 +1,7 @@
 Promise.all([
     loadTemplate_class("../templates/text-and-image-logo.html", 'text-and-logo'),
 ]).then(() => {
-    document.getElementById('form-style').addEventListener('submit', async function(e) {
+    document.getElementsByClassName('register-form')[0].addEventListener('submit', async function(e) {
         e.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
 
         // Obtener los valores del formulario
@@ -72,7 +72,7 @@ Promise.all([
             if (response.ok) {
                 // Procesar la respuesta de Strapi
                 alert('Formulario enviado correctamente');
-                getUser(email, password).then(user => {login(user)});
+                //getUser(email, password).then(user => {login(user)});
             } else {
                 alert('Hubo un error al enviar el formulario');
                 console.error('Error de respuesta:', result);

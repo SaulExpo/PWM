@@ -15,7 +15,7 @@ async function login(user) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('form-style').addEventListener('submit', async function(e) {
+    document.getElementsByClassName('login-form')[0].addEventListener('submit', async function(e) {
             e.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
 
             const email = document.getElementById('email').value;
