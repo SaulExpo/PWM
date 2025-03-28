@@ -30,12 +30,17 @@ Promise.all([
             alert('El nombre no empieza por mayúscula.');
             return;
         }
-
+        
         if(formData.data.Surname.length === 0){
             alert('Ingrese un apellido');
             return;
         }
 
+        if(/^[A-Z]/.test(formData.data.Surname) === false){
+            alert('El apellido no empieza por mayúscula.');
+            return;
+        }        
+        
         if(formData.data.password.length <= 6){
             alert('El tamaño de la contraseña debe de ser de al menos 6 caracteres');
             return;
