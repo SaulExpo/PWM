@@ -81,7 +81,7 @@ Promise.all([
 
 
         console.log(formData)
-        if (valid == true){
+        if (valid === true){
             try {
                 // Enviar los datos a Strapi usando fetch (puedes usar axios también)
                 const response = await fetch('http://localhost:1337/api/app-users', {
