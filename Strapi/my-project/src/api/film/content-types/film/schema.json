@@ -42,6 +42,12 @@
         "film",
         "serie"
       ]
+    },
+    "actors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::actor.actor",
+      "inversedBy": "films"
     }
   }
 }

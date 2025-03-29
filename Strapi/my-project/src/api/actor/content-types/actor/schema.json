@@ -15,6 +15,12 @@
     },
     "pictureUrl": {
       "type": "string"
+    },
+    "films": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::film.film",
+      "mappedBy": "actors"
     }
   }
 }
