@@ -21,40 +21,63 @@ Promise.all([
                 password: password
             }
         };
-        if(formData.data.Name.length < 3){
-            alert('El nombre debe ser de al menos 3 caracteres');
-            return;
-        }
 
-        if(/^[A-Z]/.test(formData.data.Name) === false){
-            alert('El nombre no empieza por mayúscula.');
-            return;
-        }
-        
-        if(formData.data.Surname.length === 0){
-            alert('Ingrese un apellido');
-            return;
-        }
+        document.getElementsByClassName('register-form')[0].addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        if(/^[A-Z]/.test(formData.data.Surname) === false){
-            alert('El apellido no empieza por mayúscula.');
-            return;
-        }        
-        
-        if(formData.data.password.length <= 6){
-            alert('El tamaño de la contraseña debe de ser de al menos 6 caracteres');
-            return;
-        }
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const password = document.getElementById('password').value;
+            let valid = true;
 
-        if(/[A-Z]/.test(formData.data.password) === false){
-            alert('La contraseña no tiene ninguna mayúscula.');
-            return;
-        }
+            let nameError = document.getElementById('nameError');
+            let surnameError = document.getElementById('surnameError');
+            let passwordError = document.getElementById('passwordError');
 
-        if(/[0-9]/.test(formData.data.password) === false){
-            alert('La contraseña no tiene ningún número.');
-            return;
-        }
+            nameError.textContent = "";
+            surnameError.textContent = "";
+            passwordError.textContent = "";
+
+            if (name.length < 3) {
+                nameError.textContent = 'El nombre debe ser de al menos 3 caracteres.';
+                valid = false;
+            }
+
+            if (/^[A-Z]/.test(name) === false) {
+                nameError.textContent = 'El nombre no empieza por mayúscula.';
+                valid = false;
+            }
+
+            if (surname.length === 0) {
+                surnameError.textContent = 'Ingrese un apellido.';
+                valid = false;
+            }
+
+            if (/^[A-Z]/.test(surname) === false) {
+                surnameError.textContent = 'El apellido no empieza por mayúscula.';
+                valid = false;
+            }
+
+            if (password.length < 6) {
+                passwordError.textContent = 'El tamaño de la contraseña debe de ser de al menos 6 caracteres.';
+                valid = false;
+            }
+
+            if(/[A-Z]/.test(password) === false){
+                passwordError.textContent = 'La contraseña no tiene ninguna mayúscula.';
+                valid = false;
+            }
+
+            if(/[0-9]/.test(password) === false){
+                passwordError.textContent = 'La contraseña no tiene ningún número.';
+                valid = false;
+            }
+
+            if (valid === false){
+                e.preventDefault();
+            }
+        });
+
         console.log(formData)
 
         try {
