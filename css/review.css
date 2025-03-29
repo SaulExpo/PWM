@@ -25,6 +25,14 @@
     padding-bottom: 20px;
 }
 
+#review-container .personal-review{
+    width: 30%;
+    border-radius: 10px;
+    background-color: #c8c7c7;
+    color: black;
+    margin: 20px auto;
+}
+
 textarea {
     width: 500px;
     height: 40px;
@@ -47,6 +55,15 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+#review-container article {
+    width: 100%;
+}
+
+.personal-review div{
+    width: 20%;
+    padding-left: 10%;
 }
 
 

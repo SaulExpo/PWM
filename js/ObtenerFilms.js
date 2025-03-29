@@ -15,9 +15,8 @@ async function obtenerFilms(Category, type) {
         const films = await response.json();
 
         if (Category != null){
-            // Filtramos los films para que solo contengan la categoría "Animation"
+
             const filmsCategory = films.data.filter(film =>
-                // Aseguramos que film.Category existe y es igual a "Animation"
                 film.Category === Category && film.type === type
             );
             return filmsCategory;

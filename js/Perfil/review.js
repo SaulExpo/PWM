@@ -42,7 +42,6 @@ async function pushReview(user, film){
                 film: { connect: [film] }
             }
         };
-        console.log(formData)
 
         try {
             // Enviar los datos a Strapi usando fetch (puedes usar axios también)

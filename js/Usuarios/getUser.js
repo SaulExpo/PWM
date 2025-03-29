@@ -12,9 +12,8 @@ async function getUser(email, password) {
 
         // Parseamos la respuesta a JSON
         const users = await response.json();
-        // Filtramos los films para que solo contengan la categoría "Animation"
+
         const userselected = users.data.filter(user =>
-            // Aseguramos que film.Category existe y es igual a "Animation"
             user.email === email && user.password === password
         );
         return userselected[0];
