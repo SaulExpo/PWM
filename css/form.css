@@ -43,7 +43,6 @@ main{
 
 
 
-
 #Oval-Button-white-form{
     background-color: #ffffff;
     cursor: pointer;
@@ -112,8 +111,8 @@ main{
     font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
 }
 
-#form-style{
-
+.error-message{
+    color: #ff0000;
 }
 
 
