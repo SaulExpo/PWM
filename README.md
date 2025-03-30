@@ -27,13 +27,13 @@
 
 
 ## 3. Mockups-Tablet
-
+PMW/Mockups Tablet
 
 ## 4. Mockups-Movil
-
+PMW/Mockups Mobile 
 
 ## 5. Formularios
-
+PMW/Mockups
 
 ## 6. Enlace a Figma y trello:  
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&t=DI3YfCdyB2fKPQI8-1 
