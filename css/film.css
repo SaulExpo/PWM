@@ -1,0 +1,119 @@
+#film_title{
+    display: flex;
+    padding: 5%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#film_title div{
+    margin-right: 20px;
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 38px;
+}
+
+#film_title img{
+    width: 1.5em;
+    height: 0.75em;
+    margin-left: 20px;
+}
+
+#film_container{
+    color: white;
+    margin-left: 5%;
+    display: flex;
+}
+
+#film_container div{
+    margin: 0 5%;
+}
+
+#film_container img{
+    width: 10em;
+}
+
+.opciones{
+    margin-left: 5%;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    width: 23%;
+    justify-content: space-evenly ;
+
+}
+
+.opciones img{
+    margin-top: 20px;
+    margin-left: 5%;
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+}
+
+@media screen and (max-width: 700px) {
+    #film_title{
+        display: inline-block;
+        padding: 5% 3%;
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+
+    #film_title img{
+        width: 1.25em;
+        height: 0.625em;
+    }
+
+    #film_container{
+        color: white;
+        margin-left: 5%;
+        display: inline-block;
+    }
+
+    #film_container div{
+        margin: 0 5%;
+        padding-bottom: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #film_container img{
+        width: 10em;
+    }
+
+    #Description{
+        width: 12em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .image-title {
+        display: inline-flex;
+        margin: 5%;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    #Description {
+        width: 20em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+    #Description {
+        width: 40em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+}
