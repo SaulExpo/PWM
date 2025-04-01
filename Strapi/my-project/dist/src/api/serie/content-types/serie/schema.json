@@ -1,0 +1,33 @@
+{
+    "kind": "collectionType",
+    "collectionName": "series",
+    "info": {
+        "singularName": "serie",
+        "pluralName": "series",
+        "displayName": "Serie"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "Title": {
+            "type": "string"
+        },
+        "Description": {
+            "type": "string"
+        },
+        "CoverUrl": {
+            "type": "string"
+        },
+        "Valoration": {
+            "type": "integer"
+        },
+        "Category": {
+            "type": "enumeration",
+            "enum": [
+                "Animation",
+                "Live-Action"
+            ]
+        }
+    }
+}

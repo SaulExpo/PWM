@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Description": {
+      "type": "text"
+    },
+    "app_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::app-user.app-user"
+    },
+    "film": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::film.film"
+    }
+  }
+}
