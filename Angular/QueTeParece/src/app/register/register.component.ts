@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {RouterLink, Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {auth} from '../services/firebase-config';
+import {auth, db} from '../services/firebase-config';
 import {createUserWithEmailAndPassword} from "@angular/fire/auth";
+import {doc, setDoc} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-register',
@@ -34,8 +35,14 @@ export class RegisterComponent {
           const user = userCredential.user;
           console.log('Usuario registrado exitosamente:', user);
 
+          const usersCollection = doc(db, `users/${userCredential.user.uid}`);
+          setDoc(usersCollection, {
+            nombre: this.name,
+            apellido: this.surname
+          });
+
           //redirigir al login
-          this.router.navigate(['/login']);
+          this.router.navigate(['']);
         })
         .catch((error) => {
           // Manejo de errores
