@@ -3,12 +3,17 @@
     text-align: center;
     display: inline-block;
     font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    transition: transform 0.3s ease-in-out;
 }
 
 .image-title img{
     width: 50%;
     height: 50%;
 
+}
+
+.image-title:hover{
+    transform: scale(1.1);
 }
 
 .image-and-text,
