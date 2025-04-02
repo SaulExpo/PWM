@@ -40,12 +40,9 @@ export class RegisterComponent {
             nombre: this.name,
             apellido: this.surname
           });
-
-          //redirigir al login
           this.router.navigate(['']);
         })
         .catch((error) => {
-          // Manejo de errores
           const errorCode = error.code;
           const errorMessage = error.message;
           console.error('Error al registrar el usuario:', errorCode, errorMessage);

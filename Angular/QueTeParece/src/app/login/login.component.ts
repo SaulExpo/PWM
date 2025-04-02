@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {RouterLink, Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {auth} from '../services/firebase-config';
+import {signInWithEmailAndPassword} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,20 @@ export class LoginComponent {
   email: string ="";
   password: string ="";
 
-  login(){
+  constructor(private router: Router) {}
+
+  login() {
     console.log('Email:', this.email);
     console.log('Contraseña:', this.password);
+    signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log('Usuario registrado exitosamente:', user);
+          this.router.navigate(['']);
+        })
+        .catch((error) => {
+          console.error("❌ Error en el login:", error.message);
+        });
   }
+
 }
