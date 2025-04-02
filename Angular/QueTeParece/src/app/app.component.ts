@@ -25,7 +25,7 @@ export class AppComponent {
   constructor(private router: Router) {
     // Escuchamos los cambios de rutas
     this.router.events.subscribe(() => {
-      if (this.router.url === '/login') {
+      if (this.router.url === '/login' || this.router.url === '/register') {
         this.showHeaderFooter = false;  // Ocultamos header y footer si estamos en la ruta /login
       } else {
         this.showHeaderFooter = true;   // Mostramos header y footer en otras rutas

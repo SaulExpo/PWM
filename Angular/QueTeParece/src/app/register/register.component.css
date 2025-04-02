@@ -1,0 +1,172 @@
+main{
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input{
+    margin: 10px;
+}
+
+.form-container{
+    color: black;
+    background-color: #c9c9c9;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 45%;
+    margin: 20px;
+}
+
+.text-and-logo{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.title-in-page{
+    font-size: 30px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+#logo-form{
+    width: 100px;
+    height: 100px;
+    float: right;
+    border-radius: 50%;
+    padding-top: 5px;
+}
+
+
+
+#Oval-Button-white-form{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 5% auto;
+}
+
+#Oval-Button-white:hover {
+    background-color: #d9d9d9;
+}
+
+.ButtonRegistryOrLog{
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 70px;
+    text-align: center;
+    margin: 1% auto;
+}
+
+.buttons-type-edit-profile{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.buttons-type-login{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+#forgot-password{
+    text-align: center;
+    margin-left: 60px;
+    font-size: 11px;
+
+}
+
+#title-login-register{
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 40px;
+}
+
+.form-container-login-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    color:black;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.error-message{
+    color: #ff0000;
+}
+
+#oval-button, #Favoritos{
+    background-color: #E7BB0D;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+#oval-button:hover , #Favoritos :hover{
+    background-color: #d1a309;
+}
+
+#oval-button-white{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+#oval-button-white:hover {
+    background-color: #d9d9d9;
+}
+
+
+
+@media screen and (min-width: 415px) and (max-width: 900px)  {
+
+    .form-container{
+        color: black;
+        background-color: #c9c9c9;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 415px)  {
+    .form-container{
+        color: black;
+        background-color: #c9c9c9;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        width: 300px;
+    }
+}
