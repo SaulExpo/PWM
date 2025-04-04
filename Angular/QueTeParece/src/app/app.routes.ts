@@ -4,11 +4,13 @@ import {RegisterComponent} from "./register/register.component";
 import {HomeComponent} from "./home/home.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {NotificationsComponent} from "./notifications/notifications.component";
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'editProfile', component: EditProfileComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'notifications', component: NotificationsComponent },
     { path: 'register', component: RegisterComponent }
 ];
