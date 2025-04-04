@@ -1,0 +1,513 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: #121212;
+    height: 100%;
+    padding: 0;
+    color: #E7BB0D;
+}
+
+main h1{
+    color: #E7BB0D;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#header{
+    position: sticky;
+    height: 80px;
+    top: 0;
+    z-index: 10;
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+header h1{
+    color: #E7BB0D;
+}
+
+#logo{
+    margin: 10px;
+    height: 64px;
+    width: 64px;
+}
+
+.container {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    background-color: #E7BB0D;
+    align-items: center;
+    height: 50px;
+    color: #000000;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+.left-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 5px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.search-bar input:hover {
+    border-color: #ffc500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #ffc500;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    align-items: center;
+    left: 40%;
+}
+.suggestion-item {
+    display: flex;
+    background-color: #EDEDED;
+    padding: 10px;
+    cursor: pointer;
+}
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-item img{
+    width: 40px;
+    padding-right: 5px;
+}
+
+footer{
+    height: 150px;
+    background-color: #FFFFFF;
+}
+
+footer section{
+    margin-top: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+#division{
+    background-color: #E7BB0D;
+    height: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+@media screen and (min-width: 900px) and (max-width: 1400px)  {
+    .container{
+        grid-template-columns: 2fr 4fr 1fr;
+    }
+
+
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px)  {
+    .container{
+        grid-template-columns: 2fr 4fr 1fr;
+    }
+
+
+    footer section{
+        margin-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .left-text{
+        margin:0;
+    }
+    #suggestions {
+
+        left: 30%;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    .container{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .left-text{
+        width: 80%;
+        margin:0;
+    }
+    footer section{
+        display: block;
+        gap: 20px;
+    }
+    #suggestions {
+
+        left: 20%;
+    }
+
+
+}
+
+@media screen and (max-width: 415px)  {
+    .container{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .left-text{
+        width: 80%;
+        margin:0;
+    }
+
+    #header{
+        display: block;
+        margin-bottom: 100px;
+        align-items: center;
+        text-align: center;
+    }
+    footer section{
+        display: block;
+        gap: 20px;
+    }
+
+    #suggestions {
+
+        left: 10%;
+    }
+
+}
+
+#main-container{
+    display: flex;
+    justify-content: center;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    background-color: #c8c7c7;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-radius:20px;
+    color: black;
+}
+
+
+.text-input{
+    padding: 10px 160px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+#password,
+#email,
+#surname,
+#name {
+    padding: 8px 140px 8px 4px;
+    text-align: left;
+}
+
+#buttons-section{
+    display: flex;
+    gap: 270px;
+}
+
+#grey-button{
+    color: black;
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 900px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+    .text-input{
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+
+    #buttons-section{
+        gap: 40%;
+    }
+    #password,
+    #email,
+    #surname,
+    #name {
+        padding: 8px 80px;
+    }
+
+    .text-input{
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 415px)  {
+    #main-container{
+        display: block;
+        justify-items: center;
+    }
+    #main-section{
+        padding-top:0;
+        padding-bottom:100px;
+        justify-content: left;
+    }
+
+    #buttons-section{
+        gap: 40%;
+    }
+    #password,
+    #email,
+    #surname,
+    #name {
+        padding: 8px 40px;
+    }
+
+    .text-input{
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+
+}
+#oval-button, #Favoritos{
+    background-color: #E7BB0D;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+#oval-button:hover , #Favoritos :hover{
+    background-color: #d1a309;
+}
+
+#oval-button-white{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 30px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+#oval-button-white:hover {
+    background-color: #d9d9d9;
+}
+
+main{
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input{
+    margin: 10px;
+}
+
+.form-container{
+    color: black;
+    background-color: #c9c9c9;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 45%;
+    margin: 20px;
+}
+
+.text-and-logo{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.title-in-page{
+    font-size: 30px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+#logo-form{
+    width: 100px;
+    height: 100px;
+    float: right;
+    border-radius: 50%;
+    padding-top: 5px;
+}
+
+
+
+#Oval-Button-white-form{
+    background-color: #ffffff;
+    cursor: pointer;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 5% auto;
+}
+
+#Oval-Button-white:hover {
+    background-color: #d9d9d9;
+}
+
+.ButtonRegistryOrLog{
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 70px;
+    text-align: center;
+    margin: 1% auto;
+}
+
+.buttons-type-edit-profile{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.buttons-type-login{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+#forgot-password{
+    text-align: center;
+    margin-left: 60px;
+    font-size: 11px;
+
+}
+
+#title-login-register{
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 40px;
+}
+
+.form-container-login-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    color:black;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.error-message{
+    color: #ff0000;
+}
+
+
+@media screen and (min-width: 415px) and (max-width: 900px)  {
+
+    .form-container{
+        color: black;
+        background-color: #c9c9c9;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 415px)  {
+    .form-container{
+        color: black;
+        background-color: #c9c9c9;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 20px;
+        width: 300px;
+    }
+}
+
