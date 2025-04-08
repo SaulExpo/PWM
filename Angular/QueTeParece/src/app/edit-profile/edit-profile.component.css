@@ -266,11 +266,6 @@ footer section{
 
 
 @media screen and (min-width: 500px) and (max-width: 900px)  {
-    #main-container{
-        display: block;
-        justify-items: center;
-
-    }
     #main-section{
         padding-top:0;
         padding-bottom:100px;
@@ -284,10 +279,6 @@ footer section{
 }
 
 @media screen and (min-width: 415px) and (max-width: 500px)  {
-    #main-container{
-        display: block;
-        justify-items: center;
-    }
     #main-section{
         padding-top:0;
         padding-bottom:100px;
@@ -312,10 +303,7 @@ footer section{
 }
 
 @media screen and (max-width: 415px)  {
-    #main-container{
-        display: block;
-        justify-items: center;
-    }
+
     #main-section{
         padding-top:0;
         padding-bottom:100px;
