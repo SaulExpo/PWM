@@ -42,11 +42,11 @@ export class EditProfileComponent {
         let nameDb = userData?.['nombre'];
         let surnameDb = userData?.['apellido'];
 
-        if (nameDb !== this.user.name) {
+        if (this.user.name && nameDb !== this.user.name) {
           await setDoc(docRef, { nombre: this.user.name }, { merge: true });
         }
 
-        if (surnameDb !== this.user.surname) {
+        if (this.user.surname && surnameDb !== this.user.surname) {
           await setDoc(docRef, { apellido: this.user.surname }, { merge: true });
         }
 
