@@ -6,6 +6,7 @@ import {ProfileComponent} from "./profile/profile.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {NotificationsComponent} from "./notifications/notifications.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {FilmsComponent} from "./films/films.component";
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'notifications', component: NotificationsComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'AboutUs', component: AboutUsComponent }    
+    { path: 'AboutUs', component: AboutUsComponent },
+    { path: 'films', component: FilmsComponent },
 ];
