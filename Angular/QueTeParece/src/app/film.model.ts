@@ -1,5 +1,9 @@
 export interface Film {
-    name: String;
-    summary: String;
-    genre: String;
+    id: string;
+    category: String;
+    CoverUrl: String;
+    Description: String;
+    Title: String;
+    Valoration: Number;
+    type: String;
 }

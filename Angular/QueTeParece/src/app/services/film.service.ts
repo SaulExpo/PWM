@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {addDoc, collection, Firestore} from "@angular/fire/firestore";
+import {addDoc, collection, deleteDoc, doc, Firestore, setDoc} from "@angular/fire/firestore";
 import {Film} from "../film.model";
 
 
@@ -16,8 +16,14 @@ export class filmService {
         return addDoc(filmRef, film);
     }
 
-    removeFilms(film: Film){
+    deleteFilm() {
+        const filmDocRef = doc(this.firestore, 'films/${film.id}');
+        return deleteDoc(filmDocRef);
     }
 
+    updateFilm(film: Film) {
+        const filmDocRef = doc(this.firestore, 'films/${film.id}');
+        return setDoc(filmDocRef, film);
+    }
 }
 
