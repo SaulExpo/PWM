@@ -18,17 +18,17 @@ export class filmService {
     }
 
     addFilms(film: Film){
-        const filmRef = collection(this.firestore, "films");
+        const filmRef = collection(this.firestore, `films`);
         return addDoc(filmRef, film);
     }
 
-    deleteFilm() {
-        const filmDocRef = doc(this.firestore, 'films/${film.id}');
+    deleteFilm(film: Film) {
+        const filmDocRef = doc(this.firestore, `films/${film.id}`);
         return deleteDoc(filmDocRef);
     }
 
     updateFilm(film: Film) {
-        const filmDocRef = doc(this.firestore, 'films/${film.id}');
+        const filmDocRef = doc(this.firestore, `films/${film.id}`);
         return setDoc(filmDocRef, film);
     }
 }
