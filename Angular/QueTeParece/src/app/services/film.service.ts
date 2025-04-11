@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
-import {addDoc, collection, deleteDoc, doc, Firestore, setDoc} from "@angular/fire/firestore";
+import {addDoc, collection, deleteDoc, doc, docData, Firestore, setDoc} from "@angular/fire/firestore";
 import {Film} from "../film.model";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -9,6 +10,11 @@ import {Film} from "../film.model";
 
 export class filmService {
     constructor(private firestore: Firestore) {
+    }
+
+    getFilmByID(id: string) {
+        const filmRef= doc(this.firestore, `films/${id}`);
+        return docData(filmRef, { idField: 'id' }) as Observable<Film>;
     }
 
     addFilms(film: Film){
