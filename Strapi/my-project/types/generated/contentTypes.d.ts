@@ -369,6 +369,33 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiActorActor extends Struct.CollectionTypeSchema {
+  collectionName: 'actors';
+  info: {
+    displayName: 'Actor';
+    pluralName: 'actors';
+    singularName: 'actor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    films: Schema.Attribute.Relation<'manyToMany', 'api::film.film'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::actor.actor'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    pictureUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAppUserAppUser extends Struct.CollectionTypeSchema {
   collectionName: 'app_users';
   info: {
@@ -450,6 +477,7 @@ export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    actors: Schema.Attribute.Relation<'manyToMany', 'api::actor.actor'>;
     Category: Schema.Attribute.Enumeration<['Animation', 'Live-Action']>;
     CoverUrl: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -500,35 +528,6 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSerieSerie extends Struct.CollectionTypeSchema {
-  collectionName: 'series';
-  info: {
-    displayName: 'Serie';
-    pluralName: 'series';
-    singularName: 'serie';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Category: Schema.Attribute.Enumeration<['Animation', 'Live-Action']>;
-    CoverUrl: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Description: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::serie.serie'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Valoration: Schema.Attribute.Integer;
   };
 }
 
@@ -1041,11 +1040,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::actor.actor': ApiActorActor;
       'api::app-user.app-user': ApiAppUserAppUser;
       'api::favourite-film.favourite-film': ApiFavouriteFilmFavouriteFilm;
       'api::film.film': ApiFilmFilm;
       'api::review.review': ApiReviewReview;
-      'api::serie.serie': ApiSerieSerie;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
