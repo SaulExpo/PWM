@@ -1,11 +1,28 @@
 <main>
     <article id ="category" #userNameDiv>
-        <!-- Usa *ngFor para iterar sobre los elementos 'films' -->
-        <ul>
-            <li *ngFor="let film of films">
-                {{ film.Category }} - {{ film.Title }}
-                <img [src]="film.CoverUrl" alt="">
-            </li>
-        </ul>
+        <a class="category-button" href="films.html"><h1 class="image-and-text-h1">Animation</h1></a>
+        <article class="c-right-arrow">
+            <div class="images">
+                <section class="image-title" *ngFor="let film of AnimationFilms">
+                    <a href="../HTML%20Pages/film-info.html"><img [src]="film.CoverUrl" width="150" height="150"></a>
+                    <p>{{ film.Title }}</p>
+                </section>
+            </div>
+            <section class="t-button-right">
+                <button id="triangular-button-right"></button>
+            </section>
+        </article>
+        <a class="category-button" href="films.html"><h1 class="image-and-text-h1">Live-Action</h1></a>
+        <article class="c-right-arrow">
+            <div class="images">
+                <section class="image-title" *ngFor="let film of LiveFilms">
+                    <a href="../HTML%20Pages/film-info.html"><img [src]="film.CoverUrl" width="150" height="150"></a>
+                    <p>{{ film.Title }}</p>
+                </section>
+            </div>
+            <section class="t-button-right">
+                <button id="triangular-button-right"></button>
+            </section>
+        </article>
     </article>
 </main>

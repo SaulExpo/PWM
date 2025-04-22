@@ -14,6 +14,8 @@ import {collection, doc, getDoc, getDocs, setDoc} from "@angular/fire/firestore"
 
 export class FilmsComponent implements OnInit {
     films: { Category: string; Title: string; CoverUrl: string}[] = [];
+    AnimationFilms:{ Category: string; Title: string; CoverUrl: string}[] = [];
+    LiveFilms: { Category: string; Title: string; CoverUrl: string}[] = [];
 
     ngOnInit() {
         this.initializeOnAuthStateChanged();
@@ -44,6 +46,9 @@ export class FilmsComponent implements OnInit {
                             this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb});
                         }
                     });
+                    this.AnimationFilms = this.films.filter(film => film.Category === "Animation");
+                    this.LiveFilms = this.films.filter(film => film.Category === "Live-Action");
+
                 } catch (error) {
                     console.error('Error al obtener los documentos: ', error);
                 }
