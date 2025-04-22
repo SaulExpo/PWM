@@ -4,7 +4,7 @@
         <article class="c-right-arrow">
             <div class="images">
                 <section class="image-title" *ngFor="let film of AnimationFilms">
-                    <a href="../HTML%20Pages/film-info.html"><img [src]="film.CoverUrl" width="150" height="150"></a>
+                    <a routerLink="/filmInfo"><img [src]="film.CoverUrl" width="150" height="150"></a>
                     <p>{{ film.Title }}</p>
                 </section>
             </div>
@@ -16,7 +16,7 @@
         <article class="c-right-arrow">
             <div class="images">
                 <section class="image-title" *ngFor="let film of LiveFilms">
-                    <a href="../HTML%20Pages/film-info.html"><img [src]="film.CoverUrl" width="150" height="150"></a>
+                    <a routerLink="/filmInfo"><img [src]="film.CoverUrl" width="150" height="150"></a>
                     <p>{{ film.Title }}</p>
                 </section>
             </div>
