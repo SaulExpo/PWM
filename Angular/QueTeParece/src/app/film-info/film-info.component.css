@@ -1,0 +1,349 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: #121212;
+    height: 100%;
+    padding: 0;
+    color: #E7BB0D;
+}
+
+main h1{
+    color: #E7BB0D;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#header{
+    position: sticky;
+    height: 80px;
+    top: 0;
+    z-index: 10;
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+header h1{
+    color: #E7BB0D;
+}
+
+#logo{
+    margin: 10px;
+    height: 64px;
+    width: 64px;
+}
+
+.container {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    background-color: #E7BB0D;
+    align-items: center;
+    height: 50px;
+    color: #000000;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+.left-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 5px;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.search-bar input:hover {
+    border-color: #ffc500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #ffc500;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    align-items: center;
+    left: 40%;
+}
+.suggestion-item {
+    display: flex;
+    background-color: #EDEDED;
+    padding: 10px;
+    cursor: pointer;
+}
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-item img{
+    width: 40px;
+    padding-right: 5px;
+}
+
+footer{
+    height: 150px;
+    background-color: #FFFFFF;
+}
+
+footer section{
+    margin-top: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+
+#division{
+    background-color: #E7BB0D;
+    height: 20px;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px)  {
+    .container{
+        grid-template-columns: 2fr 4fr 1fr;
+    }
+
+
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px)  {
+    .container{
+        grid-template-columns: 2fr 4fr 1fr;
+    }
+
+
+    footer section{
+        margin-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .left-text{
+        margin:0;
+    }
+    #suggestions {
+
+        left: 30%;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+    .container{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .left-text{
+        width: 80%;
+        margin:0;
+    }
+    footer section{
+        display: block;
+        gap: 20px;
+    }
+    #suggestions {
+
+        left: 20%;
+    }
+
+
+}
+
+@media screen and (max-width: 415px)  {
+    .container{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .left-text{
+        width: 80%;
+        margin:0;
+    }
+
+    #header{
+        display: block;
+        margin-bottom: 100px;
+        align-items: center;
+        text-align: center;
+    }
+    footer section{
+        display: block;
+        gap: 20px;
+    }
+
+    #suggestions {
+
+        left: 10%;
+    }
+
+}
+
+#film_title{
+    display: flex;
+    padding: 5%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#film_title div{
+    margin-right: 20px;
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 38px;
+}
+
+#film_title img{
+    width: 1.5em;
+    height: 0.75em;
+    margin-left: 20px;
+}
+
+#film_container{
+    color: white;
+    margin-left: 5%;
+    display: flex;
+}
+
+#film_container div{
+    margin: 0 5%;
+}
+
+#film_container img{
+    width: 10em;
+}
+
+.opciones{
+    margin-left: 5%;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    width: 23%;
+    justify-content: space-evenly ;
+
+}
+
+.opciones img{
+    margin-top: 20px;
+    margin-left: 5%;
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+}
+
+@media screen and (max-width: 700px) {
+    #film_title{
+        display: inline-block;
+        padding: 5% 3%;
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+
+    #film_title img{
+        width: 1.25em;
+        height: 0.625em;
+    }
+
+    #film_container{
+        color: white;
+        margin-left: 5%;
+        display: inline-block;
+    }
+
+    #film_container div{
+        margin: 0 5%;
+        padding-bottom: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #film_container img{
+        width: 10em;
+    }
+
+    #Description{
+        width: 12em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .image-title {
+        display: inline-flex;
+        margin: 5%;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    #Description {
+        width: 20em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+    #Description {
+        width: 40em;
+        height: 4em;
+        display: block;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+    }
+}
+
+

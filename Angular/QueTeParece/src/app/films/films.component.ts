@@ -40,7 +40,7 @@ export class FilmsComponent implements OnInit {
         });
     }
 
-    private initializeOnAuthStateChanged() {
+    private async initializeOnAuthStateChanged() {
         try {
             // Obtén la colección 'films' de Firestore
             const docRef = collection(db, 'films');

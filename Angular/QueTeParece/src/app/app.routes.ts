@@ -7,6 +7,7 @@ import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {NotificationsComponent} from "./notifications/notifications.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {FilmsComponent} from "./films/films.component";
+import {FilmInfoComponent} from "./film-info/film-info.component";
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,4 +18,5 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'aboutUs', component: AboutUsComponent },
     { path: 'films', component: FilmsComponent },
+    { path: 'filmInfo', component: FilmInfoComponent},
 ];
