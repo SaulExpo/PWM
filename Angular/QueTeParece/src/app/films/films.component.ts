@@ -1,6 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
-import {RouterLink} from "@angular/router";
-import {onAuthStateChanged, User} from "firebase/auth";
+import {Component, ElementRef, OnInit, ViewChildren,QueryList, Renderer2 } from '@angular/core';
+import {Router, RouterLink} from "@angular/router";
+import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import {auth, db} from "../services/firebase-config";
 import { CommonModule } from '@angular/common';  // Importa CommonModule
 import {collection, doc, getDoc, getDocs, setDoc} from "@angular/fire/firestore";
@@ -13,34 +13,41 @@ import {collection, doc, getDoc, getDocs, setDoc} from "@angular/fire/firestore"
 })
 
 export class FilmsComponent implements OnInit {
-    constructor(private renderer: Renderer2) {}
+    @ViewChildren('buttonRef') buttonsRef!: QueryList<any>;
+    constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
 
-    films: { Category: string; Title: string; CoverUrl: string}[] = [];
-    AnimationFilms:{ Category: string; Title: string; CoverUrl: string}[] = [];
-    LiveFilms: { Category: string; Title: string; CoverUrl: string}[] = [];
+    categoryType: string | null = null;
+    films: { Category: string; Title: string; CoverUrl: string, type: string}[] = [];
+    AnimationFilms:{ Category: string; Title: string; CoverUrl: string, type: string}[] = [];
+    LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string}[] = [];
 
     ngOnInit() {
         this.initializeOnAuthStateChanged();
+        this.route.queryParams.subscribe(params => {
+            this.categoryType = params['name'];  // Obtén el parámetro 'name' de la URL
+        });
+    }
+
+    ngAfterViewInit(): void {
+        // Ahora que la vista está completamente inicializada, podemos trabajar con @ViewChildren
         this.prepararRotacion();
     }
 
     prepararRotacion() {
-        // Obtener todos los botones con la clase .t-button-right
-        const buttons = document.querySelectorAll('.t-button-right');
-
-        buttons.forEach((button: any) => {
-            this.renderer.listen(button, 'click', () => {
-                // Obtener el contenedor de las imágenes
-                const container = button.parentElement.firstElementChild;
-
-                // Mover la primera imagen al final del contenedor
-                const firstImage = container.firstElementChild;
-                container.appendChild(firstImage);
+        // Espera a que los botones estén renderizados
+        this.buttonsRef.changes.subscribe(() => {
+            // Itera sobre los botones con la referencia obtenida de @ViewChildren
+            this.buttonsRef.forEach((button: any) => {
+                this.renderer.listen(button.nativeElement, 'click', () => {
+                    const container = button.nativeElement.parentElement.querySelector('.image-container');
+                    const firstImage = container.firstElementChild;
+                    container.appendChild(firstImage);
+                });
             });
         });
     }
 
-    private initializeOnAuthStateChanged() {
+    private async initializeOnAuthStateChanged() {
         try {
             // Obtén la colección 'films' de Firestore
             const docRef = collection(db, 'films');
@@ -57,12 +64,15 @@ export class FilmsComponent implements OnInit {
                 let categoryDb = documentData?.['Category'];
                 let titleDb = documentData?.['Title'];
                 let coverDb = documentData?.['CoverUrl'];
+                let typeDb = documentData?.['type'];
 
                 // Si los datos existen, agrégalo al array 'films'
                 if (categoryDb && titleDb && coverDb) {
-                    this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb});
+                    this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb, type: typeDb});
                 }
             });
+            console.log(this.categoryType)
+            //this.films = this.films.filter(film => {film.type === this.categoryType})
             this.AnimationFilms = this.films.filter(film => film.Category === "Animation");
             this.LiveFilms = this.films.filter(film => film.Category === "Live-Action");
 
