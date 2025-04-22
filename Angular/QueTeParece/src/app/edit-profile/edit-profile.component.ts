@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {auth, db} from '../services/firebase-config';
-import { onAuthStateChanged, User } from 'firebase/auth';
+import { onAuthStateChanged, User, updatePassword } from 'firebase/auth';
 import {doc, getDoc, setDoc} from "@angular/fire/firestore";
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {reauthenticateWithCredential, updateEmail} from "@angular/fire/auth";
+
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -48,6 +51,15 @@ export class EditProfileComponent {
 
         if (this.user.surname && surnameDb !== this.user.surname) {
           await setDoc(docRef, { apellido: this.user.surname }, { merge: true });
+        }
+
+        if(this.user.password !== ''){
+          try{
+            await updatePassword(user, this.user.password);
+            console.log("Contraseña cambiada");
+          } catch(error){
+            console.log(error);
+          }
         }
 
       }

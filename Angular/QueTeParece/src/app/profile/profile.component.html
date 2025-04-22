@@ -8,7 +8,7 @@
                 <img id="current-photo" src="" alt="Foto actual" />
                 <div id="profile-options">
                     <a routerLink="/editProfile"><span>Editar Perfil</span></a>
-                    <a id="LogOut" routerLink=""><span>Cerrar Sesión</span></a>
+                    <a id="LogOut" routerLink="" (click)="logOut($event)"><span>Cerrar Sesión</span></a>
                 </div>
             </div>
 
