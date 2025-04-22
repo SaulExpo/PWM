@@ -3,6 +3,7 @@ import {RouterLink} from "@angular/router";
 import {onAuthStateChanged, User} from "firebase/auth";
 import {auth, db} from "../services/firebase-config";
 import {doc, getDoc, setDoc} from "@angular/fire/firestore";
+import {signOut} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-profile',
@@ -34,5 +35,15 @@ export class ProfileComponent implements OnInit {
 
       }
     });
+  }
+
+  logOut($event: any) {
+    signOut(auth)
+        .then(() => {
+          console.log("Sesión cerrada correctamente.");
+        })
+        .catch((error) => {
+          console.error("Error al cerrar sesión:", error);
+        });
   }
 }
