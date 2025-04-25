@@ -17,9 +17,9 @@ export class FilmsComponent implements OnInit {
     constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
 
     categoryType: string | null = null;
-    films: { Category: string; Title: string; CoverUrl: string, type: string}[] = [];
-    AnimationFilms:{ Category: string; Title: string; CoverUrl: string, type: string}[] = [];
-    LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string}[] = [];
+    films: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
+    AnimationFilms:{ Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
+    LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
 
     ngOnInit() {
         this.initializeOnAuthStateChanged();
@@ -65,10 +65,12 @@ export class FilmsComponent implements OnInit {
                 let titleDb = documentData?.['Title'];
                 let coverDb = documentData?.['CoverUrl'];
                 let typeDb = documentData?.['type'];
+                let idDb = documentData?.['id'];
+                let filmIdDb = document.id;
 
                 // Si los datos existen, agrégalo al array 'films'
                 if (categoryDb && titleDb && coverDb) {
-                    this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb, type: typeDb});
+                    this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb, type: typeDb, Id:filmIdDb});
                 }
             });
             console.log(this.categoryType)
