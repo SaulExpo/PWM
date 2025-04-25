@@ -30,22 +30,18 @@ export class FilmsComponent implements OnInit {
 
     ngAfterViewInit(): void {
         // Ahora que la vista está completamente inicializada, podemos trabajar con @ViewChildren
-        this.prepararRotacion();
     }
 
     prepararRotacion() {
-        // Espera a que los botones estén renderizados
-        this.buttonsRef.changes.subscribe(() => {
-            // Itera sobre los botones con la referencia obtenida de @ViewChildren
-            this.buttonsRef.forEach((button: any) => {
-                this.renderer.listen(button.nativeElement, 'click', () => {
-                    const container = button.nativeElement.parentElement.querySelector('.image-container');
-                    const firstImage = container.firstElementChild;
-                    container.appendChild(firstImage);
-                });
+        this.buttonsRef.forEach((button: any, index: number) => {
+            this.renderer.listen(button.nativeElement, 'click', () => {
+                const container = button.nativeElement.parentElement.parentElement.firstElementChild;
+                const firstImage = container.firstElementChild;
+                container.appendChild(firstImage);
             });
         });
     }
+
 
     private async initializeOnAuthStateChanged() {
         try {
@@ -73,10 +69,16 @@ export class FilmsComponent implements OnInit {
                     this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb, type: typeDb, Id:filmIdDb});
                 }
             });
-            console.log(this.categoryType)
-            //this.films = this.films.filter(film => {film.type === this.categoryType})
+            if (this.categoryType !== undefined) {
+                this.films = this.films.filter(film => film.type === this.categoryType)
+            }
             this.AnimationFilms = this.films.filter(film => film.Category === "Animation");
             this.LiveFilms = this.films.filter(film => film.Category === "Live-Action");
+
+            setTimeout(() => {
+                this.prepararRotacion();
+            });
+
 
         } catch (error) {
             console.error('Error al obtener los documentos: ', error);
