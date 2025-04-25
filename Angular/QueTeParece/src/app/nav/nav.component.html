@@ -2,14 +2,28 @@
   <div class="left-text">
     <a href="/films?name=film"><p>Peliculas</p></a>
     <a href="/films?name=serie"><p>Series</p></a>
-    <a routerLink="/films"><p>Todo</p></a>
+    <a href="/films"><p>Todo</p></a>
   </div>
-  <div class="search-bar">
-    <input  id="search" type="text" placeholder="Buscar...">
-    <div>
-      <div id="suggestions"></div>
-      <div id="suggestionsImg"></div>
+    <div class="search-bar">
+        <!-- Input para la búsqueda -->
+        <input #searchInput
+               type="text"
+               placeholder="Buscar película..."
+               (input)="onSearch(searchInput.value)"> <!-- Aquí se llama a la función onSearch -->
+
+        <!-- Sugerencias de búsqueda -->
+        <div id="suggestions" *ngIf="filteredfilms.length > 0">
+            <div
+                    class="suggestion-item"
+                    *ngFor="let film of filteredfilms"
+                    (click)="goToFilm(film.Title)"
+            >
+                <img [src]="film.CoverUrl" alt="cover">
+                <div>{{ film.Title }}</div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="right-text"></div>
+
+    <div class="right-text"></div>
 </nav>
+
