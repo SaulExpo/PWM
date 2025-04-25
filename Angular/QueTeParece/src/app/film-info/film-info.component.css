@@ -239,9 +239,9 @@ footer section{
     font-size: 38px;
 }
 
-#film_title img{
-    width: 1.5em;
-    height: 0.75em;
+#film-image{
+    max-width: 50%;
+    max-height: 40vh;
     margin-left: 20px;
 }
 
@@ -346,4 +346,114 @@ footer section{
     }
 }
 
+.image-title{
+    width: 24%;
+    text-align: center;
+    display: inline-block;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-title img{
+    width: 50%;
+    height: 50%;
+
+}
+
+.image-title:hover{
+    transform: scale(1.1);
+}
+
+.image-and-text,
+.image-and-text-left,
+.image-and-text-right{
+    color: white;
+    display: flex;
+    padding: 5%;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.image-and-text-left img{
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+.image-and-text-right img{
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.image-and-text *{
+    padding: 5%;
+}
+
+.image-and-text-h1{
+    padding: 5% 0 0 5%;
+    font-family: 'ArcadeClassic', sans-serif;
+    margin-bottom: 20px;
+}
+
+#slideshow{
+    padding: 5%;
+    width: 90%;
+    height: 250px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .image-and-text{
+        display:block;
+    }
+
+    .image-and-text-right{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-and-text-left{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .image-and-text-left img{
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+        margin-left:0;
+
+    }
+
+    .image-and-text img,
+    .image-and-text-right img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+    .image-and-text-left img{
+        height: 300px;
+        max-height: 300px;
+        object-fit: cover;
+
+    }
+
+    .image-and-text img{
+        height: 300px;
+        max-height: 300px;
+        object-fit: cover;
+        margin-bottom: 30px;
+    }
+
+    .image-and-text-right img{
+        height: 300px;
+        max-height: 300px;
+        object-fit: cover;
+
+    }
+
+}
 
