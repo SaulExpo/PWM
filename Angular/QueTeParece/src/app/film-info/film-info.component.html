@@ -1,6 +1,9 @@
 
 <main>
-    <article id="film" class ="film_container"></article>
+    <article id="film" class ="film_container">
+        <h2 *ngIf="filmData">{{ filmData.Title }}</h2>
+        <img *ngIf="filmData" [src]="filmData.CoverUrl" alt="Cover Image" />
+    </article>
     <div id="Actores"></div>
     <div id="personal-review-container">
         <article class ="personal-review write"></article>
