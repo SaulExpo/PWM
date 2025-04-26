@@ -1,10 +1,21 @@
 
 <main>
     <article id="film" class ="film_container">
-        <h2 id="film_title" *ngIf="filmData">{{ filmData.Title }}</h2>
-        <img id="film-image" *ngIf="filmData" [src]="filmData.CoverUrl" alt="Cover Image" />
-        <p *ngIf="filmData">{{ filmData.Descripcion }}</p>
+        <section id="film_title">
+            <h2 *ngIf="filmData">{{ filmData.Title }}</h2>
 
+            <div class="stars">
+                <img *ngFor="let star of stars"
+                     src="/star.png"
+                     alt="star"
+                     width="50"
+                >
+            </div>
+        </section>
+        <section class="image-and-text-right">
+            <img id="film-image" *ngIf="filmData" [src]="filmData.CoverUrl" alt="Cover Image" />
+            <p *ngIf="filmData">{{ filmData.Description }}</p>
+        </section>
     </article>
     <div id="Actores"></div>
     <div id="personal-review-container">
