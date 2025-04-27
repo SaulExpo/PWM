@@ -1,0 +1,12 @@
+<article id="review-container" *ngFor="let review of reviews; let i = index">
+    <section *ngIf="isEditing === i">
+        <input [(ngModel)]="review.review" />
+        <button (click)="callSaveReview(i)">Guardar</button>
+    </section>
+
+    <section *ngIf="isEditing !== i">
+        {{review.film}}: {{review.review}}
+        <button (click)="callUpdateReview(i)">Editar</button>
+        <button (click)="callDeleleReview(i)">Eliminar</button>
+    </section>
+</article>
