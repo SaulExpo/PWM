@@ -62,10 +62,6 @@ export function saveReview(index:number, review:string) {
             const filmRef = reviewUserDoc.data() as {filmRef: DocumentReference};
             const reviewRef = reviewUserDoc.data() as {reviewRef: string};
 
-
-            console.log(filmRef.filmRef);
-            console.log(reviewRef.reviewRef);
-
             const reviewFilmRef = doc(filmRef.filmRef,'reviews', reviewRef.reviewRef);
 
             await updateDoc(reviewUserRef,{
