@@ -11,8 +11,9 @@ import {db} from "../services/firebase-config";
   styleUrl: './nav.component.css'
 })
 export class NavComponent implements OnInit {
-  films: { Category: string; Title: string; CoverUrl: string; type: string }[] = [];
-  filteredfilms: { Category: string; Title: string; CoverUrl: string; type: string }[] = [];
+  films: { Category: string; Title: string; CoverUrl: string; type: string, Id:string }[] = [];
+  filteredfilms: { Category: string; Title: string; CoverUrl: string; type: string, Id:string }[] = [];
+  suggestionsVisible: boolean = true;
 
   ngOnInit() {
     this.loadFilms();
@@ -25,6 +26,7 @@ export class NavComponent implements OnInit {
 
       this.films = [];
 
+
       collections.forEach((document) => {
         const data = document.data();
         if (data?.['Category'] && data?.['Title'] && data?.['CoverUrl']) {
@@ -32,7 +34,8 @@ export class NavComponent implements OnInit {
             Category: data['Category'],
             Title: data['Title'],
             CoverUrl: data['CoverUrl'],
-            type: data['type']
+            type: data['type'],
+            Id:document.id
           });
         }
       });
@@ -47,10 +50,16 @@ export class NavComponent implements OnInit {
     this.filteredfilms = this.films.filter(film =>
         film.Title.toLowerCase().includes(lowerQuery)
     );
+    this.suggestionsVisible = this.filteredfilms.length > 0;
+  }
+  onBlur(): void {
+    this.suggestionsVisible = false; // Oculta las sugerencias
   }
 
-  goToFilm(title: string) {
-    window.location.href = `../HTML Pages/film-info.html?name=${title}`;
+  // Función que se llama cuando el input obtiene el foco
+  onFocus(): void {
+    this.suggestionsVisible = this.filteredfilms.length > 0; // Muestra las sugerencias si hay resultados
   }
+
 }
 

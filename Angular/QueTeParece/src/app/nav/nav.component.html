@@ -9,17 +9,17 @@
         <input #searchInput
                type="text"
                placeholder="Buscar película..."
-               (input)="onSearch(searchInput.value)"> <!-- Aquí se llama a la función onSearch -->
+               (input)="onSearch(searchInput.value)"
+               (blur)="onBlur()"
+               (focus)="onFocus()">
 
         <!-- Sugerencias de búsqueda -->
-        <div id="suggestions" *ngIf="filteredfilms.length > 0">
-            <div
-                    class="suggestion-item"
-                    *ngFor="let film of filteredfilms"
-                    (click)="goToFilm(film.Title)"
-            >
+        <div id="suggestions" *ngIf="filteredfilms.length > 0 && suggestionsVisible" >
+            <div class="suggestion-item" *ngFor="let film of filteredfilms">
+                <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }">
                 <img [src]="film.CoverUrl" alt="cover">
                 <div>{{ film.Title }}</div>
+                </a>
             </div>
         </div>
     </div>
