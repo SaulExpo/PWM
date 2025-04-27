@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';  // Importa CommonModule
 import {collection, doc, getDoc, getDocs, setDoc} from "@angular/fire/firestore";
 
 @Component({
-  selector: 'app-films',
-  imports: [RouterLink, CommonModule],
-  templateUrl: './films.component.html',
-  styleUrl: './films.component.css'
+    selector: 'app-films',
+    imports: [RouterLink, CommonModule],
+    templateUrl: './films.component.html',
+    styleUrl: './films.component.css'
 })
 
 export class FilmsComponent implements OnInit {
