@@ -1,5 +1,5 @@
 import {db, auth} from '../services/firebase-config';
-import {collection, doc, getDoc, getDocs, setDoc, updateDoc} from "@angular/fire/firestore";
+import {collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc} from "@angular/fire/firestore";
 import {onAuthStateChanged} from "firebase/auth";
 import {DocumentReference} from "@angular/fire/compat/firestore";
 
@@ -87,7 +87,27 @@ export function saveReview(index:number, review:string) {
 }
 
 //Delete
-export function deleleReview(index:number){
-    console.log(index, "borrada");
+export function deleleReview(index:number) {
+    const reviews: any[] = [];
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            const reviewsUserRef = collection(db, 'users', user.uid, 'reviews');
+            const reviewsUserDocs = await getDocs(reviewsUserRef);
+            reviewsUserDocs.forEach((doc) => {
+                reviews.push(doc.ref);
+            })
+
+            const reviewUserRef = reviews[index];
+            const reviewUserDoc = await getDoc(reviewUserRef);
+            const filmRef = reviewUserDoc.data() as {filmRef: DocumentReference};
+            const reviewRef = reviewUserDoc.data() as {reviewRef: string};
+
+            const reviewFilmRef = doc(filmRef.filmRef,'reviews', reviewRef.reviewRef);
+
+            await deleteDoc(reviewUserRef);
+            await deleteDoc(reviewFilmRef);
+        }
+    });
 }
+
 
