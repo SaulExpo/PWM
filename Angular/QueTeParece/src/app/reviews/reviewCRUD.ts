@@ -1,5 +1,5 @@
 import {db, auth} from '../services/firebase-config';
-import {collection, doc, setDoc} from "@angular/fire/firestore";
+import {collection, doc, getDoc, setDoc} from "@angular/fire/firestore";
 import {onAuthStateChanged} from "firebase/auth";
 
 
@@ -20,8 +20,11 @@ export async function createReview(filmRef: any, review:string,) {
                     //nuevo documento con reviews en la pelicula
                     const newFilmRef = collection(filmRef, 'reviews');
                     const newFilmDoc = doc(newFilmRef);
+                    const userNameRef = doc(db, 'users', user.uid);
+                    const userInfo = await getDoc(userNameRef);
                     await setDoc(newFilmDoc, {
-                        user: user.uid,
+                        userRef: user.uid,
+                        userName: userInfo.data(),
                         review: review,
                         createdAt: new Date()
                     })

@@ -21,6 +21,7 @@ export class FilmInfoComponent implements OnInit {
   reviews: {user: string, review: string}[] =[];
 
 
+
   constructor(private route: ActivatedRoute) {}
   async ngOnInit() {
     this.route.queryParams.subscribe(async params => {
@@ -37,10 +38,11 @@ export class FilmInfoComponent implements OnInit {
           const filmref = collection(this.filmRefDb, 'reviews')
           const filmsReviews = await getDocs(filmref);
           filmsReviews.forEach((doc )=>{
-                let reviewData = doc.data() as review;
-                let review = {user: reviewData.user, review: reviewData.review} as review;
-                this.reviews.push(review)
-              }
+            let reviewData = doc.data() as Review; // Aquí lo casté como Review
+            console.log(reviewData);
+            let review = {user: reviewData.userName.nombre, review: reviewData.review};
+            this.reviews.push(review)
+          }
           );
         } else {
           console.error('Película no encontrada.');
@@ -60,17 +62,19 @@ export class FilmInfoComponent implements OnInit {
     this.reviews = [];
 
     reviewsSnap.forEach((doc) => {
-      let reviewData = doc.data() as review;
-      console.log("reviews refrescando")
-      this.reviews.push({ user: reviewData.user, review: reviewData.review });
+      let reviewData = doc.data() as Review;
+      this.reviews.push({ user: reviewData.userName.nombre, review: reviewData.review });
     });
 
   }
 }
-
-interface review{
-  user: string,
-  review: string,
+interface User {
+  nombre: string;
+  apellido: string;
 }
 
+interface Review {
+  userName: User;
+  review: string;
+}
 
