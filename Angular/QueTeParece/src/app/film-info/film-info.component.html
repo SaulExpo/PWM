@@ -19,7 +19,14 @@
     </article>
     <div id="Actores"></div>
     <div id="personal-review-container">
-        <article class ="personal-review write"></article>
+        <article class ="personal-review write">
+            <form (ngSubmit)="callCreateReview()">
+                <input name="review" [(ngModel)]="review">
+                <button>Añadir Reseña</button>
+            </form>
+        </article>
     </div>
-    <article id="review-container"></article>
+    <article id="review-container" *ngFor="let review of reviews">
+        {{review.review}}
+    </article>
 </main>
