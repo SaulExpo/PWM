@@ -8,6 +8,7 @@ import {NotificationsComponent} from "./notifications/notifications.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {FilmsComponent} from "./films/films.component";
 import {FilmInfoComponent} from "./film-info/film-info.component";
+import {EditReviewsComponent} from "./edit-reviews/edit-reviews.component";
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -19,4 +20,5 @@ export const routes: Routes = [
     { path: 'aboutUs', component: AboutUsComponent },
     { path: 'films', component: FilmsComponent },
     { path: 'filmInfo', component: FilmInfoComponent},
+    { path: 'editReviews', component: EditReviewsComponent },
 ];
