@@ -17,6 +17,10 @@
             <p *ngIf="filmData">{{ filmData.Description }}</p>
         </section>
     </article>
+    <button (click)="alternarAsociacion()">
+        {{ textoBoton }}
+    </button>
+
     <div id="Actores"></div>
     <div id="personal-review-container">
         <article class ="personal-review write">

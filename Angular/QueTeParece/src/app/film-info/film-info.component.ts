@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {collection, doc, getDoc, getDocs} from "@angular/fire/firestore";
-import {db} from "../services/firebase-config";
+import {collection, doc, getDoc, getDocs, updateDoc, arrayRemove, arrayUnion} from "@angular/fire/firestore";
+import {auth, db} from "../services/firebase-config";
 import {ActivatedRoute} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {createReview} from "../reviews/reviewCRUD";
+import {onAuthStateChanged, User} from "firebase/auth";
 
 @Component({
   selector: 'app-film-info',
@@ -19,10 +20,74 @@ export class FilmInfoComponent implements OnInit {
   stars: number[] = [];
   review: string ="";
   reviews: {user: string, review: string}[] =[];
+  asociada: boolean = false; // ¿ya está asociada o no?
+
+  constructor(private route: ActivatedRoute) {
+    this.verificarAsociacion();
+  }
+  async verificarAsociacion() {
+    onAuthStateChanged(auth, async(user: User|null)=> {
+      if (user) {
+        const userRef = doc(db, `users/${user.uid}`);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const data = userSnap.data() as any;
+          this.asociada = data.films?.includes(this.filmId) || false;
+        } else {
+          console.error('Usuario no encontrado.');
+          this.asociada = false;
+        }
+      }
+    });
+
+  }
+
+  async alternarAsociacion() {
+    onAuthStateChanged(auth, async(user: User|null)=>{
+      if(user){
+        const docRef = doc(db, `users/${user.uid}`);
+        console.log(document)
+        if (this.asociada) {
+          // Si ya está asociada ➔ eliminar
+          await updateDoc(docRef, {
+            films: arrayRemove(this.filmId)
+          });
+          console.log('Película desasociada del usuario.');
+        } else {
+          // Si no está asociada ➔ agregar
+          await updateDoc(docRef, {
+            films: arrayUnion(this.filmId)
+          });
+          console.log('Película asociada al usuario.');
+        }
+
+        // Actualizar el estado después de la operación
+        this.asociada = !this.asociada;
+      }
+    });
+
+    
+  }
+
+  async checkAsociacion() {
+    onAuthStateChanged(auth, async(user: User|null)=> {
+      if (user) {
+        const docRef = doc(db, `users/${user.uid}`);
+        const userSnap = await getDoc(docRef);
+
+        if (userSnap.exists()) {
+          const data = userSnap.data() as any;
+          this.asociada = data.films?.includes(this.filmId) || false;
+        }
+      }
+    });
+  }
+
+  get textoBoton(): string {
+    return this.asociada ? 'Eliminar película de favoritos' : 'Añadir película a favoritos';
+  }
 
 
-
-  constructor(private route: ActivatedRoute) {}
   async ngOnInit() {
     this.route.queryParams.subscribe(async params => {
       this.filmId = params['id'];
@@ -68,13 +133,13 @@ export class FilmInfoComponent implements OnInit {
 
   }
 }
-interface User {
+interface UserModel {
   nombre: string;
   apellido: string;
 }
 
 interface Review {
-  userName: User;
+  userName: UserModel;
   review: string;
 }
 
