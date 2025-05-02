@@ -6,7 +6,7 @@
 main{
     background-color: #121212;
     height: 100%;
-    padding: 0;
+    padding: 30px;
     color: #E7BB0D;
 }
 
@@ -116,26 +116,35 @@ a{
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente si es necesario */
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 100%; /* Asegura que ocupe todo el ancho disponible */
     padding: 0 10px; /* Espacio alrededor del contenedor */
 }
 
 .p-review-container {
-    background-color: white;
-    width: 50%; /* Ocupa el 50% del ancho */
+    background-color: #eef0f4;
+    width: 100%; /* Ocupa el 50% del ancho */
+    max-width: 600px;
     margin: 10px auto; /* Centra el contenedor dentro de su padre */
     padding: 20px; /* Espacio interno */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     border-radius: 8px; /* Bordes redondeados */
-
 }
 
 .review-container {
-    text-align: center; /* Centra el texto dentro de cada artículo */
+    text-align: left; /* Centra el texto dentro de cada artículo */
     padding: 20px; /* Espacio dentro de cada reseña */
-    background-color: #f9f9f9; /* Fondo ligeramente gris */
     border-radius: 8px; /* Bordes redondeados */
     margin-bottom: 10px; /* Espacio entre las reseñas */
+}
+
+.review-container h1{
+    color: black;
+}
+
+.current-photo{
+    width: 70px;
+    border-radius: 30px;
 }
 
 .review-container p {

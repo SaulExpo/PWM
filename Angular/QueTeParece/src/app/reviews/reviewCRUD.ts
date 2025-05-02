@@ -106,6 +106,7 @@ export function deleleReview(index:number) {
 
             await deleteDoc(reviewUserRef);
             await deleteDoc(reviewFilmRef);
+            location.reload()
         }
     });
 }
