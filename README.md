@@ -10,6 +10,7 @@
 2. [Estructura del código del proyecto](#2-estructura-del-código-del-proyecto)
 3. [Firebase](#3-firebase)
 4. [Enlace a Figma y Trello](#4-enlace-a-figma-y-trello)
+5. [Usuario para iniciar sesión:](#5-Usuario-para-iniciar-sesión:)
 
 ## **1. Descripción del proyecto:**
 Se trata de una web para realizar reseñas sobre películas y series.
@@ -38,3 +39,8 @@ Por otro lado, contamos con una colección de películas y otra de actores, los 
 ## **4. Enlace a Figma y trello: ** 
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
+
+## 5. Usuario para iniciar sesión:
+
+correo: prueba@gmail.com
+contraseña: 123456
