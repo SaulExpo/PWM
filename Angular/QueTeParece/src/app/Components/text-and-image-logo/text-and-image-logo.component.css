@@ -1,0 +1,10 @@
+#text-and-image-logo{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+#text-and-image-logo img{
+    border-radius: 50%;
+}

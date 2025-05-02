@@ -1,0 +1,33 @@
+<header id="header"></header>
+<nav id="nav" class="container"></nav>
+
+<main>
+    <section id="top-zone">
+        <div class="profile-space">
+            <div id="profile-picture">
+                <img id="current-photo" src="https://static.vecteezy.com/system/resources/previews/036/280/651/non_2x/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg" alt="Foto actual" />
+                <div id="profile-options">
+                    <a routerLink="/editProfile"><span>Editar Perfil</span></a>
+                    <a id="LogOut" routerLink="" (click)="logOut($event)"><span>Cerrar Sesión</span></a>
+                </div>
+            </div>
+
+            <div id="UserName" #userNameDiv></div>
+        </div>
+        <div class="profile-space">
+            <a routerLink="/notifications"><span>Notificaciones</span></a>
+            <a routerLink="/editReviews">Editar Reseñas</a>
+        </div>
+    </section>
+    <h1 id="favourite-films-and-series-h1">Peliculas y Series Favoritas</h1>
+    <article class="c-right-arrow">
+        <div class="images">
+            <section class="image-title" *ngFor="let film of films">
+                <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.filmId }"><img [src]="film.CoverUrl" width="150" height="150"></a>
+                <p>{{ film.Title }}</p>
+            </section>
+        </div>
+    </article>
+</main>
+
+<footer id="footer"></footer>

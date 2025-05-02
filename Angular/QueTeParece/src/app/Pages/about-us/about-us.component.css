@@ -1,0 +1,23 @@
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+    .image-and-text-left img{
+        height: 200px;
+        max-height: 200px;
+        object-fit: cover;
+
+    }
+
+    .image-and-text img{
+        height: 200px;
+        max-height:200px;
+        object-fit: cover;
+        margin-bottom: 30px;
+    }
+
+    .image-and-text-right img{
+        height:200px;
+        max-height: 200px;
+        object-fit: cover;
+
+    }
+
+}

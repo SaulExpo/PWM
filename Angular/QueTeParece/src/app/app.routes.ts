@@ -4,7 +4,7 @@ import {RegisterComponent} from "./register/register.component";
 import {HomeComponent} from "./home/home.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
-import {NotificationsComponent} from "./notifications/notifications.component";
+import {NotificationsComponent} from "./Pages/notifications/notifications.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {FilmsComponent} from "./films/films.component";
 import {FilmInfoComponent} from "./film-info/film-info.component";

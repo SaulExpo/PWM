@@ -1,0 +1,30 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#header{
+  position: sticky;
+  height: 80px;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-family: 'ArcadeClassic', sans-serif;
+}
+
+header h1{
+  color: #E7BB0D;
+}
+
+#logo{
+  margin: 10px;
+  height: 64px;
+  width: 64px;
+}
+

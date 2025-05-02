@@ -1,0 +1,36 @@
+
+<main>
+    <article id="film" class ="film_container">
+        <section id="film_title">
+            <h2 *ngIf="filmData">{{ filmData.Title }}</h2>
+
+            <div class="stars">
+                <img *ngFor="let star of stars"
+                     src="/star.png"
+                     alt="star"
+                     width="50"
+                >
+            </div>
+        </section>
+        <section class="image-and-text-right">
+            <img id="film-image" *ngIf="filmData" [src]="filmData.CoverUrl" alt="Cover Image" />
+            <p *ngIf="filmData">{{ filmData.Description }}</p>
+        </section>
+    </article>
+    <button (click)="alternarAsociacion()">
+        {{ textoBoton }}
+    </button>
+
+    <div id="Actores"></div>
+    <div id="personal-review-container">
+        <article class ="personal-review write">
+            <form (ngSubmit)="callCreateReview()">
+                <input name="review" [(ngModel)]="review">
+                <button>Añadir Reseña</button>
+            </form>
+        </article>
+    </div>
+    <article id="review-container" *ngFor="let review of reviews">
+        {{review.user}}: {{review.review}}
+    </article>
+</main>
