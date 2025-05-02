@@ -22,7 +22,7 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - Anuncios.
   - Nuevas películas añadidas a la página.
 
-## **2. Estructura del código del proyecto:**
+## 2. Estructura del código del proyecto:
 Dentro de la carpeta "Angular", se dispone de una carpeta "public", donde se pueden encontrar varias imágenes utilizadas en la página web (logo, puntuación e icono predeterminado).
 
 Por otro lado, el proyecto se separa en cuatro carpetas principales dentro de "src/app". Tenemos una carpeta para los componentes, otra para las distintas páginas, otra para el CRUD de las reseñas (se utiliza en la página de "edit-reviews") y una última con la configuración de Firebase.
