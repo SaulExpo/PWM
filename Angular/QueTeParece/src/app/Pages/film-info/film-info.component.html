@@ -37,9 +37,10 @@
     </div>
     <div class="p-review-container">
         <article class="review-container" *ngFor="let review of reviews">
-            <p>
+            <img class="current-photo" src="https://static.vecteezy.com/system/resources/previews/036/280/651/non_2x/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg" alt="Foto actual" />
+            <h1>
                 {{review.user}}: {{review.review}}
-            </p>
+            </h1>
         </article>
     </div>
 </main>
