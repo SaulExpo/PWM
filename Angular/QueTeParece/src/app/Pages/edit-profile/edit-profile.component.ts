@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {auth, db} from '../services/firebase-config';
+import {db, auth} from '../../services/firebase-config';
 import { onAuthStateChanged, User, updatePassword } from 'firebase/auth';
 import {doc, getDoc, setDoc} from "@angular/fire/firestore";
 import {RouterLink} from "@angular/router";

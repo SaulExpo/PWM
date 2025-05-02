@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChildren,QueryList, Renderer2 } from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
-import {auth, db} from "../services/firebase-config";
+import {auth, db} from "../../services/firebase-config";
 import { CommonModule } from '@angular/common';  // Importa CommonModule
 import {collection, doc, getDoc, getDocs, setDoc} from "@angular/fire/firestore";
 

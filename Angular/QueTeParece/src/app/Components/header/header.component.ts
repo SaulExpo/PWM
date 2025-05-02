@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {auth} from '../services/firebase-config';
+import {auth} from '../../services/firebase-config';
 import {NgIf} from "@angular/common";
 import {onAuthStateChanged} from "@angular/fire/auth";
 

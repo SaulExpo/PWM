@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink, Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {auth, db} from '../services/firebase-config';
+import {auth, db} from '../../services/firebase-config';
 import {createUserWithEmailAndPassword} from "@angular/fire/auth";
 import {doc, setDoc} from "@angular/fire/firestore";
 

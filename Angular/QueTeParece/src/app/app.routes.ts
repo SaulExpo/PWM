@@ -1,14 +1,15 @@
 import {Routes} from '@angular/router';
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
-import {HomeComponent} from "./home/home.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {HomeComponent} from "./Pages/home/home.component";
+import {ProfileComponent} from "./Pages/profile/profile.component";
+import {EditProfileComponent} from "./Pages/edit-profile/edit-profile.component";
+import {LoginComponent} from "./Pages/login/login.component";
 import {NotificationsComponent} from "./Pages/notifications/notifications.component";
-import {AboutUsComponent} from "./about-us/about-us.component";
-import {FilmsComponent} from "./films/films.component";
-import {FilmInfoComponent} from "./film-info/film-info.component";
-import {EditReviewsComponent} from "./edit-reviews/edit-reviews.component";
+import {RegisterComponent} from "./Pages/register/register.component";
+import {AboutUsComponent} from "./Pages/about-us/about-us.component";
+import {FilmsComponent} from "./Pages/films/films.component";
+import {FilmInfoComponent} from "./Pages/film-info/film-info.component";
+import {EditReviewsComponent} from "./Pages/edit-reviews/edit-reviews.component";
+
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },

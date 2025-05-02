@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavComponent } from './nav/nav.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import {NgIf} from "@angular/common";
+import {HeaderComponent} from "./Components/header/header.component";
+import {FooterComponent} from "./Components/footer/footer.component";
+import {NavComponent} from "./Components/nav/nav.component";
+import {CarouselComponent} from "./Components/carousel/carousel.component";
 
 
 

@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {onAuthStateChanged, User} from "firebase/auth";
-import {auth, db} from "../services/firebase-config";
+import {auth, db} from "../../services/firebase-config";
 import {collection, doc, getDoc} from "@angular/fire/firestore";
 import {signOut} from "@angular/fire/auth";
 import {NgForOf} from "@angular/common";

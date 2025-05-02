@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {collection, doc, getDoc, getDocs, updateDoc, arrayRemove, arrayUnion} from "@angular/fire/firestore";
-import {auth, db} from "../services/firebase-config";
+import {db, auth} from '../../services/firebase-config';
 import {ActivatedRoute} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {createReview} from "../reviews/reviewCRUD";
+import {createReview} from "../../reviews/reviewCRUD";
 import {onAuthStateChanged, User} from "firebase/auth";
 
 @Component({

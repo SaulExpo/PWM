@@ -2,7 +2,7 @@ import {Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren, On
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import { CommonModule } from '@angular/common';  // Importa CommonModule
 import {collection, getDocs} from "@angular/fire/firestore";
-import {db} from "../services/firebase-config";
+import {db} from "../../services/firebase-config";
 
 @Component({
   selector: 'app-nav',
@@ -53,7 +53,9 @@ export class NavComponent implements OnInit {
     this.suggestionsVisible = this.filteredfilms.length > 0;
   }
   onBlur(): void {
-    this.suggestionsVisible = false; // Oculta las sugerencias
+    setTimeout(() => {
+      this.suggestionsVisible = false;
+    }, 150);
   }
 
   // Función que se llama cuando el input obtiene el foco

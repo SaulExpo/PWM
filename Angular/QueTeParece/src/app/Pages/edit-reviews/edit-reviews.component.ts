@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {auth, db} from "../services/firebase-config";
+import {db, auth} from '../../services/firebase-config';
 import {collection, getDoc, getDocs} from "@angular/fire/firestore";
 import {NgForOf, NgIf} from "@angular/common";
 import {onAuthStateChanged} from "firebase/auth";
-import {deleleReview,saveReview} from "../reviews/reviewCRUD";
+import {deleleReview,saveReview} from "../../reviews/reviewCRUD";
 import {FormsModule} from "@angular/forms";
 
 @Component({
