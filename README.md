@@ -10,7 +10,7 @@
 2. [Estructura del código del proyecto](#2-estructura-del-código-del-proyecto)
 3. [Firebase](#3-firebase)
 4. [Enlace a Figma y Trello](#4-enlace-a-figma-y-trello)
-5. [Usuario para iniciar sesión:](#5-Usuario-para-iniciar-sesión:)
+5. [Usuario para iniciar sesión](#5-usuario-para-iniciar-sesión)
 
 ## **1. Descripción del proyecto:**
 Se trata de una web para realizar reseñas sobre películas y series.
