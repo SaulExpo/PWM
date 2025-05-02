@@ -17,11 +17,16 @@
             <p *ngIf="filmData">{{ filmData.Description }}</p>
         </section>
     </article>
-    <button (click)="alternarAsociacion()">
+    <button (click)="alternarAsociacion()" id="favoritos">
         {{ textoBoton }}
     </button>
 
-    <div id="Actores"></div>
+    <div id="actores">
+        <div class="actor" *ngFor="let actor of actors">
+            <img [src]="actor.photo" alt="{{ actor.name }}">
+            <p>{{ actor.name }}</p>
+        </div>
+    </div>
     <div id="personal-review-container">
         <article class ="personal-review write">
             <form (ngSubmit)="callCreateReview()">
@@ -30,7 +35,11 @@
             </form>
         </article>
     </div>
-    <article id="review-container" *ngFor="let review of reviews">
-        {{review.user}}: {{review.review}}
-    </article>
+    <div class="p-review-container">
+        <article class="review-container" *ngFor="let review of reviews">
+            <p>
+                {{review.user}}: {{review.review}}
+            </p>
+        </article>
+    </div>
 </main>

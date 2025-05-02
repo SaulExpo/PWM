@@ -34,6 +34,114 @@ a{
     font-family: 'ArcadeClassic', sans-serif;
 }
 
+#actores{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#actores img{
+    max-width: 150px;
+    max-height: 200px;
+}
+
+#actores p{
+    margin-top: 20px;
+}
+
+
+.actor {
+    display: flex;
+    flex-direction: column; /* Apila hijos verticalmente */
+    align-items: center;    /* Centra nombre debajo de la imagen */
+    max-width: 150px;
+    text-align: center;
+}
+
+#favoritos{
+    padding:10px;
+    color: black;
+    background: #d1a309;
+    border-radius: 10px;
+    margin-left: 70px;
+    margin-bottom:70px;
+}
+
+#personal-review-container {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.personal-review.write {
+    background-color: #eef0f4;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.personal-review form {
+    display: flex;
+    gap: 10px;
+}
+
+.personal-review input[name="review"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.personal-review button {
+    background-color: #d1a309;
+    color: black;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.personal-review button:hover {
+    background-color: #d1a309;
+}
+
+#p-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente si es necesario */
+    margin-top: 50px;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    padding: 0 10px; /* Espacio alrededor del contenedor */
+}
+
+.p-review-container {
+    background-color: white;
+    width: 50%; /* Ocupa el 50% del ancho */
+    margin: 10px auto; /* Centra el contenedor dentro de su padre */
+    padding: 20px; /* Espacio interno */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados */
+
+}
+
+.review-container {
+    text-align: center; /* Centra el texto dentro de cada artículo */
+    padding: 20px; /* Espacio dentro de cada reseña */
+    background-color: #f9f9f9; /* Fondo ligeramente gris */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio entre las reseñas */
+}
+
+.review-container p {
+    padding: 15px;
+}
+
 header h1{
     color: #E7BB0D;
 }

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {collection, doc, getDoc, getDocs, updateDoc, arrayRemove, arrayUnion} from "@angular/fire/firestore";
-import {db, auth} from '../../services/firebase-config';
+import {auth, db} from "../services/firebase-config";
 import {ActivatedRoute} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {createReview} from "../../reviews/reviewCRUD";
+import {createReview} from "../reviews/reviewCRUD";
 import {onAuthStateChanged, User} from "firebase/auth";
 
 @Component({
@@ -20,7 +20,8 @@ export class FilmInfoComponent implements OnInit {
   stars: number[] = [];
   review: string ="";
   reviews: {user: string, review: string}[] =[];
-  asociada: boolean = false; // ¿ya está asociada o no?
+  asociada: boolean = false;
+  actors: {name: string, photo: string}[]=[];
 
   constructor(private route: ActivatedRoute) {
     this.verificarAsociacion();
@@ -109,6 +110,8 @@ export class FilmInfoComponent implements OnInit {
             this.reviews.push(review)
           }
           );
+
+          await this.showActors();
         } else {
           console.error('Película no encontrada.');
         }
@@ -132,7 +135,25 @@ export class FilmInfoComponent implements OnInit {
     });
 
   }
+
+  async showActors(){
+    const actorsRef = collection(db,'actors');
+    const actorsData = await getDocs(actorsRef);
+    this.actors=[];
+
+    const allActors: { name: string; photo: string }[] = [];
+    actorsData.forEach(actor=>{
+          const data = actor.data();
+          console.log(data['name'])
+          allActors.push({name:data['name'], photo: data['pictureUrl']});
+        }
+    )
+    const shuffled = allActors.sort(() => 0.5 - Math.random());
+    this.actors = shuffled.slice(0, 4);
+  }
+
 }
+
 interface UserModel {
   nombre: string;
   apellido: string;
