@@ -1,0 +1,11 @@
+.image-and-text-right img {
+    width: 40vh;
+    height: auto;
+    margin-left: 3.25%;
+}
+
+.image-and-text-left img {
+    width: 40vh;
+    height: auto;
+    margin-right: 3.25%;
+}
