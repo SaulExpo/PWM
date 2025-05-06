@@ -1,3 +1,7 @@
+ion-content {
+  background: linear-gradient(to bottom, #ff6347, #f0f0f0);
+}
+
 .image-and-text-right img {
   width: 40vh;
   height: auto;
@@ -8,6 +12,7 @@
 .image-and-text-right,
 .image-and-text-left{
   margin: 5vh;
+
 }
 
 .image-and-text-left img {
@@ -27,4 +32,5 @@ section{
   height: 350px;
   margin:20px
 }
+
 
