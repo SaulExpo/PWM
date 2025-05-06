@@ -1,0 +1,7 @@
+{
+  "name": "QueTeParece",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
