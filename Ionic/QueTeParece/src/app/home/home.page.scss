@@ -2,12 +2,19 @@
   width: 40vh;
   height: auto;
   margin-left: 3.25%;
+  margin-right: 3.25%;
+}
+
+.image-and-text-right,
+.image-and-text-left{
+  margin: 5vh;
 }
 
 .image-and-text-left img {
   width: 40vh;
   height: auto;
   margin-right: 3.25%;
+  margin-left: 3.25%;
 }
 
 section{
