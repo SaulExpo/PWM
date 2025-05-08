@@ -1,37 +1,246 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+*{
+  margin: 0;
+  padding: 0;
+}
 
-/* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+main h1{
+  color: #E7BB0D;
+}
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+a{
+  text-decoration: none;
+  color: black;
+}
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+.category{
+  padding: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+.images section:nth-child(n+5) {
+  display: none;
+}
+
+.images{
+  width: 100%;
+}
+
+.c-right-arrow{
+  display: flex;
+  align-items: center;
+  padding-right: 10%;
+}
+
+
+
+#category{
+  padding: 8%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-film{
+  width: 250px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+#category-title{
+  color: #E7BB0D;
+  font-size: 30px;
+  margin-bottom: 30px;
+  margin-left: 70px;
+}
+main{
+  background-color: #121212;
+  padding: 0;
+  color: #E7BB0D;
+}
+
+.title{
+  font-weight: bold;
+  width: 150px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.image-title {
+  width: 410px;
+  height: 450px;
+}
+
+.image-title img{
+  width: 300px;
+  height: 400px;
+}
+
+
+
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+  .category{
+    flex-wrap: wrap;
+  }
+
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+
+  .image-title img{
+    width: 260px;
+    height: 300px;
+  }
+
+  .category{
+    flex-wrap: wrap;
+  }
+  .category-film{
+    width: 150px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 415px)  {
+  .image-title {
+    width: 260px;
+    height: 300px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .image-title img{
+    width: 160px;
+    height: 200px;
+  }
+  .category{
+    flex-wrap: wrap;
+  }
+
+  .category-film{
+    width: 150px;
+    height: 200px;
+    margin-bottom: 20px;
+
+  }
+
+
+}
+
+
+.image-title{
+  width: 24%;
+  text-align: center;
+  display: inline-block;
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.image-title img{
+  width: 50%;
+  height: 50%;
+
+}
+
+.image-and-text,
+.image-and-text-left,
+.image-and-text-right{
+  color: white;
+  display: flex;
+  padding: 5%;
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.image-and-text-left img{
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+.image-and-text-right img{
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.image-and-text *{
+  padding: 5%;
+}
+
+.image-and-text-h1{
+  padding: 5% 0 0 5%;
+  font-family: 'ArcadeClassic', sans-serif;
+  margin-bottom: 20px;
+}
+
+#slideshow{
+  padding: 5%;
+  width: 90%;
+  height: 250px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .image-and-text{
+    display:block;
+  }
+
+  .image-and-text-right{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-and-text-left{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .image-and-text-left img{
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    margin-left:0;
+
+  }
+
+  .image-and-text img,
+  .image-and-text-right img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+  .image-and-text-left img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+
+  }
+
+  .image-and-text img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 30px;
+  }
+
+  .image-and-text-right img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+
+  }
+
+}
+
+
+
