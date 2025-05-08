@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,15 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  showHeaderFooter= true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Muestra el header solo en algunas páginas
+        this.showHeaderFooter = !['/login', '/register'].includes(event.url);
+
+      }
+    });
+  }
 }
