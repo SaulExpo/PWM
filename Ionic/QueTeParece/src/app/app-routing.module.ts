@@ -21,7 +21,13 @@ const routes: Routes = [
     path: 'register',
     loadComponent: () =>
       import('./pages/register/register.page').then(m => m.RegisterPage)
+  },
+  {
+    path: 'allFilms',
+    loadComponent: () =>
+      import('./pages/all-films/all-films.page').then(m => m.AllFilmsPage)
   }
+
 
 
 
