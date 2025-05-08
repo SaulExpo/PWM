@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {IonContent} from "@ionic/angular/standalone";
 import {FormsModule} from "@angular/forms";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {auth, db} from "../../services/firebase-config";
-import { doc, setDoc } from 'firebase/firestore';
+import {auth} from "../../services/firebase-config";
 import {Router} from "@angular/router";
+import{DatabaseService} from "../../services/dataBase";
 
 @Component({
   selector: 'app-register',
@@ -24,7 +24,7 @@ export class RegisterPage implements OnInit {
   password= "";
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dbService: DatabaseService) { }
 
   ngOnInit() {
   }
@@ -36,10 +36,13 @@ export class RegisterPage implements OnInit {
     console.log('Contraseña:', this.password);
 
     createUserWithEmailAndPassword(auth, this.email, this.password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         const user = userCredential.user;
+
+        await this.dbService.addUser(this.name, this.surname);
+
         console.log('Usuario registrado exitosamente:', user); //Si no lo hacia asi me daba error o no se me cambiaba la página
-        this.router.navigateByUrl('/login', { replaceUrl: true });
+        await this.router.navigateByUrl('/login', {replaceUrl: true});
       })
       .catch((error) => {
         const errorCode = error.code;
