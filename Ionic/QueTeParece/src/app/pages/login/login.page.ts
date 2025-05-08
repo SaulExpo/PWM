@@ -3,6 +3,7 @@ import {IonContent, IonHeader, IonTitle, IonToolbar} from "@ionic/angular/standa
 import {FormsModule} from "@angular/forms";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth} from "../../services/firebase-config";
+import {RouterLink, Router} from "@angular/router";
 
 @Component({
   standalone: true,
@@ -11,10 +12,8 @@ import {auth} from "../../services/firebase-config";
   styleUrls: ['./login.page.scss'],
   imports: [
     IonContent,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    FormsModule
+    FormsModule,
+    RouterLink
   ]
 })
 export class LoginPage implements OnInit {
@@ -22,7 +21,7 @@ export class LoginPage implements OnInit {
   password= "";
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +31,7 @@ export class LoginPage implements OnInit {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('Usuario registrado exitosamente:', user);
+        this.router.navigateByUrl('/home', { replaceUrl: true });
       })
       .catch((error) => {
         console.error("❌ Error en el login:", error.message);
