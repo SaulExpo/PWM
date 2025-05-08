@@ -39,7 +39,25 @@ export class DatabaseService {
   }
 
   async addUser(nombre: string, apellido: string): Promise<void> {
+    if (this.isWeb) { //Solo para visualizar los dato en un navegador web, sino sería la otra condición
+      const users: User[] = await this.getUsers();
+      const exists = users.some(user => user.nombre === user.nombre && user.apellido === apellido);
+      if (!exists) {
+        const newUser = {
+          id: Date.now(), //Fecha pq no se como hacerlo basicamente
+          nombre: nombre,
+          apellido: apellido,
+        };
+
+        users.push(newUser);
+
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(users));
+      }
+    }
+
+
     if (this.db) {
+      //Para moviles se hará lo siguiente
       try {
         const result = await this.db.run(
           `INSERT INTO users (nombre, apellido) VALUES (?, ?)`,
@@ -51,4 +69,18 @@ export class DatabaseService {
       }
     }
   }
+
+  private async getUsers() {
+    if (this.isWeb) {
+      const users = localStorage.getItem(this.STORAGE_KEY);
+      return users ? JSON.parse(users) : [];
+    }
+    return [];
+  }
+}
+
+interface User {
+  id: number;
+  nombre: string;
+  apellido: string;
 }
