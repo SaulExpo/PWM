@@ -1,0 +1,44 @@
+<ion-content>
+  <main>
+    <article id="film" class ="film_container">
+      <section id="film_title">
+        <h2 *ngIf="filmData">{{ filmData.Title }}</h2>
+
+        <div class="stars">
+          <img *ngFor="let star of stars"
+               src="/assets/star.png"
+               alt="star"
+               width="50"
+          >
+        </div>
+      </section>
+      <section class="image-and-text-right">
+        <img id="film-image" *ngIf="filmData" [src]="filmData.CoverUrl" alt="Cover Image" />
+        <p *ngIf="filmData">{{ filmData.Description }}</p>
+      </section>
+    </article>
+
+    <div id="actores">
+      <div class="actor" *ngFor="let actor of actors">
+        <img [src]="actor.photo" alt="{{ actor.name }}">
+        <p>{{ actor.name }}</p>
+      </div>
+    </div>
+    <div id="personal-review-container">
+      <article class ="personal-review write">
+        <form (ngSubmit)="callCreateReview()">
+          <input name="review" [(ngModel)]="review">
+          <button>Añadir Reseña</button>
+        </form>
+      </article>
+    </div>
+    <div class="p-review-container">
+      <article class="review-container" *ngFor="let review of reviews">
+        <img class="current-photo" src="https://static.vecteezy.com/system/resources/previews/036/280/651/non_2x/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg" alt="Foto actual" />
+        <h1>
+          {{review.user}}: {{review.review}}
+        </h1>
+      </article>
+    </div>
+  </main>
+</ion-content>

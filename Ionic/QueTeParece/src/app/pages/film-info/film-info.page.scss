@@ -1,0 +1,579 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+main{
+  background-color: #121212;
+  padding: 30px;
+  color: #E7BB0D;
+}
+
+main h1{
+  color: #E7BB0D;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#header{
+  position: sticky;
+  height: 80px;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.5fr 0.5fr;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-family: 'ArcadeClassic', sans-serif;
+}
+
+#actores{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#actores img{
+  max-width: 150px;
+  max-height: 200px;
+}
+
+#actores p{
+  margin-top: 20px;
+}
+
+
+.actor {
+  display: flex;
+  flex-direction: column; /* Apila hijos verticalmente */
+  align-items: center;    /* Centra nombre debajo de la imagen */
+  max-width: 150px;
+  text-align: center;
+}
+
+#favoritos{
+  padding:10px;
+  color: black;
+  background: #d1a309;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-bottom:70px;
+}
+
+#personal-review-container {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.personal-review.write {
+  background-color: #eef0f4;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.personal-review form {
+  display: flex;
+  gap: 10px;
+}
+
+.personal-review input[name="review"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.personal-review button {
+  background-color: #d1a309;
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.personal-review button:hover {
+  background-color: #d1a309;
+}
+
+#p-review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente si es necesario */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  padding: 0 10px; /* Espacio alrededor del contenedor */
+}
+
+.p-review-container {
+  background-color: #eef0f4;
+  width: 100%; /* Ocupa el 50% del ancho */
+  max-width: 600px;
+  margin: 10px auto; /* Centra el contenedor dentro de su padre */
+  padding: 20px; /* Espacio interno */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.review-container {
+  text-align: left; /* Centra el texto dentro de cada artículo */
+  padding: 20px; /* Espacio dentro de cada reseña */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 10px; /* Espacio entre las reseñas */
+}
+
+.review-container h1{
+  color: black;
+}
+
+.current-photo{
+  width: 70px;
+  border-radius: 30px;
+}
+
+.review-container p {
+  padding: 15px;
+}
+
+header h1{
+  color: #E7BB0D;
+}
+
+#logo{
+  margin: 10px;
+  height: 64px;
+  width: 64px;
+}
+
+.container {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  background-color: #E7BB0D;
+  align-items: center;
+  height: 50px;
+  color: #000000;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+}
+.left-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  font-family: 'ArcadeClassic', sans-serif;
+}
+
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 5px;
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.search-bar input:hover {
+  border-color: #ffc500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #ffc500;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+#suggestions {
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  align-items: center;
+  left: 40%;
+}
+.suggestion-item {
+  display: flex;
+  background-color: #EDEDED;
+  padding: 10px;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item img{
+  width: 40px;
+  padding-right: 5px;
+}
+
+footer{
+  height: 150px;
+  background-color: #FFFFFF;
+}
+
+footer section{
+  margin-top: 10px;
+  padding-left: 25%;
+  padding-right: 25%;
+  display: flex;
+  justify-content: space-between; /* Espaciado entre los elementos */
+  align-items: center;
+  font-family: 'ArcadeClassic', sans-serif;
+}
+
+#division{
+  background-color: #E7BB0D;
+  height: 20px;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px)  {
+  .container{
+    grid-template-columns: 2fr 4fr 1fr;
+  }
+
+
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px)  {
+  .container{
+    grid-template-columns: 2fr 4fr 1fr;
+  }
+
+
+  footer section{
+    margin-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .left-text{
+    margin:0;
+  }
+  #suggestions {
+
+    left: 30%;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 500px)  {
+  .container{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .left-text{
+    width: 80%;
+    margin:0;
+  }
+  footer section{
+    display: block;
+    gap: 20px;
+  }
+  #suggestions {
+
+    left: 20%;
+  }
+
+
+}
+
+@media screen and (max-width: 415px)  {
+  .container{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .left-text{
+    width: 80%;
+    margin:0;
+  }
+
+  #header{
+    display: block;
+    margin-bottom: 100px;
+    align-items: center;
+    text-align: center;
+  }
+  footer section{
+    display: block;
+    gap: 20px;
+  }
+
+  #suggestions {
+
+    left: 10%;
+  }
+
+}
+
+#film_title{
+  display: flex;
+  padding: 5%;
+  padding-bottom: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#film_title div{
+  margin-right: 20px;
+  font-family: 'ArcadeClassic', sans-serif;
+  font-size: 38px;
+}
+
+#film-image{
+  max-width: 50%;
+  max-height: 40vh;
+  margin-left: 20px;
+}
+
+#film_container{
+  color: white;
+  margin-left: 5%;
+  display: flex;
+}
+
+.stars{
+  margin-left: 5%;
+}
+
+#film_container div{
+  margin: 0 5%;
+}
+
+#film_container img{
+  width: 10em;
+}
+
+.opciones{
+  margin-left: 5%;
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  width: 23%;
+  justify-content: space-evenly ;
+
+}
+
+.opciones img{
+  margin-top: 20px;
+  margin-left: 5%;
+  border-radius: 200px;
+  width: 60px;
+  height: 60px;
+}
+
+@media screen and (max-width: 700px) {
+  #film_title{
+    display: inline-block;
+    padding: 5% 3%;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  #film_title img{
+    width: 1.25em;
+    height: 0.625em;
+  }
+
+  #film_container{
+    color: white;
+    margin-left: 5%;
+    display: inline-block;
+  }
+
+  #film_container div{
+    margin: 0 5%;
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  #film_container img{
+    width: 10em;
+  }
+
+  #Description{
+    width: 12em;
+    height: 4em;
+    display: block;
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .image-title {
+    display: inline-flex;
+    margin: 5%;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+  #Description {
+    width: 20em;
+    height: 4em;
+    display: block;
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  #Description {
+    width: 40em;
+    height: 4em;
+    display: block;
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+  }
+}
+
+.image-title{
+  width: 24%;
+  text-align: center;
+  display: inline-block;
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-title img{
+  width: 50%;
+  height: 50%;
+
+}
+
+.image-title:hover{
+  transform: scale(1.1);
+}
+
+.image-and-text,
+.image-and-text-left,
+.image-and-text-right{
+  color: white;
+  display: flex;
+  padding: 5%;
+  font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+.image-and-text-left img{
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+.image-and-text-right img{
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.image-and-text *{
+  padding: 5%;
+}
+
+.image-and-text-h1{
+  padding: 5% 0 0 5%;
+  font-family: 'ArcadeClassic', sans-serif;
+  margin-bottom: 20px;
+}
+
+#slideshow{
+  padding: 5%;
+  width: 90%;
+  height: 250px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .image-and-text{
+    display:block;
+  }
+
+  .image-and-text-right{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-and-text-left{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .image-and-text-left img{
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    margin-left:0;
+
+  }
+
+  .image-and-text img,
+  .image-and-text-right img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+  .image-and-text-left img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+
+  }
+
+  .image-and-text img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 30px;
+  }
+
+  .image-and-text-right img{
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+
+  }
+
+}

@@ -26,7 +26,13 @@ const routes: Routes = [
     path: 'allFilms',
     loadComponent: () =>
       import('./pages/all-films/all-films.page').then(m => m.AllFilmsPage)
+  },
+  {
+    path: 'filmInfo',
+    loadComponent: () =>
+      import('./pages/film-info/film-info.page').then(m => m.FilmInfoPage)
   }
+
 
 
 
