@@ -1,5 +1,5 @@
 <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
-<ion-content [fullscreen]="true">
+<ion-content>
   <main>
     <section class="form-container-login-register">
       <h1 id="title-login-register">R e g i s t e r</h1>
@@ -27,7 +27,7 @@
         </section>
         <section class="buttons-type-login">
           <input id="oval-button" type="submit" value="Registrarse">
-          <a routerLink ="/">Cancelar</a>
+          <a routerLink ="/" (click)="homeRedirect()" id="cancelar">Cancelar</a>
         </section>
       </form>
     </section>

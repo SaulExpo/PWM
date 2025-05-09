@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {IonContent} from "@ionic/angular/standalone";
-import {FormsModule} from "@angular/forms";
+
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth} from "../../services/firebase-config";
 import {Router} from "@angular/router";
 import{DatabaseService} from "../../services/dataBase";
+import {IonicModule} from "@ionic/angular";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   imports: [
-    IonContent,
+    IonicModule,
     FormsModule
+
   ],
   standalone:true
 })
@@ -49,5 +51,9 @@ export class RegisterPage implements OnInit {
         const errorMessage = error.message;
         console.error('Error al registrar el usuario:', errorCode, errorMessage);
       });
+  }
+
+  homeRedirect() {
+    this.router.navigateByUrl('/home', { replaceUrl: true });
   }
 }

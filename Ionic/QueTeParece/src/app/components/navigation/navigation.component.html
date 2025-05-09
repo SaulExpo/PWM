@@ -1,9 +1,9 @@
 
 <nav id="nav" class="container">
   <div class="left-text">
-    <a [routerLink]="['/allFilms']" [queryParams]="{ name: 'film' }"><p>Peliculas</p></a>
-    <a [routerLink]="['/allFilms']" [queryParams]="{ name: 'serie' }"><p>Series</p></a>
-    <a routerLink ="/allFilms"><p>Todo</p></a>
+    <a [routerLink]="['/allFilms']" [queryParams]="{ name: 'film' }" (click)="filmRedirect()"><p>Peliculas</p></a>
+    <a [routerLink]="['/allFilms']" [queryParams]="{ name: 'serie' }" (click)="serieRedirect()"><p>Series</p></a>
+    <a routerLink ="/allFilms" (click)="allFilmsRedirect()"><p>Todo</p></a>
   </div>
   <div class="right-text"></div>
 </nav>

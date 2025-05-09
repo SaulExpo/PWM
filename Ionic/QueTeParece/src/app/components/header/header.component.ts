@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import { auth } from 'src/app/services/firebase-config';
 import {onAuthStateChanged} from "@angular/fire/auth";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  imports: [
-    RouterLink,
-    NgIf
-  ]
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: true,
+    imports: [
+        RouterLink,
+        NgIf
+    ]
 })
 export class HeaderComponent  implements OnInit {
   userLogged= false;
@@ -26,4 +27,19 @@ export class HeaderComponent  implements OnInit {
     });
   }
 
+  constructor(private router:Router) {
+  }
+
+  loginRedirect() {
+    this.router.navigateByUrl('/login', { replaceUrl: true });
+  }
+
+
+  profileRedirect() {
+    this.router.navigateByUrl('/profile', { replaceUrl: true });
+  }
+
+  homeRedirect() {
+    this.router.navigateByUrl('/home', { replaceUrl: true });
+  }
 }

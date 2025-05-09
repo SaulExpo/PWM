@@ -14,9 +14,10 @@ import {DatabaseService} from "../../services/dataBase";
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPageRoutingModule
+    RegisterPageRoutingModule,
+    RegisterPage
   ],
-  declarations: [RegisterPage],
+  declarations: [],
   providers: [DatabaseService]
 })
 export class RegisterPageModule {}

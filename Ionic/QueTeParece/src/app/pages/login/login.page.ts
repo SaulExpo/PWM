@@ -37,4 +37,8 @@ export class LoginPage implements OnInit {
         console.error("❌ Error en el login:", error.message);
       });
   }
+
+  loginRedirect() {
+    this.router.navigateByUrl('/register', { replaceUrl: true });
+  }
 }

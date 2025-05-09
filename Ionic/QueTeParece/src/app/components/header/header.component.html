@@ -1,8 +1,8 @@
 <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
 <header id="header">
   <img id="logo" src="/assets/platano.png" alt="">
-  <a routerLink="/" ><h1>Q U E T E P A R E C E !</h1></a>
-  <a *ngIf="!userLogged" routerLink="/login" id="LoginText"><p>Login</p></a>
-  <a *ngIf="userLogged" routerLink="/profile" id="Profile"><p>Perfil</p></a>
+  <a routerLink="/" (click)="homeRedirect()"><h1>Q U E T E P A R E C E !</h1></a>
+  <a *ngIf="!userLogged" routerLink="/login" id="LoginText" (click)="loginRedirect()"><p>Login</p></a>
+  <a *ngIf="userLogged" routerLink="/profile" id="Profile" (click)="profileRedirect()"><p>Perfil</p></a>
 </header>
 

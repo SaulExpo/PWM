@@ -1,7 +1,7 @@
 import {Component, OnInit, QueryList, Renderer2, ViewChildren} from '@angular/core';
 import {IonicModule} from "@ionic/angular";
 import {IonContent} from "@ionic/angular/standalone";
-import {ActivatedRoute, RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
 import {collection, getDocs} from "@angular/fire/firestore";
 import {db} from "../../services/firebase-config";
@@ -19,12 +19,13 @@ import {db} from "../../services/firebase-config";
 })
 export class AllFilmsPage implements OnInit {
   @ViewChildren('buttonRef') buttonsRef!: QueryList<any>;
-  constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
+  constructor(private renderer: Renderer2, private route: ActivatedRoute, private routerLink:Router) {}
 
   categoryType: string | null = null;
   films: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
   AnimationFilms:{ Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
   LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
+
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -90,4 +91,7 @@ export class AllFilmsPage implements OnInit {
     }
   }
 
+  filmRedirect(Id: string) {
+    this.routerLink.navigateByUrl(`/filmInfo?id=${Id}`, { replaceUrl: true });
+  }
 }
