@@ -27,9 +27,9 @@ export class AllFilmsPage implements OnInit {
   LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
 
   ngOnInit() {
-    this.initializeOnAuthStateChanged();
     this.route.queryParams.subscribe(params => {
-      this.categoryType = params['name'];  // Obtén el parámetro 'name' de la URL
+      this.categoryType = params['name'];
+      this.initializeOnAuthStateChanged();
     });
   }
 
