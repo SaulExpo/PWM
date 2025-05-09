@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import {getFirestore} from "@angular/fire/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDVoUOYXHjElTc0hHnin2y69EcPoQVNcJI",
@@ -13,5 +14,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app, "(default)");
 
-export {auth};
+export {auth, db};
