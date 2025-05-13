@@ -36,6 +36,9 @@ export class ProfilePage implements OnInit {
     this.initializeOnAuthStateChanged();
   }
 
+  constructor(private routerLink:Router) {
+  }
+
   private initializeOnAuthStateChanged() {
     onAuthStateChanged(auth, async(user: User|null)=>{
       if(user){
@@ -76,6 +79,9 @@ export class ProfilePage implements OnInit {
         console.error("Error al cerrar sesión:", error);
       });
   }
-
+  filmRedirect(Id: string) {
+    this.routerLink.navigateByUrl(`/filmInfo?id=${Id}`, { replaceUrl: true });
+  }
 
 }
+

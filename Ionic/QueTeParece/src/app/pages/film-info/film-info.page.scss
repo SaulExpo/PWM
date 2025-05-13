@@ -577,3 +577,23 @@ footer section{
   }
 
 }
+
+@media screen and (max-width: 500px){
+  .p-review-container{
+    width: 300px;
+  }
+
+  .review-container{
+    font-size: 10px;
+  }
+  .image-and-text-right img{
+    align-self: center;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .p-review-container{
+    width: 200px;
+  }
+}
