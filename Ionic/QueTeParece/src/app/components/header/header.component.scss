@@ -27,3 +27,14 @@ header h1{
   height: 64px;
   width: 64px;
 }
+
+@media screen and (max-width: 460px)  {
+  header h1{
+    font-size: 24px;
+  }
+
+  #logo{
+    height: 34px;
+    width: 34px;
+  }
+}
