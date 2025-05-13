@@ -29,9 +29,7 @@ export class DatabaseService {
         );
         await db.open();
         this.db = db;
-        await db.execute(`
-          CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT, apellido TEXT);
-        `);
+        await db.execute(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT, apellido TEXT);`);
       } catch (error) {
         console.error('Error opening SQLite database', error);
       }
