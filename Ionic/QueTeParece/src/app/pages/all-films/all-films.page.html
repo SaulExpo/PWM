@@ -19,7 +19,7 @@
       <article class="c-right-arrow">
         <div class="images">
           <section class="image-title" *ngFor="let film of LiveFilms">
-            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }"><img [src]="film.CoverUrl" width="150" height="150"></a>
+            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }" (click)="filmRedirect(film.Id)"><img [src]="film.CoverUrl" width="150" height="150"></a>
             <p>{{ film.Title }}</p>
           </section>
         </div>
