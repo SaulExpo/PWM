@@ -10,7 +10,7 @@ import {FooterComponent} from "../../components/footer/footer.component";
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, HeaderComponent, NavigationComponent, FooterComponent]
+  imports: [IonicModule, HeaderComponent, NavigationComponent, FooterComponent, NgIf]
 })
 export class HomePage implements OnInit {
 

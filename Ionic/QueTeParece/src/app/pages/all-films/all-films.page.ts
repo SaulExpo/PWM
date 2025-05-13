@@ -5,15 +5,21 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
 import {collection, getDocs} from "@angular/fire/firestore";
 import {db} from "../../services/firebase-config";
+import {HeaderComponent} from "../../components/header/header.component";
+import {NavigationComponent} from "../../components/navigation/navigation.component";
+import {FooterComponent} from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-all-films',
   templateUrl: './all-films.page.html',
   styleUrls: ['./all-films.page.scss'],
   imports: [
-    IonContent,
     RouterLink,
-    NgForOf
+    NgForOf,
+    HeaderComponent,
+    IonicModule,
+    NavigationComponent,
+    FooterComponent
   ],
   standalone:true
 })
