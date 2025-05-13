@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {FooterComponent} from "../../components/footer/footer.component";
 import {HeaderComponent} from "../../components/header/header.component";
 import {NavigationComponent} from "../../components/navigation/navigation.component";
+import {createReview} from "../../services/reviewCRUD";
 
 @Component({
   selector: 'app-film-info',
@@ -119,8 +120,21 @@ export class FilmInfoPage implements OnInit {
     this.actors = shuffled.slice(0, 4);
   }
 
-  callCreateReview() {
-    //TODO implementar el CRUD que teniamos en angular pero tengo la duda de si hacerlo en SQLite o poner el que teníamos
+  async callCreateReview() {
+    await createReview(this.filmRefDb, this.review);
+    await this.refreshReviews();
+  }
+
+  async refreshReviews() {
+    const reviewsRef = collection(this.filmRefDb, 'reviews');
+    const reviewsSnap = await getDocs(reviewsRef);
+    this.reviews = [];
+
+    reviewsSnap.forEach((doc) => {
+      let reviewData = doc.data() as Review;
+      this.reviews.push({ user: reviewData.userName.nombre, review: reviewData.review });
+    });
+
   }
 }
 
@@ -133,5 +147,7 @@ interface Review {
   userName: UserModel;
   review: string;
 }
+
+
 
 
