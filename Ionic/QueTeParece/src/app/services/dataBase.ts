@@ -30,6 +30,7 @@ export class DatabaseService {
         await db.open();
         this.db = db;
         await db.execute(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT, apellido TEXT);`);
+        await db.execute(`CREATE TABLE IF NOT EXISTS favoritos (id TEXT PRIMARY KEY);`);
       } catch (error) {
         console.error('Error opening SQLite database', error);
       }
@@ -75,6 +76,38 @@ export class DatabaseService {
     }
     return [];
   }
+  async getFavoritos(): Promise<string[]> {
+    if (!this.db) return [];
+
+    try {
+      const result = await this.db.query('SELECT id FROM favoritos');
+      return result.values?.map(row => row.id) ?? [];
+    } catch (error) {
+      console.error('Error al obtener favoritos', error);
+      return [];
+    }
+  }
+
+
+  async agregarFavorito(id: string) {
+    if (!this.db) return;
+    try {
+      await this.db.run(`INSERT OR IGNORE INTO favoritos (id) VALUES (?)`, [id]);
+    } catch (error) {
+      console.error('Error al agregar favorito', error);
+    }
+  }
+
+
+  async eliminarFavorito(id: string) {
+    if (!this.db) return;
+    try {
+      await this.db.run(`DELETE FROM favoritos WHERE id = ?`, [id]);
+    } catch (error) {
+      console.error('Error al eliminar favorito', error);
+    }
+  }
+
 }
 
 interface User {

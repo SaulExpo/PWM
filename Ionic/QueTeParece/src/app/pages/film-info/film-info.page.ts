@@ -6,6 +6,9 @@ import {auth, db} from "../../services/firebase-config";
 import {collection, doc, getDoc, getDocs, updateDoc} from "@angular/fire/firestore";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {FooterComponent} from "../../components/footer/footer.component";
+import {HeaderComponent} from "../../components/header/header.component";
+import {NavigationComponent} from "../../components/navigation/navigation.component";
 
 @Component({
   selector: 'app-film-info',
@@ -15,7 +18,10 @@ import {FormsModule} from "@angular/forms";
     IonContent,
     NgForOf,
     NgIf,
-    FormsModule
+    FormsModule,
+    FooterComponent,
+    HeaderComponent,
+    NavigationComponent
   ]
 })
 export class FilmInfoPage implements OnInit {

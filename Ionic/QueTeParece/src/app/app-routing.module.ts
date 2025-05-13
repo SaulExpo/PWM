@@ -31,7 +31,13 @@ const routes: Routes = [
     path: 'filmInfo',
     loadComponent: () =>
       import('./pages/film-info/film-info.page').then(m => m.FilmInfoPage)
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
   }
+
 
 
 
