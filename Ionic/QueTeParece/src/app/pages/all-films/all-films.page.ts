@@ -1,13 +1,14 @@
 import {Component, OnInit, QueryList, Renderer2, ViewChildren} from '@angular/core';
-import {IonicModule} from "@ionic/angular";
-import {IonContent} from "@ionic/angular/standalone";
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {NgForOf} from "@angular/common";
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import { DatabaseService } from '../../services/dataBase';
+import {auth, db} from '../../services/firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
 import {collection, getDocs} from "@angular/fire/firestore";
-import {db} from "../../services/firebase-config";
-import {HeaderComponent} from "../../components/header/header.component";
-import {NavigationComponent} from "../../components/navigation/navigation.component";
 import {FooterComponent} from "../../components/footer/footer.component";
+import {NavigationComponent} from "../../components/navigation/navigation.component";
+import {HeaderComponent} from "../../components/header/header.component";
+import {IonicModule} from "@ionic/angular";
+import {NgFor} from "@angular/common";
 
 @Component({
   selector: 'app-all-films',
@@ -15,35 +16,36 @@ import {FooterComponent} from "../../components/footer/footer.component";
   styleUrls: ['./all-films.page.scss'],
   imports: [
     RouterLink,
-    NgForOf,
+    FooterComponent,
+    NavigationComponent,
     HeaderComponent,
     IonicModule,
-    NavigationComponent,
-    FooterComponent
-  ],
-  standalone:true
+    NgFor
+  ]
 })
 export class AllFilmsPage implements OnInit {
   @ViewChildren('buttonRef') buttonsRef!: QueryList<any>;
-  constructor(private renderer: Renderer2, private route: ActivatedRoute, private routerLink:Router) {}
 
   categoryType: string | null = null;
-  films: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
-  AnimationFilms:{ Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
-  LiveFilms: { Category: string; Title: string; CoverUrl: string, type: string, Id:string}[] = [];
+  films: { Category: string; Title: string; CoverUrl: string; type: string; Id: string;esFavorito?: boolean; }[] = [];
+  AnimationFilms: { Category: string; Title: string; CoverUrl: string; type: string; Id: string;esFavorito?: boolean; }[] = [];
+  LiveFilms: { Category: string; Title: string; CoverUrl: string; type: string; Id: string;esFavorito?: boolean; }[] = [];
+  favoritosIds: string[] = [];
+  userId: string | null = null;
 
+  constructor(
+    private renderer: Renderer2,
+    private route: ActivatedRoute,
+    private router: Router,
+    private databaseService: DatabaseService
+  ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.categoryType = params['name'];
       this.initializeOnAuthStateChanged();
     });
   }
-
-  ngAfterViewInit(): void {
-    // Ahora que la vista está completamente inicializada, podemos trabajar con @ViewChildren
-  }
-
   prepararRotacion() {
     this.buttonsRef.forEach((button: any, index: number) => {
       this.renderer.listen(button.nativeElement, 'click', () => {
@@ -54,50 +56,103 @@ export class AllFilmsPage implements OnInit {
     });
   }
 
+  // Verificar si el usuario está autenticado y obtener sus favoritos
+  initializeOnAuthStateChanged() {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        this.userId = user.uid; // Asociamos el usuario autenticado
+        await this.loadFilms();
+      } else {
+        // Si el usuario no está logueado, redirigir al login
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
-  private async initializeOnAuthStateChanged() {
+  // Cargar las películas y los favoritos de un usuario específico
+  async loadFilms() {
     try {
-      // Obtén la colección 'films' de Firestore
+      // Obtener los favoritos del usuario actual
+      if (this.userId) {
+        this.favoritosIds = await this.databaseService.getFavoritos(this.userId);
+        console.log(this.favoritosIds)
+      }
+
+      // Cargar las películas de Firestore
       const docRef = collection(db, 'films');
       const collections = await getDocs(docRef);
 
-      // Crear un array para almacenar los datos de todos los documentos
       this.films = [];
-
-      // Itera sobre los documentos de la colección
       collections.forEach((document) => {
-        const documentData = document.data();  // Obtener los datos del documento
-
-        // Obtener las propiedades 'Category' y 'Title' del documento
+        const documentData = document.data();
         let categoryDb = documentData?.['Category'];
         let titleDb = documentData?.['Title'];
         let coverDb = documentData?.['CoverUrl'];
         let typeDb = documentData?.['type'];
-        let idDb = documentData?.['id'];
         let filmIdDb = document.id;
 
-        // Si los datos existen, agrégalo al array 'films'
         if (categoryDb && titleDb && coverDb) {
-          this.films.push({ Category: categoryDb, Title: titleDb , CoverUrl: coverDb, type: typeDb, Id:filmIdDb});
+          this.films.push({
+            Category: categoryDb,
+            Title: titleDb,
+            CoverUrl: coverDb,
+            type: typeDb,
+            Id: filmIdDb,
+          });
         }
       });
-      if (this.categoryType !== undefined) {
-        this.films = this.films.filter(film => film.type === this.categoryType)
-      }
-      this.AnimationFilms = this.films.filter(film => film.Category === "Animation");
-      this.LiveFilms = this.films.filter(film => film.Category === "Live-Action");
 
+      if (this.categoryType) {
+        this.films = this.films.filter((film) => film.type === this.categoryType);
+      }
+
+      // Marcar si la película es favorita para el usuario
+      this.films = this.films.map((film) => ({
+        ...film,
+        esFavorito: this.favoritosIds.includes(film.Id),
+      }));
+
+      // Filtrar por categorías
+      this.AnimationFilms = this.films.filter((film) => film.Category === 'Animation');
+      this.LiveFilms = this.films.filter((film) => film.Category === 'Live-Action');
       setTimeout(() => {
         this.prepararRotacion();
       });
-
-
     } catch (error) {
-      console.error('Error al obtener los documentos: ', error);
+      console.error('Error al obtener las películas: ', error);
     }
   }
 
+  // Cambiar el estado de favorito de una película para un usuario
+  async toggleFavorito(filmId: string) {
+    console.log(filmId)
+    console.log(this.favoritosIds)
+    if (!this.userId) return;
+
+    if (this.favoritosIds.includes(filmId)) {
+      await this.databaseService.eliminarFavorito(this.userId, filmId);
+      this.favoritosIds = this.favoritosIds.filter((id) => id !== filmId);
+    } else {
+      await this.databaseService.agregarFavorito(this.userId, filmId);
+      this.favoritosIds.push(filmId);
+    }
+
+    // Actualizar el estado de la película
+    this.films = this.films.map((film) => ({
+      ...film,
+          esFavorito: this.favoritosIds.includes(film.Id),
+    }));
+    this.AnimationFilms = this.AnimationFilms.map((film) => ({
+      ...film,
+      esFavorito: this.favoritosIds.includes(film.Id),
+    }));
+    this.LiveFilms = this.LiveFilms.map((film) => ({
+      ...film,
+      esFavorito: this.favoritosIds.includes(film.Id),
+    }));
+  }
+
   filmRedirect(Id: string) {
-    this.routerLink.navigateByUrl(`/filmInfo?id=${Id}`, { replaceUrl: true });
+    this.router.navigateByUrl(`/filmInfo?id=${Id}`, { replaceUrl: true });
   }
 }

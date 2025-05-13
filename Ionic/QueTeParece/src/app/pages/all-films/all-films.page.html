@@ -1,5 +1,5 @@
 <ion-content>
-<app-header></app-header>
+  <app-header></app-header>
   <app-navigation></app-navigation>
   <main>
     <article id ="category" #userNameDiv>
@@ -9,6 +9,9 @@
           <section class="image-title" *ngFor="let film of AnimationFilms">
             <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }" (click)="filmRedirect(film.Id)"><img [src]="film.CoverUrl" width="150" height="150"></a>
             <p>{{ film.Title }}</p>
+            <ion-button fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
+              <ion-icon slot="icon-only" [name]="film.esFavorito ? 'heart' : 'heart-outline'"></ion-icon>
+            </ion-button>
           </section>
         </div>
         <section class="t-button-right">
@@ -19,8 +22,11 @@
       <article class="c-right-arrow">
         <div class="images">
           <section class="image-title" *ngFor="let film of LiveFilms">
-            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }" (click)="filmRedirect(film.Id)"><img [src]="film.CoverUrl" width="150" height="150"></a>
+            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }"><img [src]="film.CoverUrl" width="150" height="150"></a>
             <p>{{ film.Title }}</p>
+            <ion-button fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
+              <ion-icon slot="icon-only" [name]="film.esFavorito ? 'heart' : 'heart-outline'"></ion-icon>
+            </ion-button>
           </section>
         </div>
         <section class="t-button-right">
@@ -29,5 +35,5 @@
       </article>
     </article>
   </main>
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </ion-content>
