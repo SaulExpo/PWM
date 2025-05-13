@@ -25,3 +25,11 @@ footer section{
     grid-template-columns: 2fr 4fr 1fr;
   }
 }
+
+@media screen and (max-width: 500px) {
+  footer section{
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
