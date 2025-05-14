@@ -64,7 +64,7 @@ export class AllFilmsPage implements OnInit {
         await this.loadFilms();
       } else {
         // Si el usuario no está logueado, redirigir al login
-        this.router.navigate(['/login']);
+        this.router.navigateByUrl(`/login`, { replaceUrl: true });
       }
     });
   }

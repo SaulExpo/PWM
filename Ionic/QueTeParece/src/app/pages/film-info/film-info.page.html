@@ -19,6 +19,12 @@
         <p *ngIf="filmData">{{ filmData.Description }}</p>
       </section>
     </article>
+    <button *ngIf="isWeb" (click)="alternarAsociacionWeb()" id="favoritos">
+      {{ textoBoton }}
+    </button>
+    <button *ngIf="!isWeb" (click)="alternarAsociacionMovil()" id="favoritos">
+      {{ textoBoton }}
+    </button>
 
     <div id="actores">
       <div class="actor" *ngFor="let actor of actors">

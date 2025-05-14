@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {IonContent} from "@ionic/angular/standalone";
-import { onAuthStateChanged} from 'firebase/auth';
+import {onAuthStateChanged, User} from 'firebase/auth';
 import {auth, db} from "../../services/firebase-config";
-import {collection, doc, getDoc, getDocs, updateDoc} from "@angular/fire/firestore";
+import {collection, doc, getDoc, getDocs, updateDoc, arrayRemove, arrayUnion} from "@angular/fire/firestore";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {FooterComponent} from "../../components/footer/footer.component";
 import {HeaderComponent} from "../../components/header/header.component";
 import {NavigationComponent} from "../../components/navigation/navigation.component";
 import {createReview} from "../../services/reviewCRUD";
+import {DatabaseService} from "../../services/dataBase";
+import {Capacitor} from "@capacitor/core";
 
 @Component({
   selector: 'app-film-info',
@@ -34,11 +36,16 @@ export class FilmInfoPage implements OnInit {
   reviews: {user: string, review: string}[] =[];
   asociada: boolean = false;
   actors: {name: string, photo: string}[]=[];
+  favoritosIds: string[] = [];
+  isWeb: boolean = false;
 
-  constructor(private route: ActivatedRoute) {
-    this.verificarAsociacion();
+
+  constructor(
+    private route: ActivatedRoute,
+    private databaseService: DatabaseService
+  ) {
   }
-  async verificarAsociacion() {
+  async verificarAsociacionWeb() {
     onAuthStateChanged(auth, async(user)=> {
       if (user) {
         const userRef = doc(db, `users/${user.uid}`);
@@ -54,19 +61,19 @@ export class FilmInfoPage implements OnInit {
     });
   }
 
-  async checkAsociacion() {
+  async verificarAsociacionMovil() {
     onAuthStateChanged(auth, async(user)=> {
       if (user) {
-        const docRef = doc(db, `users/${user.uid}`);
-        const userSnap = await getDoc(docRef);
-
-        if (userSnap.exists()) {
-          const data = userSnap.data() as any;
-          this.asociada = data.films?.includes(this.filmId) || false;
+        this.favoritosIds = await this.databaseService.getFavoritos(user.uid);
+        if (this.filmId && this.favoritosIds.includes(this.filmId)) {
+          this.asociada = true;
+        } else{
+          this.asociada = false;
         }
       }
     });
   }
+
 
   get textoBoton(): string {
     return this.asociada ? 'Eliminar película de favoritos' : 'Añadir película a favoritos';
@@ -74,8 +81,15 @@ export class FilmInfoPage implements OnInit {
 
 
   async ngOnInit() {
+    this.isWeb = Capacitor.getPlatform() === 'web';
     this.route.queryParams.subscribe(async params => {
       this.filmId = params['id'];
+      if(this.isWeb){
+        console.log("A")
+        this.verificarAsociacionWeb();
+      } else{
+        this.verificarAsociacionMovil()
+      }
       if (this.filmId) {
         const filmRef = doc(db, 'films', this.filmId);
         const filmSnap = await getDoc(filmRef);
@@ -89,7 +103,6 @@ export class FilmInfoPage implements OnInit {
           const filmsReviews = await getDocs(filmref);
           filmsReviews.forEach((doc )=>{
               let reviewData = doc.data() as Review; // Aquí lo casté como Review
-              console.log(reviewData);
               let review = {user: reviewData.userName.nombre, review: reviewData.review};
               this.reviews.push(review)
             }
@@ -112,7 +125,6 @@ export class FilmInfoPage implements OnInit {
     const allActors: { name: string; photo: string }[] = [];
     actorsData.forEach(actor=>{
         const data = actor.data();
-        console.log(data['name'])
         allActors.push({name:data['name'], photo: data['pictureUrl']});
       }
     )
@@ -136,6 +148,45 @@ export class FilmInfoPage implements OnInit {
     });
 
   }
+  async alternarAsociacionWeb() {
+    onAuthStateChanged(auth, async(user: User|null)=>{
+      if(user){
+        const docRef = doc(db, `users/${user.uid}`);
+        if (this.asociada) {
+          // Si ya está asociada ➔ eliminar
+          await updateDoc(docRef, {
+            films: arrayRemove(this.filmId)
+          });
+          console.log('Película desasociada del usuario.');
+        } else {
+          // Si no está asociada ➔ agregar
+          await updateDoc(docRef, {
+            films: arrayUnion(this.filmId)
+          });
+          console.log('Película asociada al usuario.');
+        }
+
+        // Actualizar el estado después de la operación
+        this.asociada = !this.asociada;
+      }
+    });
+  }
+  async alternarAsociacionMovil() {
+    onAuthStateChanged(auth, async(user: User|null)=>{
+      if(user && this.filmId){
+
+        if (this.asociada){
+          await this.databaseService.eliminarFavorito(user.uid, this.filmId);
+        } else {
+          await this.databaseService.agregarFavorito(user.uid, this.filmId);
+        }
+
+        // Actualizar el estado después de la operación
+        this.asociada = !this.asociada;
+      }
+    });
+  }
+
 }
 
 interface UserModel {

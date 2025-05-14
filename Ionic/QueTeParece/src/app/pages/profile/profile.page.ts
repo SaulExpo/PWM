@@ -5,12 +5,14 @@ import {NgForOf, NgIf} from "@angular/common";
 import {NavigationEnd, Router, RouterLink} from "@angular/router";
 import {onAuthStateChanged, User} from "firebase/auth";
 import firebase from "firebase/compat";
-import {doc, getDoc} from "@angular/fire/firestore";
+import {collection, doc, getDoc, getDocs} from "@angular/fire/firestore";
 import {db, auth} from "../../services/firebase-config";
 import {signOut} from "@angular/fire/auth";
 import {HeaderComponent} from "../../components/header/header.component";
 import {NavigationComponent} from "../../components/navigation/navigation.component";
 import {FooterComponent} from "../../components/footer/footer.component";
+import {Capacitor} from "@capacitor/core";
+import {DatabaseService} from "../../services/dataBase";
 
 @Component({
   selector: 'app-profile',
@@ -23,21 +25,25 @@ import {FooterComponent} from "../../components/footer/footer.component";
     RouterLink,
     HeaderComponent,
     NavigationComponent,
-    NgIf,
     FooterComponent,
   ]
 })
 export class ProfilePage implements OnInit {
 
   @ViewChild('userNameDiv', { static: false }) userNameDiv!: ElementRef;
-  films: { Category: string; Title: string; CoverUrl: string, type: string, id:string, filmId:string}[] = [];
+  films: { Category: string; Title: string; CoverUrl: string, type: string, id:string, filmId:string, esFavorito: boolean}[] = [];
+  private isWeb: boolean = false;
+  favoritosIds: string[] = [];
 
   ngOnInit() {
+    this.isWeb = Capacitor.getPlatform() === 'web';
     this.initializeOnAuthStateChanged();
   }
 
-  constructor(private routerLink:Router) {
-  }
+  constructor(
+    private routerLink:Router,
+    private databaseService: DatabaseService
+  ) {}
 
   private initializeOnAuthStateChanged() {
     onAuthStateChanged(auth, async(user: User|null)=>{
@@ -54,18 +60,42 @@ export class ProfilePage implements OnInit {
         if (this.userNameDiv && nameDb) {
           this.userNameDiv.nativeElement.textContent = nameDb +"  "+ surnameDb;
         }
-        this.films = await Promise.all(
-          filmDb.map(async (filmId:string) => {
-            const filmRef = doc(db, `films/${filmId}`);
-            const filmSnap = await getDoc(filmRef);
 
-            return {
-              filmId: filmId,
-              ...filmSnap.data()
-            };
-          })
-        );
-        console.log(this.films);
+        console.log(filmDb);
+        if (!this.isWeb) {
+          this.favoritosIds = await this.databaseService.getFavoritos(user.uid);
+
+          // Obtener los datos de esas películas favoritas desde Firestore
+          this.films = await Promise.all(
+            this.favoritosIds.map(async (favId: string) => {
+              const filmRef = doc(db, `films/${favId}`);
+              const filmSnap = await getDoc(filmRef);
+              const filmData = filmSnap.data();
+
+              return {
+                Category: filmData?.['Category'] || '',
+                Title: filmData?.['Title'] || '',
+                CoverUrl: filmData?.['CoverUrl'] || '',
+                type: filmData?.['type'] || '',
+                id: filmData?.['id'] || '',
+                filmId: favId,
+                esFavorito: true
+              };
+            })
+          );
+        } else {
+          this.films = await Promise.all(
+            filmDb.map(async (filmId:string) => {
+              const filmRef = doc(db, `films/${filmId}`);
+              const filmSnap = await getDoc(filmRef);
+
+              return {
+                filmId: filmId,
+                ...filmSnap.data()
+              };
+            })
+          );
+        }
       }
     });
   }
@@ -74,6 +104,7 @@ export class ProfilePage implements OnInit {
     signOut(auth)
       .then(() => {
         console.log("Sesión cerrada correctamente.");
+        this.routerLink.navigateByUrl(`/home`, { replaceUrl: true });
       })
       .catch((error) => {
         console.error("Error al cerrar sesión:", error);
