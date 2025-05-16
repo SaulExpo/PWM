@@ -369,7 +369,12 @@ footer section{
 }
 
 .stars{
+  width: 75%;
+}
+
+.stars img{
   margin-left: 5%;
+  width: 50px;
 }
 
 #film_container div{
@@ -387,7 +392,6 @@ footer section{
   align-items: center;
   width: 23%;
   justify-content: space-evenly ;
-
 }
 
 .opciones img{
@@ -408,7 +412,7 @@ footer section{
 
   #film_title img{
     width: 1.25em;
-    height: 0.625em;
+    height: auto;
   }
 
   #film_container{
@@ -521,6 +525,17 @@ footer section{
 
 
 @media screen and (max-width: 500px) {
+  #film_title{
+    display: inline-block;
+    padding: 5% 3%;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  #film_title img{
+    width: 1.25em;
+    height: auto;
+  }
 
   .image-and-text{
     display:block;
@@ -590,10 +605,12 @@ footer section{
     align-self: center;
     max-width: 100% !important;
   }
+
 }
 
 @media screen and (max-width: 400px){
   .p-review-container{
     width: 200px;
   }
+
 }
