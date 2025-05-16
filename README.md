@@ -35,11 +35,11 @@ El Firebase se estructura de la siguiente manera. Tenemos una colección de usua
 Por otro lado, contamos con una colección de películas y otra de actores, los cuales asociamos a cada película mediante un campo dentro del mismo.
 
 ## **4. SQLite**
-Se ha creado una tabla para usuarios llamada "users" la cual tiene el nombre, apellido y un identificador que va incrementando el cuál es clave primaria. 
-Por otro lado también tenemos una tabla "favoritos" que contiene el id del usuario y el id de la película. La tabla de favoritos tiene como clave primaria estos dos identificadores.
+Se ha creado una tabla para usuarios llamada "users" la cual tiene el nombre, apellido y un identificador que va incrementando el cuál es clave primaria.  
+Por otro lado también tenemos una tabla "favoritos" que contiene el id del usuario y el id de la película. La tabla de favoritos tiene como clave primaria estos dos identificadores.  
 
 ## **5. Login y Register**
-Se ha utilizado la autenticación de firebase para el registro y el login de la aplicación. Hemos creado un fichero .ts con la configuración de firebase y esta misma la exportamos para usarla en el resto de ficheros que queramos.
+Se ha utilizado la autenticación de firebase para el registro y el login de la aplicación. Hemos creado un fichero .ts con la configuración de firebase y esta misma la exportamos para usarla en el resto de ficheros que queramos.  
 El registro de una cuenta se hace a través del metodo importado de firebase "createUserWithEmailAndPassword" al cuál se le pasa una autenticación un email y una contraseña. De la misma manera pero para iniciar sesión, hacemos uso del método "signInWithEmailAndPassword" al que también hay que pasarle por parámetro una autenticación, email y contraseña. A parte, en el login hemos creado otros dos campos "nombre" y "apellido" guardándolos con sqlite si se está en movil o en el firebase si se está en otro dispositivo como un ordenador.
 
 ## **6. Enlace a Figma y Trello**
