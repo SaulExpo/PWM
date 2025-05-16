@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import{DatabaseService} from "../../services/dataBase";
 import {IonicModule} from "@ionic/angular";
 import {FormsModule} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -13,8 +14,8 @@ import {FormsModule} from "@angular/forms";
   styleUrls: ['./register.page.scss'],
   imports: [
     IonicModule,
-    FormsModule
-
+    FormsModule,
+    NgIf
   ],
   standalone:true
 })
@@ -32,6 +33,10 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
+    if (!this.name || !this.email || !this.password || this.password.length < 6) {
+      alert('Por favor completa los campos requeridos correctamente');
+      return;
+    }
     console.log('Nombre:', this.name);
     console.log('Apellido:', this.surname);
     console.log('Email:', this.email);

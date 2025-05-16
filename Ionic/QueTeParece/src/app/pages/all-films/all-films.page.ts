@@ -8,7 +8,8 @@ import {FooterComponent} from "../../components/footer/footer.component";
 import {NavigationComponent} from "../../components/navigation/navigation.component";
 import {HeaderComponent} from "../../components/header/header.component";
 import {IonicModule} from "@ionic/angular";
-import {NgFor} from "@angular/common";
+import {NgFor, NgIf} from "@angular/common";
+import {Capacitor} from "@capacitor/core";
 
 @Component({
   selector: 'app-all-films',
@@ -20,11 +21,13 @@ import {NgFor} from "@angular/common";
     NavigationComponent,
     HeaderComponent,
     IonicModule,
-    NgFor
+    NgFor,
+    NgIf
   ]
 })
 export class AllFilmsPage implements OnInit {
   @ViewChildren('buttonRef') buttonsRef!: QueryList<any>;
+  isWeb: boolean = false;
 
   categoryType: string | null = null;
   films: { Category: string; Title: string; CoverUrl: string; type: string; Id: string;esFavorito?: boolean; }[] = [];
@@ -41,6 +44,7 @@ export class AllFilmsPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isWeb = Capacitor.getPlatform() === 'web';
     this.route.queryParams.subscribe((params) => {
       this.categoryType = params['name'];
       this.initializeOnAuthStateChanged();

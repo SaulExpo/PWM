@@ -9,7 +9,7 @@
           <section class="image-title" *ngFor="let film of AnimationFilms">
             <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }" (click)="filmRedirect(film.Id)"><img [src]="film.CoverUrl" width="150" height="150"></a>
             <p>{{ film.Title }}</p>
-            <ion-button fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
+            <ion-button *ngIf="!isWeb" fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
               <ion-icon slot="icon-only" [name]="film.esFavorito ? 'heart' : 'heart-outline'"></ion-icon>
             </ion-button>
           </section>
@@ -22,9 +22,9 @@
       <article class="c-right-arrow">
         <div class="images">
           <section class="image-title" *ngFor="let film of LiveFilms">
-            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }"><img [src]="film.CoverUrl" width="150" height="150"></a>
+            <a [routerLink]="['/filmInfo']" [queryParams]="{ id: film.Id }" (click)="filmRedirect(film.Id)"><img [src]="film.CoverUrl" width="150" height="150"></a>
             <p>{{ film.Title }}</p>
-            <ion-button fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
+            <ion-button *ngIf="!isWeb" fill="clear" (click)="toggleFavorito(film.Id)" [color]="film.esFavorito ? 'danger' : 'medium'">
               <ion-icon slot="icon-only" [name]="film.esFavorito ? 'heart' : 'heart-outline'"></ion-icon>
             </ion-button>
           </section>
