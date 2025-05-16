@@ -11,8 +11,9 @@
 3. [Firebase (Sprint3)](#3-firebase-sprint3)
 4. [SQLite](#4-sqlite)
 5. [Login y Register](#5-login-y-register)
-6. [Enlace a Figma y Trello](#6-enlace-a-figma-y-trello)
-7. [Usuario para iniciar sesión](#7-usuario-para-iniciar-sesión)
+6. [Favoritos](#6-favoritos)
+7. [Enlace a Figma y Trello](#7-enlace-a-figma-y-trello)
+8. [Usuario para iniciar sesión](#8-usuario-para-iniciar-sesión)
 
 ## **1. Descripción del proyecto:**
 Se trata de una web para realizar reseñas sobre películas y series.
@@ -42,11 +43,15 @@ Por otro lado también tenemos una tabla "favoritos" que contiene el id del usua
 Se ha utilizado la autenticación de firebase para el registro y el login de la aplicación. Hemos creado un fichero .ts con la configuración de firebase y esta misma la exportamos para usarla en el resto de ficheros que queramos.  
 El registro de una cuenta se hace a través del metodo importado de firebase "createUserWithEmailAndPassword" al cuál se le pasa una autenticación un email y una contraseña. De la misma manera pero para iniciar sesión, hacemos uso del método "signInWithEmailAndPassword" al que también hay que pasarle por parámetro una autenticación, email y contraseña. A parte, en el login hemos creado otros dos campos "nombre" y "apellido" guardándolos con sqlite si se está en movil o en el firebase si se está en otro dispositivo como un ordenador.
 
-## **6. Enlace a Figma y Trello**
+## **6. Favoritos**
+Para añadir a favoritos en el movil se dispone de un boton con forma de corazón en la página de películas. Si se guarda como favoritos se incluye en la tabla de favoritos de Sqlite. En cambio si se está en el ordenador, este boton aparecerá en la página de una película en específico, y las películas favoritas se guardaran en la base de datos de firebase como en el anterior sprint.
+
+
+## **7. Enlace a Figma y Trello**
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
 
-## 7. Usuario para iniciar sesión:
+## 8. Usuario para iniciar sesión:
 
 correo: prueba@gmail.com
 contraseña: 123456
