@@ -26,11 +26,9 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - Nuevas películas añadidas a la página.
 
 ## 2. Estructura del código del proyecto:
-Dentro de la carpeta "Angular", se dispone de una carpeta "public", donde se pueden encontrar varias imágenes utilizadas en la página web (logo, puntuación e icono predeterminado).
 
-Por otro lado, el proyecto se separa en cuatro carpetas principales dentro de "src/app". Tenemos una carpeta para los componentes, otra para las distintas páginas, otra para el CRUD de las reseñas (se utiliza en la página de "edit-reviews") y una última con la configuración de Firebase.
-
-El principal cambio de este sprint ha sido añadir una página de edición de reseñas en el perfil del usuario.
+Se ha creado una carpeta "Ionic" para este sprint que contiene la aplicación para móviles.
+Por otro lado, el proyecto se separa en tres carpetas principales dentro de "src/app". Tenemos una carpeta para los componentes, otra para las distintas páginas y otra services para servicios como firebase, sqlite y el CRUD para las reviews.
 
 ## **3. Firebase (Sprint3)**
 El Firebase se estructura de la siguiente manera. Tenemos una colección de usuarios, cada usuario tiene un nombre y una lista de películas favoritas. Dentro de un determinado usuario se dispone también de una colección de reseñas, la cual nos sirve para poder editarlas desde la página de perfil del usuario.  
