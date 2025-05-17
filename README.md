@@ -8,9 +8,12 @@
 ## **Índice del contenido:**
 1. [Descripción del proyecto](#1-descripción-del-proyecto)
 2. [Estructura del código del proyecto](#2-estructura-del-código-del-proyecto)
-3. [Firebase](#3-firebase)
-4. [Enlace a Figma y Trello](#4-enlace-a-figma-y-trello)
-5. [Usuario para iniciar sesión](#5-usuario-para-iniciar-sesión)
+3. [Firebase (Sprint3)](#3-firebase-sprint3)
+4. [SQLite](#4-sqlite)
+5. [Login y Register](#5-login-y-register)
+6. [Favoritos](#6-favoritos)
+7. [Enlace a Figma y Trello](#7-enlace-a-figma-y-trello)
+8. [Usuario para iniciar sesión](#8-usuario-para-iniciar-sesión)
 
 ## **1. Descripción del proyecto:**
 Se trata de una web para realizar reseñas sobre películas y series.
@@ -24,23 +27,31 @@ Se trata de una web para realizar reseñas sobre películas y series.
   - Nuevas películas añadidas a la página.
 
 ## 2. Estructura del código del proyecto:
-Dentro de la carpeta "Angular", se dispone de una carpeta "public", donde se pueden encontrar varias imágenes utilizadas en la página web (logo, puntuación e icono predeterminado).
 
-Por otro lado, el proyecto se separa en cuatro carpetas principales dentro de "src/app". Tenemos una carpeta para los componentes, otra para las distintas páginas, otra para el CRUD de las reseñas (se utiliza en la página de "edit-reviews") y una última con la configuración de Firebase.
+Se ha creado una carpeta "Ionic" para este sprint que contiene la aplicación para móviles.
+Por otro lado, el proyecto se separa en tres carpetas principales dentro de "src/app". Tenemos una carpeta para los componentes, otra para las distintas páginas y otra services para servicios como firebase, sqlite y el CRUD para las reviews.
 
-El principal cambio de este sprint ha sido añadir una página de edición de reseñas en el perfil del usuario.
-
-## **3. Firebase:**
-(Se explica de manera más detallada y con fotos en el PWP)
+## **3. Firebase (Sprint3)**
 El Firebase se estructura de la siguiente manera. Tenemos una colección de usuarios, cada usuario tiene un nombre y una lista de películas favoritas. Dentro de un determinado usuario se dispone también de una colección de reseñas, la cual nos sirve para poder editarlas desde la página de perfil del usuario.  
 Por otro lado, contamos con una colección de películas y otra de actores, los cuales asociamos a cada película mediante un campo dentro del mismo.
 
+## **4. SQLite**
+Se ha creado una tabla para usuarios llamada "users" la cual tiene el nombre, apellido y un identificador que va incrementando el cuál es clave primaria.  
+Por otro lado también tenemos una tabla "favoritos" que contiene el id del usuario y el id de la película. La tabla de favoritos tiene como clave primaria estos dos identificadores.  
 
-## **4. Enlace a Figma y trello: ** 
+## **5. Login y Register**
+Se ha utilizado la autenticación de firebase para el registro y el login de la aplicación. Hemos creado un fichero .ts con la configuración de firebase y esta misma la exportamos para usarla en el resto de ficheros que queramos.  
+El registro de una cuenta se hace a través del metodo importado de firebase "createUserWithEmailAndPassword" al cuál se le pasa una autenticación un email y una contraseña. De la misma manera pero para iniciar sesión, hacemos uso del método "signInWithEmailAndPassword" al que también hay que pasarle por parámetro una autenticación, email y contraseña. A parte, en el login hemos creado otros dos campos "nombre" y "apellido" guardándolos con sqlite si se está en movil o en el firebase si se está en otro dispositivo como un ordenador.
+
+## **6. Favoritos**
+Para añadir a favoritos en el movil se dispone de un boton con forma de corazón en la página de películas. Si se guarda como favoritos se incluye en la tabla de favoritos de Sqlite. En cambio si se está en el ordenador, este boton aparecerá en la página de una película en específico, y las películas favoritas se guardaran en la base de datos de firebase como en el anterior sprint.
+
+
+## **7. Enlace a Figma y Trello**
   Figma:  https://www.figma.com/design/gZepAvdOCUaMvHwEjv47WY/Untitled?node-id=0-1&p=f&t=pDwaq0Kn6KtJJqpT-0  
   Trello: https://trello.com/invite/b/67a25485f23d1e78facb3157/ATTIab92a058a5d9efb6e68dc7a98afe507f747097C1/pwm
 
-## 5. Usuario para iniciar sesión:
+## 8. Usuario para iniciar sesión:
 
 correo: prueba@gmail.com
 contraseña: 123456
