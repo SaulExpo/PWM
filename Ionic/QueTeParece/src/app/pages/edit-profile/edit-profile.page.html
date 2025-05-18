@@ -22,8 +22,8 @@
           <input type="password" id="password" name="Contraseña" [(ngModel)]="user.password"><br>
         </section>
         <section class="buttons-type-edit-profile">
-          <a id="grey-button" routerLink="/" >Cancelar</a>
-          <input id="oval-button" type="submit" value="Editar">
+          <a id="grey-button" (click)="profileRedirect('')">Cancelar</a>
+          <input id="oval-button" (click)="profileRedirect('profile')" type="submit" value="Editar">
         </section>
       </form>
     </section>

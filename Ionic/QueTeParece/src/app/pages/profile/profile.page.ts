@@ -1,11 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {IonRouterLinkWithHref} from "@ionic/angular/standalone";
 import {IonicModule} from "@ionic/angular";
-import {NgForOf, NgIf} from "@angular/common";
-import {NavigationEnd, Router, RouterLink} from "@angular/router";
+import {NgForOf} from "@angular/common";
+import {Router, RouterLink} from "@angular/router";
 import {onAuthStateChanged, User} from "firebase/auth";
-import firebase from "firebase/compat";
-import {collection, doc, getDoc, getDocs} from "@angular/fire/firestore";
+import {doc, getDoc} from "@angular/fire/firestore";
 import {db, auth} from "../../services/firebase-config";
 import {signOut} from "@angular/fire/auth";
 import {HeaderComponent} from "../../components/header/header.component";
@@ -112,6 +111,10 @@ export class ProfilePage implements OnInit {
   }
   filmRedirect(Id: string) {
     this.routerLink.navigateByUrl(`/filmInfo?id=${Id}`, { replaceUrl: true });
+  }
+
+  editProfileRedirect() {
+    this.routerLink.navigateByUrl(`/editProfile`, { replaceUrl: true });
   }
 
 }

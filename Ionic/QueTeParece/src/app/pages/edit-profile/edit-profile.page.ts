@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {onAuthStateChanged, User} from "firebase/auth";
+import {Router} from '@angular/router';
 import {doc, getDoc, setDoc} from "@angular/fire/firestore";
 import {updatePassword} from "@angular/fire/auth";
 import {auth, db} from "../../services/firebase-config";
@@ -25,7 +26,7 @@ export class EditProfilePage implements OnInit {
   protected user: { name: string; surname: string; email: string; password: string };
 
 
-  constructor() {
+  constructor(private router: Router) {
     this.user = {
       name: '',
       surname: '',
@@ -39,8 +40,11 @@ export class EditProfilePage implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    console.log('Datos del formulario: ', this.user);
     this.initializeOnAuthStateChanged();
+  }
+
+  profileRedirect(id: string) {
+    this.router.navigate([`/${id}`], { replaceUrl: true });
   }
 
   initializeOnAuthStateChanged(){
@@ -75,4 +79,5 @@ export class EditProfilePage implements OnInit {
 
   protected readonly onsubmit = onsubmit;
   protected readonly Event = Event;
+
 }

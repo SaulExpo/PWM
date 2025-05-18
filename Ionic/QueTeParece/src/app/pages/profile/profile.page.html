@@ -8,7 +8,7 @@
         <div id="profile-picture">
           <img id="current-photo" src="https://static.vecteezy.com/system/resources/previews/036/280/651/non_2x/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg" alt="Foto actual" />
           <div id="profile-options">
-            <a routerLink="/editProfile"><span>Editar Perfil</span></a>
+            <a id="EditProfileClick" (click)="editProfileRedirect()"><span>Editar Perfil</span></a>
             <a id="LogOut" (click)="logOut($event)"><span>Cerrar Sesión</span></a>
           </div>
         </div>
