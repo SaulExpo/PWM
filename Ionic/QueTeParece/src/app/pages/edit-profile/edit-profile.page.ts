@@ -2,24 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import {onAuthStateChanged, User} from "firebase/auth";
 import {doc, getDoc, setDoc} from "@angular/fire/firestore";
 import {updatePassword} from "@angular/fire/auth";
-import firebase from "firebase/compat";
-import auth = firebase.auth;
-import {db} from "../../services/firebase-config";
+import {auth, db} from "../../services/firebase-config";
+import {HeaderComponent} from "../../components/header/header.component";
+import {IonicModule} from "@ionic/angular";
+import {NavigationComponent} from "../../components/navigation/navigation.component";
+import {FooterComponent} from "../../components/footer/footer.component";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.page.html',
   styleUrls: ['./edit-profile.page.scss'],
+  imports: [
+    HeaderComponent,
+    IonicModule,
+    NavigationComponent,
+    FooterComponent,
+    FormsModule
+  ]
 })
 export class EditProfilePage implements OnInit {
-  user = {
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-  };
+  protected user: { name: string; surname: string; email: string; password: string };
+
 
   constructor() {
+    this.user = {
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
+    };
   }
 
   ngOnInit() {
@@ -27,11 +39,11 @@ export class EditProfilePage implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    console.log('Datos del formulario', this.user);
+    console.log('Datos del formulario: ', this.user);
     this.initializeOnAuthStateChanged();
   }
 
-  private initializeOnAuthStateChanged(){
+  initializeOnAuthStateChanged(){
     onAuthStateChanged(auth, async(user: User|null) => {
       if (user){
         const docRef = doc(db, `users/${user.uid}`);

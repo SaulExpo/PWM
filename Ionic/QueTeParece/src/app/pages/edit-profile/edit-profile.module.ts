@@ -13,8 +13,9 @@ import { EditProfilePage } from './edit-profile.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EditProfilePageRoutingModule
+    EditProfilePageRoutingModule,
+    EditProfilePage
   ],
-  declarations: [EditProfilePage]
+  declarations: []
 })
 export class EditProfilePageModule {}
