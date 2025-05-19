@@ -58,11 +58,13 @@ export class EditProfilePage implements OnInit {
         let surnameDb = userData?.['apellido'];
 
         if (this.user.name && nameDb !== this.user.name) {
-          await setDoc(docRef, { nombre: this.user.name }, {merge : true})
+          await setDoc(docRef, { nombre: this.user.name }, {merge : true});
+          window.location.href="./profile";
         }
 
         if (this.user.surname && surnameDb !== this.user.surname){
           await setDoc(docRef, {apellido: this.user.surname}, {merge:true});
+          window.location.href="./profile";
         }
 
         if (this.user.password !== ''){
