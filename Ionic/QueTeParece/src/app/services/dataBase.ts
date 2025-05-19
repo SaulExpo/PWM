@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {Capacitor} from '@capacitor/core';
 import {CapacitorSQLite, SQLiteConnection, SQLiteDBConnection} from '@capacitor-community/sqlite';
 import {Platform} from '@ionic/angular';
+import {doc, getFirestore, setDoc} from "@angular/fire/firestore";
+import {auth} from './firebase-config';
+const dbFirebase = getFirestore();
 
 @Injectable({
   providedIn: 'root',
@@ -39,21 +42,15 @@ export class DatabaseService {
 
   async addUser(nombre: string, apellido: string): Promise<void> {
     if (this.isWeb) { //Solo para visualizar los dato en un navegador web, sino sería la otra condición
-      const users: User[] = await this.getUsers();
-      const exists = users.some(user => user.nombre === user.nombre && user.apellido === apellido);
-      if (!exists) {
-        const newUser = {
-          id: Date.now(), //Fecha pq no se como hacerlo basicamente
-          nombre: nombre,
-          apellido: apellido,
-        };
-
-        users.push(newUser);
-
-        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(users));
-      }
+      const uid = auth.currentUser?.uid;
+      if (!uid) throw Error('Usuario no autentificado');
+      const userRef = doc(dbFirebase, 'users', uid);
+      await setDoc(userRef, {
+        nombre: nombre,
+        apellido: apellido,
+        createdAt: new Date()
+      });
     }
-
 
     if (this.db) {
       //Para moviles se hará lo siguiente
@@ -86,7 +83,6 @@ export class DatabaseService {
       return [];
     }
   }
-
 
   async agregarFavorito(userId: string, filmId: string) {
     if (!this.db) return;
